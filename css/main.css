@@ -1,0 +1,91 @@
+body {
+   font-family:verdana;
+   background-color:#000;
+}
+
+.no-margin {
+    margin: 0 !important;
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
+/*LOGIN SCREEN CSS START----------------------------------------------*/
+
+#login-div {
+    margin-top: 15%;
+    text-align: center;
+    color: #fff;
+}
+
+#login-div label {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+#login-div .row {
+    margin-top: 15%;
+}
+
+/*LOGIN SCREEN CSS END-------------------------------------------------*/
+
+/*GAMEROOM CSS START---------------------------------------------------*/
+
+#left-column, #center-column, #right-column {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #fff;
+    position: relative;
+}
+    
+#left-column, #right-column {
+    z-index: 100;
+    background-color: #000;
+    color: #fff;
+    height: 1200px;
+}
+
+#center-column {
+    max-width: 600px;
+    max-height: 700px;
+}
+
+#map img {
+    max-width: none;
+    position: relative;
+    z-index: -101;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+#map {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    z-index: -100;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    -webkit-transform: scale(1.0);
+    -moz-transform: scale(1.0);
+    -ms-transform: scale(1.0);
+    -o-transform: scale(1.0);
+    transform: scale(1.0);
+}
+
+#map-controls {
+    background-color: #000;
+    position: relative;
+    margin-top: -5px !important;
+    width: 100%;
+    z-index: -99;
+    height: 100px;
+}
+
+.map-control-btn {
+    height: 100px;
+    background-color: #fff;
+    width: 100px;
+}
+
+/*GAMEROOM CSS END-----------------------------------------------------*/
