@@ -1,5 +1,9 @@
 var path;
-determinePath();
+
+$(document).ready(function() {
+    determinePath();
+});
+
 
 //TODO ------------------------------ Add login validation
 
