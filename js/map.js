@@ -2,7 +2,7 @@ var scale = 0;
 var map = document.getElementById("map");
 
 function zoomInMap(){
-    console.info(scale);
+   console.info(scale);
    scale++;
    map.style.transform = "scale(1."+ scale +")";
    console.info("clicked");
