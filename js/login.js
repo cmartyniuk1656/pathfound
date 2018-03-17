@@ -17,7 +17,7 @@ function determinePath() {
     
     if (location.hostname == "cmartyniuk1656.github.io")
         
-        path = "pathfound/";
+        path = "";
     
     else {
         path="";
