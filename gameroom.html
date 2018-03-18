@@ -9,19 +9,23 @@
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/map.css">
+    <link rel="stylesheet" href="css/gameroom.css">
 </head>
 
 <body>
     <div id="game-room" class="row">
         <div id="left-column" class="column small-3 medium-3 large-3">
-            TEST
+            Character Panel
         </div>
         <div id="center-column" class="column small-6 medium-6 large-6">
             <div class="row">
                 <div class="column small-12 medium-12 large-12">
-                    <div id="map">
-                        <img src="assets/img-map-placeholder.jpg">
-                    </div>                
+                    <div id="map-container">
+                        <div id="map">
+                            <div id="map-grid"></div>
+                        </div>  
+                    </div>                       
                 </div>
                 <div id="map-controls" class="column small-12 medium-12 large-12 no-margin no-padding">
                     <div>  
@@ -29,12 +33,18 @@
                         <button class="map-control-btn" id="zoom-out-btn">Zoom Out</button>
                     </div>             
                 </div>
+                <div id="chat-container" class="column small-12 medium-12 large-12 no-margin no-padding">
+                    <div>
+                        Chat Panel
+                    </div>             
+                </div>
             </div>  
         </div>
         <div id="right-column" class="column small-3 medium-3 large-3">
-            TEST
+            Control Panel
         </div>  
     </div>
+    <script src="js/temp.js"></script>
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
