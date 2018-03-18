@@ -158,7 +158,7 @@ var MapController = {
                 counter = i.toString();
                 divString = divStringStart + counter + divStringEnd;
                 
-                MapController.map.innerHTML += divString;
+                MapController.mapGrid.innerHTML += divString;
         
             }
         
