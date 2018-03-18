@@ -58,8 +58,6 @@ var MapController = {
         
         "getMapBackground": function() {
             MapController.backgroundImg = 'url("' + Temp.returnMapBackground() + '")';  //TODO: replace shunt function
-            console.info('BG image string:');
-            console.info(MapController.backgroundImg);
         },
         
         "setMapBackground": function() {
@@ -103,9 +101,6 @@ var MapController = {
 
 $(document).ready(function() {
     
-    MapController.Events.addAll();
-        MapController.Util.getMapBackground();
-        MapController.Util.setMapBackground();
-        MapController.Util.buildMapGrid();
-        MapController.Util.setMapSize();
+    MapController.Init();
+    
 })

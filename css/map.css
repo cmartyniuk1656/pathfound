@@ -33,6 +33,7 @@
     height: 30px;
     background-color: #fff;
     width: 100px;
+    display: inline-block;
 }
 
 .map-cell {
@@ -42,7 +43,7 @@
     border-width: 1px;
     border-color: azure;
     float: left;
-    display: border-box;
+    box-sizing: border-box;
 }
 
 #map-grid {
