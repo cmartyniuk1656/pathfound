@@ -1,57 +1,55 @@
-//Set document and location to current window / variable declaration
-    var scale = 0,
-    map = document.getElementById("map");
-
 //Map Controller Object
-var mapController = {
+var MapController = {
     
     //Keep track of all the map objects in the gameroom
     "mapList": {},
     
+    "scale": 0,                                         //Used for zooming the map
+    "map": document.getElementById("map"),              //The map element in the DOM
+    
     
     //Utility functions for map controls
-    "controls": {
+    "Controls": {
         
         //Zoom in the map
         "zoomInMap": function() {
-            console.info(scale);
-            scale++;
-            map.style.transform = "scale(1."+ scale +")";
+            console.info(MapController.scale);
+            MapController.scale++;
+            MapController.map.style.transform = "scale(1."+ MapController.scale +")";
         },
         
         //Zoom out the map
         "zoomOutMap": function() {
-            console.info(scale);
-            scale--;
-            map.style.transform = "scale(1."+ scale +")";
+            console.info(MapController.scale);
+            MapController.scale--;
+            MapController.map.style.transform = "scale(1."+ MapController.scale +")";
         }   
     },
     
     //Event handlers for map controls
-    "events": {
+    "Events": {
         
-        "zoomInMap": $("#zoom-in-btn").click(function() {
-                mapController.controls.zoomInMap();
-            }),
-        
-        "zoomOutMap": $("#zoom-out-btn").click(function() {
-                mapController.controls.zoomOutMap();
+        "addAll": function() {
+            
+            //Zoom in event handler
+            $("#zoom-in-btn").click(function() {
+                MapController.Controls.zoomInMap();
             })
+            
+            //Zoom out event handler
+            $("#zoom-out-btn").click(function() {
+                MapController.Controls.zoomOutMap();
+            })
+        }
+        
     },
     
-    "util": {
+    "Util": {
         
-        "addEventListeners": function() {
-            
-            this.events.zoomInMap();
-            this.events.zoomOutMap();
-            
-        }
     }
 }
 
 $(document).ready(function() {
     
-    mapController.util.addEventListeners();
-    
+    MapController.Events.addAll();
 })
