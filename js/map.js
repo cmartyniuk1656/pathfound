@@ -34,7 +34,7 @@ var MapController = {
             if(MapController.selectedZoomIndex < 7) {
                 
                 MapController.selectedZoomIndex ++;
-                MapController.map.style.transform = 'scale(' + MapController.zoomLevels[MapController.selectedZoomIndex] + ')';
+                MapController.Util.setMapTransform();
             }     
         },
         
@@ -43,48 +43,38 @@ var MapController = {
             
             if(MapController.selectedZoomIndex > 0) {
                 
-                MapController.selectedZoomIndex --;
-                MapController.map.style.transform = 'scale(' + MapController.zoomLevels[MapController.selectedZoomIndex] + ')';
+                MapController.selectedZoomIndex --;            
+                MapController.Util.setMapTransform();
+                
+                
             }
         },
         
         "panLeft": function() {
             
-            var styleString;
-            
             MapController.leftTranslate += 50;
-            styleString = 'translate(' + MapController.leftTranslate.toString() + 'px, ' + MapController.topTranslate.toString() + 'px)';
-            MapController.map.style.transform = styleString;
+            MapController.Util.setMapTransform();
         
         },
         
         "panRight": function() {
             
-            var styleString;
-            
             MapController.leftTranslate -= 50;
-            styleString = 'translate(' + MapController.leftTranslate.toString() + 'px, ' + MapController.topTranslate.toString() + 'px)';
-            MapController.map.style.transform = styleString;
+            MapController.Util.setMapTransform();
                         
         },
         
         "panUp": function() {
             
-            var styleString;
-            
             MapController.topTranslate += 50;
-            styleString = 'translate(' + MapController.leftTranslate.toString() + 'px, ' + MapController.topTranslate.toString() + 'px)';
-            MapController.map.style.transform = styleString;
+            MapController.Util.setMapTransform();
             
         },
         
         "panDown": function() {
             
-            var styleString;
-            
             MapController.topTranslate -= 50;      
-            styleString = 'translate(' + MapController.leftTranslate.toString() + 'px, ' + MapController.topTranslate.toString() + 'px)';           
-            MapController.map.style.transform = styleString;
+            MapController.Util.setMapTransform();
             
         }
     },
@@ -166,7 +156,18 @@ var MapController = {
             var width = (MapController.mapCellWidth * 50).toString() + 'px';
             MapController.map.style.height = height;
             MapController.map.style.width = width;
+        },
+        
+        "setMapTransform": function() {
+            
+            var scaleStyleString = 'translate(' + MapController.leftTranslate.toString() + 'px, ' + MapController.topTranslate.toString() + 'px)';
+            var zoomStyleString = 'scale(' + MapController.zoomLevels[MapController.selectedZoomIndex] + ')';
+            
+            MapController.map.style.transform = scaleStyleString;
+            MapController.map.style.transform += zoomStyleString;
+            
         }
+        
         
         
     },
