@@ -52,4 +52,5 @@
 
 #map-container {
     max-height: 60vh;
+    position: relative;
 }

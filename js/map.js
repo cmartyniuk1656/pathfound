@@ -2,9 +2,11 @@
 var MapController = {
     
     //Keep track of all the map objects in the gameroom
-    'mapList': {},
+    "mapList": {},
     
-    'scale': 0,                                             //Keep track of the map's scale transform
+    "scale": 0,                                             //Keep track of the map's scale transform
+    "zoomLevels": ['0.25', '0.50', '0.75', '1.0', '1.25', '1.50', '1.75', '2.0'],
+    "selectedZoomIndex": 3,
     
     "map": document.getElementById('map'),
     "mapGrid": document.getElementById('map-grid'),
@@ -22,16 +24,22 @@ var MapController = {
         
         //Zoom in the map
         "zoomInMap": function() {
-            console.info(MapController.scale);
-            MapController.scale++;
-            MapController.map.style.transform = 'scale(1.'+ MapController.scale +')';
+            
+            if(MapController.selectedZoomIndex < 7) {
+                
+                MapController.selectedZoomIndex ++;
+                MapController.map.style.transform = 'scale(' + MapController.zoomLevels[MapController.selectedZoomIndex] + ')';
+            }     
         },
         
         //Zoom out the map
         "zoomOutMap": function() {
-            console.info(MapController.scale);
-            MapController.scale--;
-            MapController.map.style.transform = 'scale(1.'+ MapController.scale +')';
+            
+            if(MapController.selectedZoomIndex > 0) {
+                
+                MapController.selectedZoomIndex --;
+                MapController.map.style.transform = 'scale(' + MapController.zoomLevels[MapController.selectedZoomIndex] + ')';
+            }
         }   
     },
     
