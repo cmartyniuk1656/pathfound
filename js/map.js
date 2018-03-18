@@ -9,8 +9,6 @@ var MapController = {
     "selectedZoomIndex": 3,
     
     //Used for pan logic
-    "leftMargin": 0,
-    "rightMargin": 0,
     "topTranslate": 0,
     "leftTranslate": 0,
     
