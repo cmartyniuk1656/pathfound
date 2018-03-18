@@ -4,7 +4,7 @@ var MapController = {
     //Keep track of all the map objects in the gameroom
     'mapList': {},
     
-    'scale': 0,                                         //Used for zooming the map
+    'scale': 0,                                             //Keep track of the map's scale transform
     
     "map": document.getElementById('map'),
     "mapGrid": document.getElementById('map-grid'),
@@ -66,12 +66,19 @@ var MapController = {
             
         },
         
+        //Add in the grid tiles
         "buildMapGrid": function() {
             
-            var divString = '<div class="map-cell"></div>';
+            var divStringStart = '<div id="cell-';
+            var divStringEnd = '" class="map-cell"></div>';
+            var divString;
+            var counter;
             var cellCount = MapController.mapCellWidth * MapController.mapCellHeight;
 
             for (i = 0; i < cellCount; i++) {
+                
+                counter = i.toString();
+                divString = divStringStart + counter + divStringEnd;
                 
                 MapController.map.innerHTML += divString;
         
