@@ -11,8 +11,8 @@ var MapController = {
     //Used for pan logic
     "leftMargin": 0,
     "rightMargin": 0,
-    "topMargin": 0,
-    "bottomMargin": 0,
+    "topTranslate": 0,
+    "leftTranslate": 0,
     
     "map": document.getElementById('map'),
     "mapGrid": document.getElementById('map-grid'),
@@ -52,10 +52,9 @@ var MapController = {
             
             var styleString;
             
-            MapController.leftMargin += 50;
-            
-            styleString = MapController.leftMargin.toString() + 'px';
-            MapController.map.style.marginLeft = styleString;
+            MapController.leftTranslate += 50;
+            styleString = 'translate(' + MapController.leftTranslate.toString() + 'px, ' + MapController.topTranslate.toString() + 'px)';
+            MapController.map.style.transform = styleString;
         
         },
         
@@ -63,32 +62,29 @@ var MapController = {
             
             var styleString;
             
-            MapController.leftMargin -= 50;
-            
-            styleString = MapController.leftMargin.toString() + 'px';
-            MapController.map.style.marginLeft = styleString;
-                     
+            MapController.leftTranslate -= 50;
+            styleString = 'translate(' + MapController.leftTranslate.toString() + 'px, ' + MapController.topTranslate.toString() + 'px)';
+            MapController.map.style.transform = styleString;
+                        
         },
         
         "panUp": function() {
             
-//            var styleString;
-//            
-//            MapController.bottomMargin += 50;
-//            
-//            styleString = MapController.bottomMargin.toString() + 'px';
-//            MapController.map.style.marginBottom = styleString;
+            var styleString;
+            
+            MapController.topTranslate += 50;
+            styleString = 'translate(' + MapController.leftTranslate.toString() + 'px, ' + MapController.topTranslate.toString() + 'px)';
+            MapController.map.style.transform = styleString;
             
         },
         
         "panDown": function() {
             
-//            var styleString;
-//            
-//            MapController.topMargin -= 50;
-//            
-//            styleString = MapController.topMargin.toString() + 'px';
-//            MapController.map.style.marginTop = styleString;
+            var styleString;
+            
+            MapController.topTranslate -= 50;      
+            styleString = 'translate(' + MapController.leftTranslate.toString() + 'px, ' + MapController.topTranslate.toString() + 'px)';           
+            MapController.map.style.transform = styleString;
             
         }
     },
