@@ -4,7 +4,6 @@ var MapController = {
     //Keep track of all the map objects in the gameroom
     "mapList": {},
     
-    "scale": 0,                                             //Keep track of the map's scale transform
     "zoomLevels": ['0.25', '0.50', '0.75', '1.0', '1.25', '1.50', '1.75', '2.0'],
     "selectedZoomIndex": 3,
     
