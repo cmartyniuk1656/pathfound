@@ -26,8 +26,12 @@ var ChatController = {
                 ChatController.chatString += '<br>User: ' + document.getElementById("chat-bar").value;
             }
             
+            //Update chat log and clear text field
             ChatController.Util.updateChatLog();
             ChatController.Util.clearChatTextField();
+            
+            //Scroll user to bottom of chat log on each submission
+            $(ChatController.chatLog).scrollTop($(ChatController.chatLog)[0].scrollHeight);
         }
         
     },
@@ -79,13 +83,6 @@ var ChatController = {
 $(document).ready(function() {
     
     ChatController.Init();
-    
-    
-    //Temporarily disable form submit on 'Enter' to stop page from reloading
-    //TODO: Replace this with proper form submission to PHP
-//    $('#chat-bar').on('keypress', function(e) {
-//        return e.which !== 13;
-//    });
     
     
 })

@@ -21,6 +21,7 @@
     background-color: #fff;
     color: #000;
     height: 85%;
+    overflow: scroll;
 }
 
 .chat-bar #chat-bar {
