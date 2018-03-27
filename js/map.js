@@ -12,14 +12,17 @@ var MapController = {
     "topTranslate": 0,
     "leftTranslate": 0,
     
+    //Map DOM elements
     "map": document.getElementById('map'),
     "mapGrid": document.getElementById('map-grid'),
 
     
+    //Determines total cell count of the map
     "mapCellHeight": 21,                            //TODO: Make user selectable
     "mapCellWidth": 21,                             //TODO: Make user selectable
     
     
+    //Path to map background image
     "backgroundImg": '', 
     
     
@@ -43,11 +46,11 @@ var MapController = {
                 
                 MapController.selectedZoomIndex --;            
                 MapController.Util.setMapTransform();
-                
-                
+                     
             }
         },
         
+        //Pan map view to the left
         "panLeft": function() {
             
             MapController.leftTranslate += 50;
@@ -55,6 +58,7 @@ var MapController = {
         
         },
         
+        //Pan map view to the right
         "panRight": function() {
             
             MapController.leftTranslate -= 50;
@@ -62,6 +66,7 @@ var MapController = {
                         
         },
         
+        //Pan map view up
         "panUp": function() {
             
             MapController.topTranslate += 50;
@@ -69,6 +74,7 @@ var MapController = {
             
         },
         
+        //Pan map view down
         "panDown": function() {
             
             MapController.topTranslate -= 50;      

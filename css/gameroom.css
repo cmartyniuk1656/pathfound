@@ -4,6 +4,8 @@
     overflow-y: hidden;
 }
 
+/*CHAT LOG CSS START --------------------------------------------------*/
+
 #chat-container {
     width: 100%;
     height: 37.75vh;;
@@ -14,3 +16,31 @@
     border-color: #fff;
     position: relative;
 }
+
+#chat-log {
+    background-color: #fff;
+    color: #000;
+    height: 85%;
+}
+
+.chat-bar #chat-bar {
+    display: inline-block;
+    width: 90%;
+    
+}
+
+.chat-bar .submit-btn{
+    display: inline-block;
+    width: 10%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#chat-form {
+    background-color: #fff;
+    border-style: solid;
+    border-color: grey;
+}
+
+/*CHAT LOG CSS END ----------------------------------------------------*/

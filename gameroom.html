@@ -38,9 +38,14 @@
                     </div>             
                 </div>
                 <div id="chat-container" class="column small-12 medium-12 large-12 no-margin no-padding">
-                    <div>
-                        Chat Panel
-                    </div>             
+                    <div id="chat-log"></div>
+                    <div class="chat-bar">
+<!--                    <form id="chat-form" action="/chat.php">-->
+                        <form id="chat-form" onsubmit="return false;">
+                            <input id="chat-bar" type="text" name="txt-chat">
+                            <input id="chat-post" type="button" value="Chat">
+                        </form>
+                    </div>
                 </div>
             </div>  
         </div>
@@ -55,6 +60,7 @@
     <script src="js/app.js"></script>
     <script src="js/main.js"></script>
     <script src="js/map.js"></script>
+    <script src="js/chat.js"></script>
 </body>
 
 </html>
