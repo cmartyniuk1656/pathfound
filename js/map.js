@@ -27,7 +27,15 @@ var MapController = {
     
     
     //Keep track of what map tile the user selects
-    "selectedTile": {},
+    "SelectedTile": {
+        
+        "element": {},
+        
+        "state": 'idle',
+        
+        "isEmtpy": true
+        
+    },
     
     
     //Utility functions for map controls
@@ -135,8 +143,63 @@ var MapController = {
                 
                 $(id).click(function(e) {
                     e.stopPropagation(); // Prevent bubbling to parent, to avoid loop
-                    MapController.selectedTile = this;
-                    console.info(MapController.selectedTile);
+                    
+                    //Check state of map tile selection
+                    if (MapController.SelectedTile.state == 'idle') {
+                        
+                        MapController.SelectedTile.state = 'selected';
+                        MapController.SelectedTile.element = this;
+                        $(this).addClass('selected-tile');
+                        
+                        //Check if image exists in the selected cell
+                        if($(MapController.SelectedTile.element).has('img').length) {
+                            MapController.SelectedTile.isEmtpy = false;
+                        }
+                        else {
+                            MapController.SelectedTile.isEmtpy = true;
+                        }
+                        
+                    }
+                    
+                    //Check state of map tile selection
+                    else if (MapController.SelectedTile.state == 'selected') {
+                        
+                        MapController.SelectedTile.state = 'idle';
+                        
+                        //Check if image exists in the selected cell
+                        if(MapController.SelectedTile.isEmtpy) {
+                            
+                            
+                            $(MapController.SelectedTile.element).removeClass('selected-tile');
+                            
+                            MapController.SelectedTile.element = this;                
+                            $(this).addClass('selected-tile');
+                            
+                            MapController.SelectedTile.state = 'selected';
+                            
+                            if($(MapController.SelectedTile.element).has('img').length) {
+                                MapController.SelectedTile.isEmtpy = false;
+                            }
+                            
+                            else {
+                                MapController.SelectedTile.isEmtpy = true;
+                            }
+                        }
+                        
+                        else {
+                            
+                            MapController.SelectedTile.isEmtpy = true;
+                            $(MapController.SelectedTile.element).removeClass('selected-tile');
+                            var imageSwap = $(MapController.SelectedTile.element).find('img')[0];
+                        
+                            $(this).append(imageSwap);
+                        
+                            
+                            MapController.SelectedTile.element = {};
+                        }
+                        
+                    }
+                    
                 });
             }
         }
@@ -210,6 +273,8 @@ var MapController = {
 $(document).ready(function() {
     
     MapController.Init();
+    
+    $( "#cell-1" ).append( '<img style="width: 50px; height: 50px;" src="assets/images/test-img.png"/>' );
     
 })
 
