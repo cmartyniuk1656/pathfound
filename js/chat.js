@@ -31,7 +31,7 @@ var ChatController = {
             ChatController.Util.clearChatTextField();
             
             //Scroll user to bottom of chat log on each submission
-            $(ChatController.chatLog).scrollTop($(ChatController.chatLog)[0].scrollHeight);
+            $(ChatController.chatLog).scrollTop($(ChatController.chatLog)[0].scrollHeight); 
         }
         
     },
@@ -46,7 +46,7 @@ var ChatController = {
                 ChatController.Controls.postDebug();
             })
             
-            //When enter is pressed, check if chat is focused to post to chat
+            //When 'enter' is pressed and chat is focused, post to chat
             $(document).keypress(function(e) {
                 if(e.which == 13 && $("#chat-bar").is(':focus') && document.getElementById("chat-bar").value != '') {
                     

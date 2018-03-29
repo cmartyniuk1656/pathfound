@@ -1,14 +1,56 @@
+/*GAMEROOM STRUCTURE CSS START ----------------------------------------*/
+
 #game-room {
     max-width: 100%;
     max-height: 100vh;
     overflow-y: hidden;
 }
 
+#left-column, #center-column, #right-column {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #fff;
+    position: relative;
+    padding: 0;
+}
+    
+#left-column, #right-column {
+    z-index: 100;
+    color: #fff;
+    height: 100vh;
+    background-color: #fff;
+}
+
+#center-column {
+    max-height: 100vh;
+}
+
+#title-row {
+    background-color: #fff;
+    z-index: 0;
+    position: relative;
+}
+
+#title-row .panel-dark{
+    text-align: center;
+    font-family: pathfinder !important;
+    color: #fff !important;
+    font-size: 3rem;
+    margin: 0 10px 15px 0;
+}
+
+
+
+
+
+/*GAMEROOM STRUCTURE CSS END  -----------------------------------------*/
+
+
 /*CHAT LOG CSS START --------------------------------------------------*/
 
 #chat-container {
     width: 100%;
-    height: 37.75vh;;
+    height: 25vh;;
     background-color: #000;
     color: #fff;
     border-style: solid;
@@ -22,6 +64,11 @@
     color: #000;
     height: 85%;
     overflow: scroll;
+    padding: 15px;
+    border-style: solid;
+    border-width: 1px;
+    margin-right: 1px;
+    border-color: #000;
 }
 
 .chat-bar #chat-bar {
@@ -45,3 +92,94 @@
 }
 
 /*CHAT LOG CSS END ----------------------------------------------------*/
+
+/*CHARACTER PANEL CSS START --------------------------------------------------*/
+
+
+#character-name-display {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #fff;
+    background-color: #000;
+}
+
+#character-select-arrow {
+    display: inline-block;
+    float: left;
+    
+}
+
+#character-name {
+    width: 85%;
+    margin: auto;
+    text-align: center;
+    float: left;
+    padding-top: 4%;
+    height: 50px;
+}
+
+#character-stats-panel {
+    
+    overflow-y: auto;
+    overflow-x: hidden;
+    text-align: center;
+    background: #fff;
+    height: 100%;
+    
+}
+
+#current-hp {
+    float: right;
+}
+
+#max-hp {
+    float: left;
+}
+
+#character-stats-panel .row {
+    padding-top: 15px;
+}
+
+.stat-label-2 {
+    
+}
+
+.stat-value-2 {
+    
+}
+
+#stats-panel-wrapper {
+    
+    margin: 15px;
+    padding: 15px;
+    min-height: 90%;
+    
+}
+
+#map-panel-wrapper {
+    
+    margin: 15px;
+    padding: 15px;
+    z-index: -101;
+    position: relative;
+    
+}
+
+/*CHARACTER PANEL CSS END ----------------------------------------------------*/
+
+/*CONTROL PANEL CSS START ----------------------------------------------------*/
+
+
+.btn.control-panel{
+
+}
+
+
+#control-panel-wrapper.panel-dark {
+    margin: 0 15px 0 0;
+    padding: 15px;
+    min-height: 92%;
+    -webkit-border-radius: 5px 20px 5px 20px;
+    border-radius: 0 20px 5px 20px;
+}
+

@@ -1,6 +1,5 @@
 body {
    font-family:verdana;
-   background-color:#000;
 }
 
 .no-margin {
@@ -10,6 +9,64 @@ body {
 .no-padding {
     padding: 0 !important;
 }
+
+.row.full-width {
+    max-width: 100% !important;
+    margin: 0 !important;
+}
+
+.column.full-width {
+    padding: 0 !important;
+}
+
+label {
+    color: #fff;
+}
+
+hr {
+    
+    border: 0; 
+    height: 1px; 
+    width: 75%;
+    background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+    background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+    background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+    background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0); 
+    
+}
+
+.hidden {
+    display: none;
+}
+
+.title-row {
+    background-color: #fff;
+    z-index: 0;
+    position: relative;
+}
+
+.title-row .panel-dark{
+    text-align: center;
+    font-family: pathfinder !important;
+    color: #fff !important;
+    font-size: 3rem;
+    margin: 0 10px 15px 0;
+}
+
+/*FONT CSS START------------------------------------------------------*/
+
+@font-face {
+    font-family: pathfinder;
+    src: url(/assets/fonts/MoriaCitadel.TTF);
+}
+
+@font-face {
+    font-family: modern;
+    src: url(/assets/fonts/nasalization-rg.ttf);
+}
+
+/*FONT CSS END--------------------------------------------------------*/
+
 
 /*LOGIN SCREEN CSS START----------------------------------------------*/
 
@@ -30,25 +87,137 @@ body {
 
 /*LOGIN SCREEN CSS END-------------------------------------------------*/
 
-/*GAMEROOM CSS START---------------------------------------------------*/
 
-#left-column, #center-column, #right-column {
-    border-style: solid;
-    border-width: 1px;
-    border-color: #fff;
+/*ICON CSS START ------------------------------------------------------*/
+
+
+.arrow {
+    border: solid #fff;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    vertical-align: middle;
+}
+
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+/*ICON CSS END--- ------------------------------------------------------*/
+
+
+/*COLOR CSS START ------------------------------------------------------*/
+
+.white {
+    color: #fff;
+}
+
+.black {
+    color: #000;
+}
+
+
+/*COLOR CSS END --------------------------------------------------------*/
+
+
+.panel-dark {
+    -webkit-border-radius: 5px 20px 5px 20px;
+    border-radius: 5px 20px 5px 20px;
+    background: rgba(0, 0, 0, 0.9);
+    font-family: lato, sans-serif;
+    color: #aaaaaa;
+    text-shadow: 5px 8px 10px #000000;
+    -moz-box-shadow: 10px 10px 5px #000000;
+    -webkit-box-shadow: 10px 10px 5px #000000;
+    box-shadow: 10px 10px 5px #000000;
+    padding: 16px;
+}
+
+.panel-light {
+    -webkit-border-radius: 5px 20px 5px 20px;
+    border-radius: 5px 20px 5px 20px;
+    background: rgba(255, 255, 255, 0.7);
+    font-family: lato, sans-serif;
+    font-size: 1rem;
+    color: #000;
+    text-shadow: none;
+    -moz-box-shadow: 10px 10px 5px #000000;
+    -webkit-box-shadow: 10px 10px 5px #000000;
+    box-shadow: 10px 10px 5px #000000;
+    padding: 16px;
+}
+
+.panel-cover-white {
+    background-color: #fff;
+    min-width: 100%;
+    min-height: 100%;
+    padding: 0;
+    margin: 0;
     position: relative;
 }
-    
-#left-column, #right-column {
-    z-index: 100;
-    background-color: #000;
-    color: #fff;
-    height: 100vh;
-}
 
-#center-column {
-    max-height: 100vh;
+.panel-dark h3 {
+    font-size: 1.1875rem;
 }
 
 
-/*GAMEROOM CSS END-----------------------------------------------------*/
+
+
+/*BUTTON CSS START -----------------------------------------------------*/
+
+
+
+.btn {
+  background: #3b4145;
+  background-image: -webkit-linear-gradient(top, #3b4145, #58636b);
+  background-image: -moz-linear-gradient(top, #3b4145, #58636b);
+  background-image: -ms-linear-gradient(top, #3b4145, #58636b);
+  background-image: -o-linear-gradient(top, #3b4145, #58636b);
+  background-image: linear-gradient(to bottom, #3b4145, #58636b);
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #707d85;
+  background-image: -webkit-linear-gradient(top, #707d85, #565f66);
+  background-image: -moz-linear-gradient(top, #707d85, #565f66);
+  background-image: -ms-linear-gradient(top, #707d85, #565f66);
+  background-image: -o-linear-gradient(top, #707d85, #565f66);
+  background-image: linear-gradient(to bottom, #707d85, #565f66);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn.dark {
+    background: rgba(0, 0, 0, 0.9);
+    border-right: solid #fff;
+    border-width: 0 1px 1px 0;
+}
+
+.btn.dark:hover {
+    cursor: pointer;
+    background: rgba(0, 0, 0, 1);
+}
+
+
+/*BUTTON CSS END -----------------------------------------------------*/

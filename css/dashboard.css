@@ -1,0 +1,58 @@
+/*DASHBOARD STRUCTURE CSS START ----------------------------------------*/
+
+#dashboard {
+    
+    max-width: 100%;
+    
+}
+
+#left-column, #right-column, #center-column {
+    
+    height: 100vh;
+    background-color: #fff;
+    
+}
+#title-panel-wrapper, .game-panel-wrapper {
+    margin: 15px;
+    padding: 15px;
+    min-height: 90%;
+}
+
+#news-panel-wrapper {
+    
+    margin: 0 15px 15px 15px;
+    padding: 15px;
+    min-height: 90%;
+    
+}
+
+/*DASHBOARD STRUCTURE CSS END ------------------------------------------*/
+
+
+.game-panel-wrapper.panel-light {
+    
+    background: rgba(173,216,230,0.6);
+    -moz-box-shadow: 5px 5px 5px #000000;
+    -webkit-box-shadow: 5px 5px 5px #000000;
+    box-shadow: 5px 5px 5px #000000;
+    position: relative;
+    
+}
+
+.game-panel-wrapper h3 {
+    font-family: modern;
+}
+
+.game-panel-wrapper .btn {
+    width: auto;
+    float: right;
+}
+
+#game-list .game-panel-wrapper {
+    min-height: 200px;
+}
+
+#game-panel-wrapper {
+    margin: 0 10px 15px 0;
+}
+

@@ -22,7 +22,7 @@
 }
 
 #map-controls {
-    background-color: #000;
+    background-color: #fff;
     position: relative;
     margin-top: -5px !important;
     width: 100%;    
@@ -35,6 +35,7 @@
     background-color: #fff;
     width: 100px;
     display: inline-block;
+    border-right: solid 1px;
 }
 
 .map-cell {

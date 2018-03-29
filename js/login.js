@@ -3,7 +3,7 @@
 
 //Event handler for login button click
 $("#login-button").click(function() {
-   $(location).attr('href', determinePath() + "gameroom.html");
+   $(location).attr('href', determinePath() + "dashboard.html");
 });
 
 //TODO END -----------------------------------------------
