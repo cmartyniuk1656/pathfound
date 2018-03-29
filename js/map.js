@@ -23,7 +23,11 @@ var MapController = {
     
     
     //Path to map background image
-    "backgroundImg": '', 
+    "backgroundImg": '',
+    
+    
+    //Keep track of what map tile the user selects
+    "selectedTile": {},
     
     
     //Utility functions for map controls
@@ -116,7 +120,25 @@ var MapController = {
              //Pan up event handler
             $('#pan-down-btn').click(function() {
                 MapController.Controls.panDown();
-            })
+            })     
+            
+            MapController.Events.mapClickEvents();
+            
+        },
+        
+        //Click events for the map tiles    
+        "mapClickEvents": function() {
+            
+            for (i=0; i < (MapController.mapCellHeight * MapController.mapCellWidth); i++) {
+                
+                var id = '#cell-' + i;
+                
+                $(id).click(function(e) {
+                    e.stopPropagation(); // Prevent bubbling to parent, to avoid loop
+                    MapController.selectedTile = this;
+                    console.info(MapController.selectedTile);
+                });
+            }
         }
         
     },
@@ -148,7 +170,7 @@ var MapController = {
                 counter = i.toString();
                 divString = divStringStart + counter + divStringEnd;
                 
-                MapController.mapGrid.innerHTML += divString;
+                MapController.map.innerHTML += divString;
         
             }
         
@@ -177,11 +199,11 @@ var MapController = {
     },
     
     "Init": function() {
-        MapController.Events.addAll();
         MapController.Util.getMapBackground();
         MapController.Util.setMapBackground();
         MapController.Util.buildMapGrid();
         MapController.Util.setMapSize();
+        MapController.Events.addAll();
     }
 }
 
@@ -190,3 +212,4 @@ $(document).ready(function() {
     MapController.Init();
     
 })
+
