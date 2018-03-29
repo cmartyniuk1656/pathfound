@@ -10,7 +10,10 @@
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/map.css">
-    <link rel="stylesheet" href="css/gameroom.css"> </head>
+    <link rel="stylesheet" href="css/gameroom.css"> 
+    <link href="js/vendor/lity/dist/lity.css" rel="stylesheet">
+    
+</head>
 
 <body>
     <div class="overflow-hider"></div>
@@ -32,6 +35,8 @@
             <div id="character-stats-panel">
                 <div id="stats-panel-wrapper" class="panel-dark">
                 <div class="row full-width">
+                    <h3 style="font-family: modern;">Character Name</h3>
+                    <br> 
                     <div class="column small-4 medium-4 large-4 full-width">
                         <label>HP</label>
                     </div>
@@ -234,7 +239,43 @@
             </div>
             <div id="control-panel-wrapper" class="panel-dark">
             <div id="control-panel-tab-1" class="row full-width">
-                TEST 1
+                <h2>Characters</h2>
+                <div class="column small-12 medium-12 large-12 panel-dark character-tile">
+                    <h3>Alister Brick</h3>
+                    <div class="row full-width">
+                        <div class="column small-6 medium-6 large-3">
+                            <p class="center">Lvl 3:</p>
+                        </div>
+                        <div class="column small-6 medium-6 large-3">
+                            <p class="center">Bard</p>
+                        </div>
+                        <div class="column small-12 medium-12 large-6">
+                            <a class="btn" href="charactersheet.html" data-lity>Edit</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="column small-12 medium-12 large-12 panel-dark character-tile">
+                    <h3>Dick Benson</h3>
+                    <div class="row full-width">
+                        <div class="column small-6 medium-6 large-3">
+                            <p class="center">Lvl 5:</p>
+                        </div>
+                        <div class="column small-6 medium-6 large-3">
+                            <p class="center">Detective</p>
+                        </div>
+                        <div class="column small-12 medium-12 large-6">
+                            <a class="btn" href="charactersheet.html" data-lity>Edit</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="column small-12 medium-12 large-12 char-creation-row">
+                <div class="column small-12 medium-6 large-6">
+                    <a class="btn" href="charactersheet.html" data-lity>Create</a>
+                </div>
+                <div class="column small-12 medium-6 large-6">
+                    <a class="btn" href="charactersheet.html" data-lity>Import</a>
+                </div>
+            </div>
             </div>
             <div id="control-panel-tab-2" class="row full-width hidden">
                 TEST 2
@@ -257,6 +298,7 @@
     <script src="js/map.js"></script>
     <script src="js/chat.js"></script>
     <script src="js/controlPanel.js"></script>
+    <script src="js/vendor/lity/dist/lity.js"></script>
 </body>
 
 </html>
