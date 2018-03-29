@@ -41,11 +41,6 @@ var ChatController = {
         
         "addAll": function() {
             
-            //Post chat event handler
-            $('#chat-post').click(function() {
-                ChatController.Controls.postDebug();
-            })
-            
             //When 'enter' is pressed and chat is focused, post to chat
             $(document).keypress(function(e) {
                 if(e.which == 13 && $("#chat-bar").is(':focus') && document.getElementById("chat-bar").value != '') {

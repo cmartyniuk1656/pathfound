@@ -29,6 +29,9 @@
     background: rgba(0, 0, 0, 0.9);
     border-radius: 5px;
     border: 1px solid rgb(0, 0, 0);
+    height: 5vh;
+    min-height: 51px;
+    overflow-y: hidden;
 }
 
 .map-control-btn {

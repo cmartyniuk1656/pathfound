@@ -274,6 +274,7 @@ $(document).ready(function() {
     
     MapController.Init();
     
+    //Debug code - used for testing map token functionality
     $( "#cell-150" ).append( '<img style="width: 50px; height: 50px;" src="assets/images/test-img.png"/>' );
     
 })
