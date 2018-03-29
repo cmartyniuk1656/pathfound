@@ -53,6 +53,18 @@ hr {
     margin: 0 10px 15px 0;
 }
 
+.overflow-hider {
+    background: #fff;
+    background-color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 25vh;
+    width: 100vw;
+    z-index: 1;
+    overflow-x: hidden;
+}
+
 /*FONT CSS START------------------------------------------------------*/
 
 @font-face {

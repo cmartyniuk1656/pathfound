@@ -47,14 +47,14 @@
 
 #chat-container {
     width: 100%;
-    height: 22vh;;
-    background-color: #000;
+    height: 22vh;
     color: #fff;
     border-style: solid;
     border-width: 1px;
     border-color: #fff;
     position: relative;
-    height: 21.5vh;
+    height: 22vh;
+    z-index: 2;
 }
 
 #chat-log {
