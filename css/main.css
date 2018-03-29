@@ -90,6 +90,38 @@ hr {
 
 /*ICON CSS START ------------------------------------------------------*/
 
+#map-controls .btn {
+    border: none;
+    display: inline-block;
+    padding: 3px;
+    vertical-align: middle;
+    background: #000 !important;
+    background-image: none;
+    background-color: #000;
+    float: left;
+    padding: 10px 20px 10px 20px;
+}
+
+#map-controls .btn:hover {
+    border-color: darkcyan;
+    color: darkcyan;
+}
+
+#map-controls .arrow {
+    border-color: inherit !important;
+}
+
+
+
+.btn .arrow.white:hover {
+    display: inline-block;
+    padding: 3px;
+    vertical-align: middle;
+}
+
+.white:hover {
+    color: darkcyan;
+}
 
 .arrow {
     border: solid #fff;

@@ -149,8 +149,8 @@
         <div id="center-column" class="column small-6 medium-6 large-6">
             
             <div id="title-row" class="row full-width">
-                <div id="stats-panel-wrapper" class="panel-dark">
-                Pathfound
+                <div class="panel-dark">
+                    Pathfound
                 </div>
             </div>
             
@@ -170,12 +170,24 @@
                 
                 <div id="map-controls" class="column small-12 medium-12 large-12 no-margin no-padding">
                     <div>
-                        <button class="map-control-btn" id="zoom-in-btn">Zoom In</button>
-                        <button class="map-control-btn" id="zoom-out-btn">Zoom Out</button>
-                        <button class="map-control-btn" id="pan-left-btn">Left</button>
-                        <button class="map-control-btn" id="pan-right-btn">Right</button>
-                        <button class="map-control-btn" id="pan-up-btn">Up</button>
-                        <button class="map-control-btn" id="pan-down-btn">Down</button>
+                        <div id="zoom-in-btn" class="btn">
+                            <span>+</span>
+                        </div>
+                        <div id="zoom-out-btn" class="btn">
+                            <span>-</span>
+                        </div>
+                        <div id="pan-left-btn" class="btn">
+                            <div class="arrow left white"></div>
+                        </div>
+                        <div id="pan-right-btn" class="btn">
+                            <div class="arrow right white"></div>
+                        </div>
+                        <div id="pan-up-btn" class="btn">
+                            <div class="arrow up white"></div>
+                        </div>
+                        <div id="pan-down-btn" class="btn">
+                            <div class="arrow down white"></div>
+                        </div>
                     </div>
                 </div>
                 

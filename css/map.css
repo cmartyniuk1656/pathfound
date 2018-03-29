@@ -22,20 +22,33 @@
 }
 
 #map-controls {
+    font-family: modern;
     background-color: #fff;
-    position: relative;
-    margin-top: -5px !important;
-    width: 100%;    
+    position: relative;   
     z-index: 100;
-    height: 2.5vh;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 5px;
+    border: 1px solid rgb(0, 0, 0);
 }
 
 .map-control-btn {
-    height: 2.5vh;
-    background-color: #fff;
-    width: 100px;
+    font-family: modern;
+    box-shadow: rgb(0, 0, 0) 0px 1px 3px 0px inset;
+    border-radius: 5px;
+    border: 1px solid rgb(0, 0, 0);
     display: inline-block;
-    border-right: solid 1px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px 20px;
+    text-decoration: none;
+    text-shadow: rgb(181, 181, 181) 0px 0px 50px;
+}
+
+.map-control-btn:hover {
+    cursor: pointer;
+    color: cyan;
 }
 
 .map-cell {
@@ -51,11 +64,11 @@
 }
 
 .map-cell.selected-tile {
-    border-color: #72bcd4;
+    border-color: #72bcd0;
 }
 
 .map-cell.selected-tile img{
-    border-color: #72bcd4;
+    border-color: #72bcd0;
     border-style: solid;
     border-width: 2px;
 }

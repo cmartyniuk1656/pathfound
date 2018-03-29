@@ -274,7 +274,7 @@ $(document).ready(function() {
     
     MapController.Init();
     
-    $( "#cell-1" ).append( '<img style="width: 50px; height: 50px;" src="assets/images/test-img.png"/>' );
+    $( "#cell-150" ).append( '<img style="width: 50px; height: 50px;" src="assets/images/test-img.png"/>' );
     
 })
 
