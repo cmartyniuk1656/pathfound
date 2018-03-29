@@ -1,26 +1,25 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="css/main.css">
     <title>Character Sheet Testing</title>
     <style>
-        div
+        .hidden
         {
-            background-color: black;
+            display: none;
         }
     </style>
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/vendor/what-input.js"></script>
-    <script src="js/vendor/foundation.js"></script>
-    <script src="js/charactersheet.js"></script>
 </head>
 <body>
     <div>
         <input type="checkbox" id="character-name-visible">
         <label for="character-name">Character Name</label>
         <input type="text" id="character-name">
+    </div>
+    <div>
+        <input type="button" id="character-sheet-save" value="Save">
+        <input type="button" id="character-sheet-load" value="Load">
     </div>
     <div id="test" class="hidden">
         <p>testing box</p>
@@ -31,6 +30,5 @@
     <script src="js/charactersheet.js"></script>
     <script src="js/app.js"></script>
     <script src="js/main.js"></script>
-
 </body>
 </html>

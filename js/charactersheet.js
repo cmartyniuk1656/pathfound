@@ -1,3 +1,9 @@
+var CharacterObj =
+{
+    "Name": ""
+}
+
+
 var CharacterSheet =
 {
     "Events":
@@ -6,18 +12,28 @@ var CharacterSheet =
         {
             console.info("Adding events...");
             $("#character-name-visible").change(function()
-            {
-                if (this.checked)
                 {
-                    console.info("checked");
-                    $("#test").removeClass('hidden');
-                }
-                else
+                    if (this.checked)
+                    {
+                        console.info("checked");
+                        $("#test").removeClass('hidden');
+                    }
+                    else
+                    {
+                        console.info("unchecked");
+                        $("#test").addClass('hidden');
+                    }
+                })
+
+            $("#character-sheet-save").click(function()
                 {
-                    console.info("unchecked");
-                    $("#test").addClass('hidden');
-                }
-            })
+                    CharacterObj.Name = $("#character-name").val();
+                })
+
+            $("#character-sheet-load").click(function()
+                {
+                    console.info("Name: " + CharacterObj.Name);
+                })
         }
     },
 
