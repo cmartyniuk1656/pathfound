@@ -62,6 +62,7 @@ var ChatController = {
         
         "updateChatLog": function() {
             ChatController.chatLog.innerHTML = Chatbox.chatString;
+            $(ChatController.chatLog).scrollTop($(ChatController.chatLog)[0].scrollHeight); 
         },
         
         "clearChatTextField": function() {

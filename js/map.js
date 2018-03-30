@@ -136,7 +136,63 @@ var MapController = {
              //Pan up event handler
             $('#pan-down-btn').click(function() {
                 MapController.Controls.panDown();
-            })     
+            })
+            
+            //d4 event handler
+            $('#d4').click(function() {
+                
+                var returnStr = '<br>User rolls D4 for... ' + Dice.four.roll().toString() + '.';
+                Chatbox.chatString += returnStr;
+                ChatController.Util.updateChatLog();
+                ChatController.Util.bindData();
+            })
+            
+             //d6 event handler
+            $('#d6').click(function() {
+                
+                var returnStr = '<br>User rolls D6 for... ' + Dice.six.roll().toString() + '.';
+                Chatbox.chatString += returnStr;
+                ChatController.Util.updateChatLog();
+                ChatController.Util.bindData();
+            })
+            
+            //d8 event handler
+            $('#d8').click(function() {
+                
+                var returnStr = '<br>User rolls D8 for... ' + Dice.eight.roll().toString() + '.';
+                Chatbox.chatString += returnStr;
+                ChatController.Util.updateChatLog();
+                ChatController.Util.bindData();
+            })
+            
+            //d10 event handler
+            $('#d10').click(function() {
+                
+                var returnStr = '<br>User rolls D10 for... ' + Dice.ten.roll().toString() + '.';
+                Chatbox.chatString += returnStr;
+                ChatController.Util.updateChatLog();
+                ChatController.Util.bindData();
+            })
+            
+            //d12 event handler
+            $('#d12').click(function() {
+                
+                var returnStr = '<br>User rolls D12 for... ' + Dice.twelve.roll().toString() + '.';
+                Chatbox.chatString += returnStr;
+                ChatController.Util.updateChatLog();
+                ChatController.Util.bindData();
+            })
+            
+            //d20 event handler
+            $('#d20').click(function() {
+                
+                var returnStr = '<br>User rolls D20 for... ' + Dice.twenty.roll().toString() + '.';
+                Chatbox.chatString += returnStr;
+                ChatController.Util.updateChatLog();
+                ChatController.Util.bindData();
+            })
+            
+            
             
             MapController.Events.mapClickEvents();
             

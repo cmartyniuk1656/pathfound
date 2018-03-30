@@ -194,6 +194,9 @@
                         <div id="pan-down-btn" class="btn">
                             <div class="arrow down white"></div>
                         </div>
+                        <a href="#dice-modal" data-lity id="roll-dice">
+                            <img src="/assets/images/dice/d20.svg"/>
+                        </a>
                     </div>
                 </div>
                 
@@ -287,6 +290,40 @@
         </div>
         
 <!----------------CONTROL PANEL END----------------------------------------------------------------------------->    
+
+
+<!----------------DICE PANEL START------------------------------------------------------------------------------>  
+        
+    <div id="dice-modal" class="row full-width lity-hide join-game">
+        <div class="column small-12 medium-12 large-12 end">
+            <div class="row">
+                <div class="column small-12 medium-12 large-12 end">
+                    <h3 id="dice-title">Select a Die</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column small-12 medium-12 large-12 end dice">
+                    <img id="d20" src="/assets/images/dice/d20.svg">
+                    <img id="d12" src="/assets/images/dice/d12.svg">
+                    <img id="d10" src="/assets/images/dice/d10.svg">
+                    <img id="d8" src="/assets/images/dice/d8.svg">
+                    <img id="d6" src="/assets/images/dice/d6.svg">
+                    <img id="d4" src="/assets/images/dice/d4.svg">
+                </div>
+            </div>
+            <div class="row">
+                <div id="enter-game-bottom" class="column small-12 medium-12 large-12 end">
+                </div>
+                <div id="return-link" class="column small-12 medium-12 large-12 end account-management-left">
+                    <a href="/dashboard.html"><h3>Return</h3></a>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+<!----------------DICE PANEL END---------------------------------------------------------------------------------->  
+        
+        
         
     </div>
     <script src="js/temp.js"></script>
@@ -300,6 +337,7 @@
     <script src="js/io.js"></script>
     <script src="js/gameroom.js"></script>
     <script src="js/controlPanel.js"></script>
+    <script src="js/dice.js"></script>
     <script src="js/vendor/lity/dist/lity.js"></script>
 </body>
 
