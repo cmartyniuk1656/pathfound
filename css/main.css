@@ -74,6 +74,22 @@ hr {
     text-align: center;
 }
 
+
+#account-management-button {
+    text-align: center;
+    font-family: modern !important;
+    color: #fff !important;
+    font-size: 1rem;
+}
+
+#account-management-button:hover {
+    text-align: center;
+    font-family: modern !important;
+    color: darkcyan !important;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
 /*FONT CSS START------------------------------------------------------*/
 
 @font-face {
@@ -278,3 +294,88 @@ hr {
 
 
 /*BUTTON CSS END -----------------------------------------------------*/
+
+
+/*ACCOUNT PAGE CSS START----------------------------------------------*/
+
+.profile-picture {
+    
+    display: block;
+    width: 200px;
+    height: 100%;
+    
+}
+
+.account-management-left h3{ 
+
+    margin-top: 15px;
+    font-family: modern !important;
+    font-size: 1.25rem;
+    color: #fff;
+    cursor: pointer;
+    
+}
+
+.account-management-left h3:hover{ 
+
+    color: darkcyan;
+    cursor: : pointer;
+    
+}
+
+#account-management-title h3 {
+    text-align: center;
+    vertical-align: center;
+    font-family: modern !important;
+    color: #fff !important;
+    font-size: 2rem;
+    display: inline-block;
+    margin: auto;
+    height: 75px; 
+    line-height: 75px;
+    vertical-align: center;
+}
+
+#account-management-button {
+    text-align: center;
+    font-family: modern !important;
+    color: #fff !important;
+    font-size: 1rem;
+}
+
+#account-management-button:hover {
+    text-align: center;
+    font-family: modern !important;
+    color: darkcyan !important;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#subscribe-link h3 {
+    text-align: center;
+    font-family: modern !important;
+    color: #fff !important;
+    font-size: 4rem !important;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+#subscribe-link h3:hover {
+    color:darkorange !important;
+}
+
+#return-link h3 {
+    text-align: center;
+    font-family: modern !important;
+    color: #fff !important;
+    font-size: 3rem !important;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+#return-link h3:hover {
+    color:darkcyan !important;
+}
+
+
+/*ACCOUNT PAGE CSS END------------------------------------------------*/
