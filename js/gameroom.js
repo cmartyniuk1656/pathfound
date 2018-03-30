@@ -14,10 +14,10 @@ var Gameroom = {
     
     
     //Maps controller used in the room
-    "MapController": {},
+    "Map": {},
     
     //The room chatlog
-    "ChatController": {},
+    "Chatbox": {},
     
 }
 
@@ -51,6 +51,6 @@ var GameroomController = {
 
 $(document).ready(function() {
     
-    Gameroom.Init();
+    GameroomController.Init();
     
 })

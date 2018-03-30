@@ -54,7 +54,7 @@ var IO = {
                         
                         Gameroom = JSON.parse(response);
                         Map = Gameroom.Map;
-                        Chat = Gameroom.Chat;
+                        Chatbox = Gameroom.Chatbox;
                         
                         MapController.Init();
                         ChatController.Init();
@@ -68,9 +68,9 @@ var IO = {
                         ChatController.Init();
                         
                         Gameroom.Map = Map;
-                        Gameroom.Chat = Chat;
+                        Gameroom.Chatbox = Chatbox;
                         
-                        Gameroom.Util.updateServer();
+                        GameroomController.Util.updateServer();
                     }
                 }
                 

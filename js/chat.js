@@ -70,7 +70,7 @@ var ChatController = {
         
         "bindData": function() {
             Gameroom.Chatbox = Chatbox;
-            Gameroom.Util.updateServer();
+            GameroomController.Util.updateServer();
         }
         
     },
@@ -84,11 +84,11 @@ var ChatController = {
     }    
 }
 
-$(document).ready(function() {
-    
-    ChatController.Init();
-    
-    
-})
-    
+//$(document).ready(function() {
+//    
+//    ChatController.Init();
+//    
+//    
+//})
+//    
     

@@ -249,8 +249,8 @@ var MapController = {
         
         "setMapSize": function() {
             
-            var height = (MapController.mapCellHeight * 50).toString() + 'px';
-            var width = (MapController.mapCellWidth * 50).toString() + 'px';
+            var height = (Map.mapCellHeight * 50).toString() + 'px';
+            var width = (Map.mapCellWidth * 50).toString() + 'px';
             MapController.map.style.height = height;
             MapController.map.style.width = width;
         },
@@ -288,12 +288,12 @@ var MapController = {
     }
 }
 
-$(document).ready(function() {
-    
-    MapController.Init();
-    
-    //Debug code - used for testing map token functionality 
-    $( "#cell-150" ).append( '<img style="width: 50px; height: 50px;" src="assets/images/test-img.png"/>' );
-    
-})
+//$(document).ready(function() {
+//    
+//    MapController.Init();
+//    
+//    //Debug code - used for testing map token functionality 
+//    $( "#cell-150" ).append( '<img style="width: 50px; height: 50px;" src="assets/images/test-img.png"/>' );
+//    
+//})
 
