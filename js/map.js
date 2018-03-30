@@ -1,6 +1,12 @@
 //Map Controller Object
 var MapController = {
     
+    //Required when the object is called from the server
+    "fileName": '/testMap.json',
+    
+    //Used for directory mapping
+    "objType": 'map',
+    
     //Keep track of all the map objects in the gameroom
     "mapList": {},
     
@@ -255,6 +261,16 @@ var MapController = {
             MapController.map.style.transform = scaleStyleString;
             MapController.map.style.transform += zoomStyleString;
             
+        },
+        
+        
+        "updateServer": function() {
+            IO.write(MapController);
+        },
+        
+        
+        "getFromServer": function() {
+            IO.read(MapController);
         }
         
         
