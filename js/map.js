@@ -1,5 +1,4 @@
-//Map Controller Object
-var MapController = {
+var Map = {
     
     //Required when the object is called from the server
     "fileName": '/testMap.json',
@@ -18,19 +17,18 @@ var MapController = {
     "topTranslate": 0,
     "leftTranslate": 0,
     
-    //Map DOM elements
-    "map": document.getElementById('map'),
-    "mapGrid": document.getElementById('map-grid'),
-
-    
     //Determines total cell count of the map
     "mapCellHeight": 21,                            //TODO: Make user selectable
     "mapCellWidth": 21,                             //TODO: Make user selectable
     
     
     //Path to map background image
-    "backgroundImg": '',
+    "backgroundImg": ''
     
+}
+
+//Map Controller Object
+var MapController = {
     
     //Keep track of what map tile the user selects
     "SelectedTile": {
@@ -43,6 +41,10 @@ var MapController = {
         
     },
     
+    //Map DOM elements
+    "map": document.getElementById('map'),
+    "mapGrid": document.getElementById('map-grid'),
+    
     
     //Utility functions for map controls
     "Controls": {
@@ -50,9 +52,9 @@ var MapController = {
         //Zoom in the map
         "zoomInMap": function() {
             
-            if(MapController.selectedZoomIndex < 7) {
+            if(Map.selectedZoomIndex < 7) {
                 
-                MapController.selectedZoomIndex ++;
+                Map.selectedZoomIndex ++;
                 MapController.Util.setMapTransform();
             }     
         },
@@ -60,9 +62,9 @@ var MapController = {
         //Zoom out the map
         "zoomOutMap": function() {
             
-            if(MapController.selectedZoomIndex > 0) {
+            if(Map.selectedZoomIndex > 0) {
                 
-                MapController.selectedZoomIndex --;            
+                Map.selectedZoomIndex --;            
                 MapController.Util.setMapTransform();
                      
             }
@@ -71,7 +73,7 @@ var MapController = {
         //Pan map view to the left
         "panLeft": function() {
             
-            MapController.leftTranslate += 50;
+            Map.leftTranslate += 50;
             MapController.Util.setMapTransform();
         
         },
@@ -79,7 +81,7 @@ var MapController = {
         //Pan map view to the right
         "panRight": function() {
             
-            MapController.leftTranslate -= 50;
+            Map.leftTranslate -= 50;
             MapController.Util.setMapTransform();
                         
         },
@@ -87,7 +89,7 @@ var MapController = {
         //Pan map view up
         "panUp": function() {
             
-            MapController.topTranslate += 50;
+            Map.topTranslate += 50;
             MapController.Util.setMapTransform();
             
         },
@@ -95,7 +97,7 @@ var MapController = {
         //Pan map view down
         "panDown": function() {
             
-            MapController.topTranslate -= 50;      
+            Map.topTranslate -= 50;      
             MapController.Util.setMapTransform();
             
         }
@@ -143,7 +145,7 @@ var MapController = {
         //Click events for the map tiles    
         "mapClickEvents": function() {
             
-            for (i=0; i < (MapController.mapCellHeight * MapController.mapCellWidth); i++) {
+            for (i=0; i < (Map.mapCellHeight * Map.mapCellWidth); i++) {
                 
                 var id = '#cell-' + i;
                 
@@ -232,7 +234,7 @@ var MapController = {
             var divStringEnd = '" class="map-cell"></div>';
             var divString;
             var counter;
-            var cellCount = MapController.mapCellWidth * MapController.mapCellHeight;
+            var cellCount = Map.mapCellWidth * Map.mapCellHeight;
 
             for (i = 0; i < cellCount; i++) {
                 
@@ -255,8 +257,8 @@ var MapController = {
         
         "setMapTransform": function() {
             
-            var scaleStyleString = 'translate(' + MapController.leftTranslate.toString() + 'px, ' + MapController.topTranslate.toString() + 'px)';
-            var zoomStyleString = 'scale(' + MapController.zoomLevels[MapController.selectedZoomIndex] + ')';
+            var scaleStyleString = 'translate(' + Map.leftTranslate.toString() + 'px, ' + Map.topTranslate.toString() + 'px)';
+            var zoomStyleString = 'scale(' + Map.zoomLevels[Map.selectedZoomIndex] + ')';
             
             MapController.map.style.transform = scaleStyleString;
             MapController.map.style.transform += zoomStyleString;
@@ -265,12 +267,12 @@ var MapController = {
         
         
         "updateServer": function() {
-            IO.write(MapController);
+            IO.write(Map);    
         },
         
         
         "getFromServer": function() {
-            IO.read(MapController);
+            IO.read(Map);
         }
         
         
@@ -290,7 +292,7 @@ $(document).ready(function() {
     
     MapController.Init();
     
-    //Debug code - used for testing map token functionality
+    //Debug code - used for testing map token functionality 
     $( "#cell-150" ).append( '<img style="width: 50px; height: 50px;" src="assets/images/test-img.png"/>' );
     
 })
