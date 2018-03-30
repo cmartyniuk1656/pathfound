@@ -379,3 +379,115 @@ hr {
 
 
 /*ACCOUNT PAGE CSS END------------------------------------------------*/
+
+/*JOIN GAME PAGE CSS START--------------------------------------------*/
+
+#game-name {
+   
+    margin-top: 15px;
+    font-family: modern !important;
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 5%;
+    
+}
+
+.enter-game-left h3 {
+    margin-top: 15px;
+    font-family: modern !important;
+    font-size: 1.25rem;
+    color: #fff;
+}
+.enter-game-btn {
+
+    background: #353436;
+    background-image: -webkit-linear-gradient(top, #353436, #4D4D4D);
+    background-image: -moz-linear-gradient(top, #353436, #4D4D4D);
+    background-image: -ms-linear-gradient(top, #353436, #4D4D4D);
+    background-image: -o-linear-gradient(top, #353436, #4D4D4D);
+    background-image: linear-gradient(to bottom, #353436, #4D4D4D);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-family: modern;
+    font-weight: 100;
+    padding: 15px 0 15px 0;
+    box-shadow: 1px 1px 20px 0px #000000;
+    -webkit-box-shadow: 1px 1px 20px 0px #000000;
+    -moz-box-shadow: 1px 1px 20px 0px #000000;
+    text-shadow: 1px 1px 20px #000000;
+    border: solid #FFFFFF 1px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    
+}
+
+.enter-game-btn:hover {
+    background: #1a1a1a !important;
+    background-image: -webkit-linear-gradient(top, #666666, #787878);
+    background-image: -moz-linear-gradient(top, #666666, #787878);
+    background-image: -ms-linear-gradient(top, #666666, #787878);
+    background-image: -o-linear-gradient(top, #666666, #787878);
+    background-image: linear-gradient(to bottom, #666666, #787878);
+    text-decoration: none;
+}
+
+.join-game-btn {
+
+    background: #353436;
+    background-image: -webkit-linear-gradient(top, #353436, #4D4D4D);
+    background-image: -moz-linear-gradient(top, #353436, #4D4D4D);
+    background-image: -ms-linear-gradient(top, #353436, #4D4D4D);
+    background-image: -o-linear-gradient(top, #353436, #4D4D4D);
+    background-image: linear-gradient(to bottom, #353436, #4D4D4D);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-family: modern;
+    font-weight: 100;
+    padding: 20px 5px 20px 5px;
+    box-shadow: 1px 1px 20px 0px #000000;
+    -webkit-box-shadow: 1px 1px 20px 0px #000000;
+    -moz-box-shadow: 1px 1px 20px 0px #000000;
+    text-shadow: 1px 1px 20px #000000;
+    border: solid #FFFFFF 1px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+    
+}
+
+.join-game-btn:hover {
+    background: #1a1a1a !important;
+    background-image: -webkit-linear-gradient(top, #666666, #787878);
+    background-image: -moz-linear-gradient(top, #666666, #787878);
+    background-image: -ms-linear-gradient(top, #666666, #787878);
+    background-image: -o-linear-gradient(top, #666666, #787878);
+    background-image: linear-gradient(to bottom, #666666, #787878);
+    text-decoration: none;
+}
+
+.enter-game-btn:hover, .join-game-btn:hover{
+    color: darkorange !important;
+}
+
+#enter-game-bottom {
+    text-align: center;
+}
+
+.join-game {
+    
+    background-color: #000;
+    
+}
+
+
+/*JOIN GAME PAGE CSS END----------------------------------------------*/

@@ -36,6 +36,7 @@
     -webkit-box-shadow: 5px 5px 5px #000000;
     box-shadow: 5px 5px 5px #000000;
     position: relative;
+    text-align: center;
     
 }
 
@@ -46,6 +47,10 @@
 .game-panel-wrapper .btn {
     width: auto;
     float: right;
+}
+
+.game-panel-wrapper .btn:hover {
+    color: darkorange;
 }
 
 #game-list .game-panel-wrapper {
