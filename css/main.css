@@ -108,7 +108,6 @@ hr {
 /*LOGIN SCREEN CSS START----------------------------------------------*/
 
 #login-div {
-    margin-top: 15%;
     text-align: center;
     color: #fff;
 }
@@ -119,9 +118,45 @@ hr {
 }
 
 #login-div .row {
-    margin-top: 15%;
+    margin-top: 12.5%;
 }
 
+#login-wrapper {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    font-family: modern, sans-serif;
+    color: #aaaaaa;
+    padding: 10% 10% 15% 10%;
+}
+#login-title {
+    font-family: modern;
+    color: #fff;
+    font-size: 3rem;
+    margin-bottom: 30px;
+}
+
+.form-wrapper {
+    background-color: rgba(184, 172, 154, 0.9) !important;
+    padding: 5% 10% 5% 10%;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.form-wrapper label {
+    color: #000 !important;
+    font-weight: bold;
+}
+
+#login-button {
+    
+    width: 50%;
+}
+
+#login-bg {
+    background-image: url(/assets/images/bg/forest-bg.jpg);
+    background-position: cover;
+    height: 100vh;
+    width: 100vw;
+}
 /*LOGIN SCREEN CSS END-------------------------------------------------*/
 
 
