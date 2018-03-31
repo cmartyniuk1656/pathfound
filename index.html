@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/main.css">
+    <link href="js/vendor/lity/dist/lity.css" rel="stylesheet">
 </head>
 
 <body>
-    <div id="login-bg">
+    <div id="login-bg"></div>
     
     <div class="row">
         <div id="login-div" class="column small-12 medium-12 large-12 end">
@@ -31,11 +32,44 @@
                         <div class="column small-12 medium-12 large-12">
                             <button id="login-button" class="join-game-btn btn">Login</button>
                         </div>
+                        <div class="column small-12 medium-12 large-12">
+                            <br>
+                            <a href="#sign-up-panel" data-lity id="sign-up">Not a member? Sign Up</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+        
+    <div id="sign-up-panel" class="row full-width lity-hide join-game">
+        <div id="sign-up-wrapper">
+            <div id="sign-up-content">
+                <div class="column small-12 medium-12 large-12 end">
+                    <div class="row">
+                        <div class="column small-12 medium-12 large-12 end">
+                            <h3 id="game-name">Sign Up</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column small-12 medium-12 large-8 end enter-game-left">
+                            <h3>Email: </h3>
+                            <h3>Username: </h3>
+                            <h3>Password: </h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="enter-game-bottom" class="column small-12 medium-12 large-12 end">
+                            <h3>hello</h3>
+                        </div>
+                        <div id="return-link" class="column small-12 medium-12 large-12 end account-management-left">
+                            <a class="join-game-btn btn" href="/gameroom.html?x">Sign Up</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
     </div>
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
@@ -45,6 +79,7 @@
     <script src="js/io.js"></script>
     <script src="js/login.js"></script>
     <script src="js/user.js"></script>
+    <script src="js/vendor/lity/dist/lity.js"></script>
 
 
 </body>
