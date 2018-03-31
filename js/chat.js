@@ -23,11 +23,13 @@ var ChatController = {
         //Placeholder function for posting to chat (for testing)
         "postDebug": function() {
             
+            var username = User.username;
+            
             if (Chatbox.chatString == '') {
-               Chatbox.chatString += 'User: ' + document.getElementById("chat-bar").value;
+               Chatbox.chatString += username + ': ' + document.getElementById("chat-bar").value;
             }
             else {
-                Chatbox.chatString += '<br>User: ' + document.getElementById("chat-bar").value;
+                Chatbox.chatString += '<br>' + username + ': ' + document.getElementById("chat-bar").value;
             }
             
             //Update chat log and clear text field

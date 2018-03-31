@@ -445,7 +445,7 @@ hr {
 
 /*ACCOUNT PAGE CSS END------------------------------------------------*/
 
-/*JOIN GAME PAGE CSS START--------------------------------------------*/
+/*JOIN/CREATE GAME PAGE CSS START--------------------------------------------*/
 
 #game-name {
    
@@ -501,7 +501,7 @@ hr {
     text-decoration: none;
 }
 
-.join-game-btn {
+.join-game-btn, .create-game-btn {
 
     background: #353436;
     background-image: -webkit-linear-gradient(top, #353436, #4D4D4D);
@@ -528,6 +528,10 @@ hr {
     margin-top: 10px;
     text-align: center;
     
+}
+
+.create-game-btn {
+    width: 60%;
 }
 
 .join-game-btn:hover {

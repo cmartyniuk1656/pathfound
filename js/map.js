@@ -141,7 +141,7 @@ var MapController = {
             //d4 event handler
             $('#d4').click(function() {
                 
-                var returnStr = '<br>User rolls D4 for... ' + Dice.four.roll().toString() + '.';
+                var returnStr = '<br>' + User.username + ' rolls D4 for... ' + Dice.four.roll().toString() + '.';
                 Chatbox.chatString += returnStr;
                 ChatController.Util.updateChatLog();
                 ChatController.Util.bindData();
@@ -150,7 +150,7 @@ var MapController = {
              //d6 event handler
             $('#d6').click(function() {
                 
-                var returnStr = '<br>User rolls D6 for... ' + Dice.six.roll().toString() + '.';
+                var returnStr = '<br>' + User.username + ' rolls D6 for... ' + Dice.six.roll().toString() + '.';
                 Chatbox.chatString += returnStr;
                 ChatController.Util.updateChatLog();
                 ChatController.Util.bindData();
@@ -159,7 +159,7 @@ var MapController = {
             //d8 event handler
             $('#d8').click(function() {
                 
-                var returnStr = '<br>User rolls D8 for... ' + Dice.eight.roll().toString() + '.';
+                var returnStr = '<br>' + User.username + ' rolls D8 for... ' + Dice.eight.roll().toString() + '.';
                 Chatbox.chatString += returnStr;
                 ChatController.Util.updateChatLog();
                 ChatController.Util.bindData();
@@ -168,7 +168,7 @@ var MapController = {
             //d10 event handler
             $('#d10').click(function() {
                 
-                var returnStr = '<br>User rolls D10 for... ' + Dice.ten.roll().toString() + '.';
+                var returnStr = '<br>' + User.username + ' rolls D10 for... ' + Dice.ten.roll().toString() + '.';
                 Chatbox.chatString += returnStr;
                 ChatController.Util.updateChatLog();
                 ChatController.Util.bindData();
@@ -177,7 +177,7 @@ var MapController = {
             //d12 event handler
             $('#d12').click(function() {
                 
-                var returnStr = '<br>User rolls D12 for... ' + Dice.twelve.roll().toString() + '.';
+                var returnStr = '<br>' + User.username + ' rolls D12 for... ' + Dice.twelve.roll().toString() + '.';
                 Chatbox.chatString += returnStr;
                 ChatController.Util.updateChatLog();
                 ChatController.Util.bindData();
@@ -186,7 +186,7 @@ var MapController = {
             //d20 event handler
             $('#d20').click(function() {
                 
-                var returnStr = '<br>User rolls D20 for... ' + Dice.twenty.roll().toString() + '.';
+                var returnStr = '<br>' + User.username + ' rolls D20 for... ' + Dice.twenty.roll().toString() + '.';
                 Chatbox.chatString += returnStr;
                 ChatController.Util.updateChatLog();
                 ChatController.Util.bindData();

@@ -66,7 +66,7 @@
                                     <div class="row full-width">
                                         <div class="column small-6 medium-6 large-6 full-width"></div>
                                         <div class="column small-6 medium-6 large-6 full-width">
-                                            <a href="#join-game" data-lity class="btn dark control-panel">
+                                            <a href="#create-game" data-lity class="btn dark control-panel">
                                                 Create Game
                                             </a>
                                         </div>
@@ -81,7 +81,7 @@
                                         <div class="column small-6 medium-6 large-6 full-width"></div>
                                         <div class="column small-6 medium-6 large-6 full-width">
                                             <a href="#join-game" data-lity class="btn dark control-panel">
-                                                Join Game
+                                                Enter Game
                                             </a>
                                         </div>
                                     </div>
@@ -96,7 +96,7 @@
                                         </div>
                                         <div class="column small-6 medium-6 large-6 full-width">
                                             <a href="#join-game" data-lity class="btn dark control-panel">
-                                                Join Game
+                                                Enter Game
                                             </a>
                                         </div>
                                     </div>
@@ -116,7 +116,7 @@
                                         </div>
                                         <div class="column small-6 medium-6 large-6 full-width">
                                             <a href="#join-game" data-lity class="btn dark control-panel">
-                                                Join Game
+                                                Enter Game
                                             </a>
                                         </div>
                                     </div>
@@ -131,7 +131,7 @@
                                         </div>
                                         <div class="column small-6 medium-6 large-6 full-width">
                                             <a href="#join-game" data-lity class="btn dark control-panel">
-                                                Join Game
+                                                Enter Game
                                             </a>
                                         </div>
                                     </div>
@@ -164,7 +164,7 @@
                 </div>
                 <div class="column small-12 medium-12 large-4 end enter-game-right">
                     <a class="enter-game-btn btn" data-lity data-lity-target="/charactersheet.html">IMPORT CHARACTER</a>
-                    <a class="join-game-btn btn" href="/gameroom.html?x">JOIN GAME</a>
+                    <a class="join-game-btn btn" href="/gameroom.html?x">ENTER GAME</a>
                 </div>
             </div>
             <div class="row">
@@ -175,6 +175,39 @@
                 </div>
             </div>
         </div>
+    </div>
+        
+    <div id="create-game" class="row full-width lity-hide join-game">
+        <div class="column small-12 medium-12 large-12">
+                    <div class="row">
+                        <div class="column small-12 medium-12 large-12">
+                            <h3 id="game-name">Create Game</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="sign-up-left" class="column small-12 medium-5 large-5">
+                            <h3>Game Name: </h3>
+                            <h3>Game Description: </h3>
+                        </div>
+                        <div id="sign-up-right" class="column small-12 medium-7 large-7">
+                            <input id="game-name-create" type="text">
+                            <textarea id="game-description-create" type="textarea" rows="4" cols="50"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="create-game-error" class="column small-12 medium-12 large-12">
+                            <i id="error-msg-create-game"></i>
+                        </div>
+                        <div class="row create-modal-bottom-row">
+                            <div class="column small-12 medium-6 large-6">
+                                <a class="create-game-btn btn" href="/dashboard.html">Return</a>
+                            </div>
+                            <div class="column small-12 medium-6 large-6">
+                                <a class="create-game-btn btn" href="/gameroom.html?x">Create</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
     </div>
 
     </div>
