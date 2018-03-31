@@ -45,25 +45,32 @@
     <div id="sign-up-panel" class="row full-width lity-hide join-game">
         <div id="sign-up-wrapper">
             <div id="sign-up-content">
-                <div class="column small-12 medium-12 large-12 end">
+                <div class="column small-12 medium-12 large-12">
                     <div class="row">
-                        <div class="column small-12 medium-12 large-12 end">
+                        <div class="column small-12 medium-12 large-12">
                             <h3 id="game-name">Sign Up</h3>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="column small-12 medium-12 large-8 end enter-game-left">
-                            <h3>Email: </h3>
+                        <div id="sign-up-left" class="column small-12 medium-5 large-5 end">
                             <h3>Username: </h3>
                             <h3>Password: </h3>
+                            <h3>Confirm Password: </h3>
+                        </div>
+                        <div id="sign-up-right" class="column small-12 medium-7 large-7 end">
+                            <input id="username-create" type="text">
+                            <input id="password-create" type="password">
+                            <input id="password-create-confirm" type="password">
                         </div>
                     </div>
                     <div class="row">
-                        <div id="enter-game-bottom" class="column small-12 medium-12 large-12 end">
-                            <h3>hello</h3>
+                    </div>
+                    <div class="row">
+                        <div id="sign-up-error" class="column small-12 medium-12 large-12 end">
+                            <i id="error-msg-sign-up"></i>
                         </div>
                         <div id="return-link" class="column small-12 medium-12 large-12 end account-management-left">
-                            <a class="join-game-btn btn" href="/gameroom.html?x">Sign Up</a>
+                            <div id="sign-up-button" class="join-game-btn btn">Sign Up</div>
                         </div>
                     </div>
                 </div>

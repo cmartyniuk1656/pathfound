@@ -171,9 +171,22 @@ hr {
     color: darkslategray;
 }
 
-#sign-up-panel {
-    
+#sign-up-col {
+    margin: 20%;
 }
+
+#sign-up-left h3 {
+    margin-top: 15px;
+    font-family: modern !important;
+    font-size: 1.25rem;
+    color: #fff;
+}
+
+#error-msg-sign-up {
+    color: darkred;
+}
+
+
 /*LOGIN SCREEN CSS END-------------------------------------------------*/
 
 

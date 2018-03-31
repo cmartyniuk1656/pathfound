@@ -93,7 +93,8 @@ var IO = {
                 url: '../io/login.php',
                 data: {
                     user: userName,
-                    password: password
+                    password: password,
+                    intent: 'login',
                 },
                 type: 'POST',
                 success: function (response) {
@@ -112,12 +113,56 @@ var IO = {
                 url: '../io/login.php',
                 data: {
                     user: userName,
-                    password: password
+                    password: password,
+                    intent: 'checkValidUser',
                 },
                 type: 'POST',
                 success: function (response) {
                     if (response != true) {
                         UserController.Util.storeUserInfo(userName, password);
+                    }
+                }  
+            });
+            
+        },
+        
+        "checkUserExists": function(userName, callback) {
+            
+             $.ajax({
+                url: '../io/login.php',
+                data: {
+                    user: userName,
+                    intent: 'checkUserExists',
+                },
+                type: 'POST',
+                success: function (response) {
+                    if (response != true) {;
+                        callback();
+                    }
+                    else {
+                        LoginController.Util.updateErrorMessage('Username already exists.')
+                    }
+                }  
+            });
+            
+        },
+        
+        "addNewUser": function(userName, userPassword) {
+            
+             $.ajax({
+                url: '../io/login.php',
+                data: {
+                    user: userName,
+                    password: userPassword,
+                    intent: 'createNewUser',
+                },
+                type: 'POST',
+                success: function (response) {
+                    if (response == true) {;
+                        console.info('record added.');
+                    }
+                    else {
+                        console.info(response);
                     }
                 }  
             });
