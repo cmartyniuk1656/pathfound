@@ -84,5 +84,46 @@ var IO = {
         });
 
     },
+    
+    "db": {
+        
+        "login": function(userName, password) {
+            
+            $.ajax({
+                url: '../io/login.php',
+                data: {
+                    user: userName,
+                    password: password
+                },
+                type: 'POST',
+                success: function (response) {
+                    if (response == true) {
+                        UserController.Util.storeUserInfo(userName, password);
+                        $(location).attr('href', "dashboard.html")
+                    }
+                }  
+            });
+            
+        },
+        
+        "checkValidUser": function(userName, password) {
+            
+             $.ajax({
+                url: '../io/login.php',
+                data: {
+                    user: userName,
+                    password: password
+                },
+                type: 'POST',
+                success: function (response) {
+                    if (response != true) {
+                        UserController.Util.storeUserInfo(userName, password);
+                    }
+                }  
+            });
+            
+        }
+  
+    }
 
 }

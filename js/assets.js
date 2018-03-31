@@ -1,13 +1,31 @@
 var AssetList = {
     
-    "assets": []
+    "assets": {
+        
+        "maps": [],
+        
+        "tokens": [{
+        
+        "name": 'Test Asset',
+        "path": '/assets/images/test-img.png'
     
+    }]
+        
+    }
+        
+
 }
 
 var AssetController = {
     
+    "Controls": {},
     
-    "Util": {}
+    "Util": {},
+    
+    
+    "Init": function() {
+        
+    }
     
     
 }

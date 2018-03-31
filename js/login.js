@@ -1,28 +1,23 @@
 //TODO ------------------------------ Add login validation
 
 
-//Event handler for login button click
+//Event handler for login button click (With DB)
 $("#login-button").click(function() {
-   $(location).attr('href', determinePath() + "dashboard.html");
+    
+    var username = $('#username-textfield').val();
+    var password = $('#password-textfield').val();
+    
+    console.info(username);
+    console.info(password);
+    
+   IO.db.login(username, password);
+    
 });
 
+
+//Event handler for login button click (No DB - for testing)
+//$("#login-button").click(function() {
+//   $(location).attr('href', determinePath() + "dashboard.html");
+//});
+
 //TODO END -----------------------------------------------
-
-
-//Redundant function. Was needed for mapping on brackets live preview vs github pages for testing,
-//but issue seems to have resolved itself. Will leave it here incase issue pops up again.
-function determinePath() {
-    
-    var path;
-    
-    if (location.hostname == "cmartyniuk1656.github.io")
-        
-        path = "";
-    
-    else {
-        path = "";
-    }
-    
-    return path;
-        
-}
