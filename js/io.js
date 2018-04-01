@@ -135,8 +135,8 @@ var IO = {
                     intent: 'checkUserExists',
                 },
                 type: 'POST',
-                success: function (response) {
-                    if (response != true) {;
+                success: function (response, callback) {
+                    if (response != true) {
                         callback();
                     }
                     else {
@@ -166,6 +166,58 @@ var IO = {
                     }
                 }  
             });
+            
+        },
+        
+        "createNewGame": function(userName, gameName, gameSchedule, gameDescription, gameUrlCode) {
+            console.info(gameUrlCode);
+            $.ajax({
+                url: '../io/db.php',
+                data: {
+                    user: userName,
+                    name: gameName,
+                    schedule: gameSchedule,
+                    description: gameDescription, 
+                    urlCode: gameUrlCode,
+                    intent: 'createGame',
+                },
+                type: 'POST',
+                success: function (response) {
+                    if (response == true) {;
+                        console.info('record added.');
+                    }
+                    else {
+                        console.info(response);
+                    }
+                }  
+            });
+            
+        },
+        
+        "checkGameExists": function(userName, urlCode) {
+            
+            
+             $.ajax({
+                url: '../io/db.php',
+                data: {
+                    user: userName,
+                    game: urlCode,
+                    intent: 'checkGameExists',
+                },
+                type: 'POST',
+                success: function (response) {
+                    if (response == true) {
+                        DashboardController.Util.createGame();
+                    }
+                    else {
+                        GameCreationStorage.createGame();
+                    }
+                }  
+            });
+            
+        },
+        
+        "addNewGame": function() {
             
         }
   
