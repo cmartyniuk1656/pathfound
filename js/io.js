@@ -126,7 +126,7 @@ var IO = {
             
         },
         
-        "checkUserExists": function(userName, callback) {
+        "checkUserExists": function(userName) {
             
              $.ajax({
                 url: '../io/login.php',
@@ -135,9 +135,9 @@ var IO = {
                     intent: 'checkUserExists',
                 },
                 type: 'POST',
-                success: function (response, callback) {
+                success: function (response) {
                     if (response != true) {
-                        callback();
+                        loginCallbackStorage.callback();
                     }
                     else {
                         LoginController.Util.updateErrorMessage('Username already exists.')
@@ -170,7 +170,7 @@ var IO = {
         },
         
         "createNewGame": function(userName, gameName, gameSchedule, gameDescription, gameUrlCode) {
-            console.info(gameUrlCode);
+
             $.ajax({
                 url: '../io/db.php',
                 data: {
@@ -183,6 +183,7 @@ var IO = {
                 },
                 type: 'POST',
                 success: function (response) {
+                    console.info(response);
                     if (response == true) {;
                         console.info('record added.');
                     }
@@ -210,14 +211,110 @@ var IO = {
                         DashboardController.Util.createGame();
                     }
                     else {
-                        GameCreationStorage.createGame();
+                        GameValueStorage.createGame();
                     }
                 }  
             });
             
         },
         
-        "addNewGame": function() {
+        "checkGameExistsForJoin": function(userName, urlCode) {
+            
+             $.ajax({
+                url: '../io/db.php',
+                data: {
+                    user: userName,
+                    game: urlCode,
+                    intent: 'checkGameExistsForJoin',
+                },
+                type: 'POST',
+                success: function (response) {
+                    if (response == true) {
+                        console.info('Game Exists?');
+                        GameValueStorage.joinGame();
+                    }
+                    else {
+                        
+                        console.info('Game Doesnt Exist?');
+                        DashboardController.Util.updateJoinErrorMessage();
+                    }
+                }  
+            });
+            
+        },
+        
+        "enterGame": function(userName, urlCode) {
+            
+            console.info('Rolliung');
+            
+             $.ajax({
+                url: '../io/db.php',
+                data: {
+                    user: userName,
+                    game: urlCode,
+                    intent: 'enterGame',
+                },
+                type: 'POST',
+                success: function (response) {
+                    if (response == true) {
+                        console.info('Record added');
+                    }
+                    else {
+                        console.info('Fail');
+                        console.info(response);
+                    }
+                }  
+            });
+            
+        },
+        
+        "getPlayerGameIds": function(userName) {
+            
+            $.ajax({
+                url: '../io/playerGames.php',
+                data: {
+                    dataType: 'json',
+                    user: userName,
+                    intent: 'getPlayerGames',
+                },
+                type: 'POST',
+                success: function (response) {
+                    
+                    if (response != false) {
+                    
+                        GameData.gameIds = JSON.parse(response);
+                        DashboardController.Util.buildGameList();
+                        
+                    }
+                    
+                }  
+            });
+            
+        },
+        
+        "getGameInfo": function(userName, gameID) {
+            
+            $.ajax({
+                url: '../io/playerGames.php',
+                data: {
+                    dataType: 'json',
+                    user: userName,
+                    gameId: gameID,
+                    intent: 'getGameInfo',
+                },
+                type: 'POST',
+                success: function (response) {
+                    
+                    console.info(response);
+                    
+                    GameData.gameData.push(JSON.parse(response));
+                    
+                    if (GameData.gameRetrievalCount == GameData.gameIds.length - 1) {
+                        DashboardController.Util.buildGameListHTML();
+                    }
+                    GameData.gameRetrievalCount++;
+                }  
+            });
             
         }
   

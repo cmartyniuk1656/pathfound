@@ -1,3 +1,17 @@
+var loginCallbackStorage = {
+    
+    "username": '',
+    "password": '',
+    
+    "callback": function() {
+        
+        IO.db.addNewUser(loginCallbackStorage.username, loginCallbackStorage.password);
+        
+    }
+    
+    
+}
+
 var LoginController = {
     
     "Events":  {
@@ -39,9 +53,10 @@ var LoginController = {
     
             var errorMsg = '';
             
-            var callback = function(name, pass) {
-                IO.db.addNewUser(name, pass);
-            }
+            loginCallbackStorage.username = username;
+            loginCallbackStorage.password = password;
+            
+            console.info(loginCallbackStorage);
     
             errorDiv.innerHTML = errorMsg;
             
@@ -65,7 +80,7 @@ var LoginController = {
             }
             
             else if (valid) {
-                IO.db.checkUserExists(username, callback(username, password));
+                IO.db.checkUserExists(username);
             }
             
         },

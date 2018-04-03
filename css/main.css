@@ -182,8 +182,12 @@ hr {
     color: #fff;
 }
 
-#error-msg-sign-up {
+#error-msg-sign-up, #error-msg-join-game {
     color: darkred;
+}
+
+.join-game-bottom-col {
+    margin-bottom: 15px;
 }
 
 
@@ -429,7 +433,7 @@ hr {
     color:darkorange !important;
 }
 
-#return-link h3 {
+.return-link h3 {
     text-align: center;
     font-family: modern !important;
     color: #fff !important;
@@ -438,7 +442,7 @@ hr {
     margin-top: 15px;
 }
 
-#return-link h3:hover {
+.return-link h3:hover {
     color:darkcyan !important;
 }
 
@@ -447,7 +451,7 @@ hr {
 
 /*JOIN/CREATE GAME PAGE CSS START--------------------------------------------*/
 
-#game-name {
+.game-name {
    
     margin-top: 15px;
     font-family: modern !important;

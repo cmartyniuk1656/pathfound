@@ -61,6 +61,11 @@
     margin: 0 10px 15px 0;
 }
 
+.dash-right-col{
+    margin-top: 15px;
+    text-align: center;
+}
+
 /*CREATE GAME MODAL CSS START -------------------------------------------*/
 
 .create-modal-bottom-row {
@@ -68,4 +73,15 @@
     margin-bottom: 30px;
 }
 
+#join-game {
+    text-align: center;
+}
+
+.schedule {
+    font-size: 1rem;
+}
+
+.schedule-text {
+    margin-bottom: 15px;
+}
 /*CREATE GAME MODAL CSS END ---------------------------------------------*/
