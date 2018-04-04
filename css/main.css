@@ -446,6 +446,10 @@ hr {
     color:darkcyan !important;
 }
 
+#change-profile-picture-btn input {
+/*    opacity: 0;*/
+}
+
 
 /*ACCOUNT PAGE CSS END------------------------------------------------*/
 

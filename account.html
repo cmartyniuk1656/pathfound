@@ -22,13 +22,17 @@
             <div class="row">
                 <div class="column small-12 medium-12 large-12 end account-management-left">
                     <div class="profile-picture"><img src="img/COOL_DRAGON.png"/></div>
-                    <h3>Display Name</h3>
-                    <h3>Password</h3>
-                    <h3>Email</h3>
-                    <h3>Change Display Name</h3>
-                    <h3>Change Password</h3>
-                    <h3>Display Name</h3>
-                    <h3>Change Profile Picture</h3>
+                    <h3 id="change-display-name-btn">Display Name</h3>
+                    <h3 id="change-password-btn">Change Password</h3>
+                    <h3 id="email-btn">Email</h3>
+                    <h3 id="change-profile-picture-btn">Update Profile Picture</h3>
+                    <form action="/io/imageHandler.php" method="post" enctype="multipart/form-data" target="myIframe">
+                        <input type='hidden' name='intent' value='updateUserImage'/> 
+                        <input id="userName-value" type='hidden' name='userName' value=''/> 
+                        <input type="file" id="picture-select" name="photo">
+                        <input type="submit">
+                    </form>
+                    <iframe name="myIframe"></iframe>
                 </div>
             </div>
             <div class="row">
@@ -49,6 +53,7 @@
     <script src="js/io.js"></script>
     <script src="js/login.js"></script>
     <script src="js/user.js"></script>
+    <script src="js/account.js"></script>
 
 </body>
 </html>

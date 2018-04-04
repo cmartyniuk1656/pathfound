@@ -13,7 +13,8 @@ var IO = {
                 myData: dataString,
                 myDestination: destination,
                 myType: objType,
-                requestType: 'post'
+                requestType: 'post',
+                intet: 'postJson'
             },
             type: 'POST',
             success: function (response) {
@@ -39,7 +40,7 @@ var IO = {
                 myDestination: path,
                 myType: objType,
                 requestType: 'get',
-                
+                intet: 'getJson'
             },
             type: 'POST',
             success: function(response) {
@@ -100,7 +101,7 @@ var IO = {
                 success: function (response) {
                     if (response == true) {
                         UserController.Util.storeUserInfo(userName, password);
-                        $(location).attr('href', "dashboard.html")
+                        $(location).attr('href', "dashboard.html");
                     }
                 }  
             });
@@ -160,6 +161,7 @@ var IO = {
                 success: function (response) {
                     if (response == true) {;
                         console.info('record added.');
+                        $(location).attr('href', "index.html");
                     }
                     else {
                         console.info(response);
@@ -189,6 +191,7 @@ var IO = {
                     }
                     else {
                         console.info(response);
+                        $(location).attr('href', "dashboard.html");
                     }
                 }  
             });
@@ -258,6 +261,7 @@ var IO = {
                 success: function (response) {
                     if (response == true) {
                         console.info('Record added');
+                        $(location).attr('href', "dashboard.html");
                     }
                     else {
                         console.info('Fail');
