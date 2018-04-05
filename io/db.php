@@ -84,11 +84,16 @@ else if ($intent == "checkGameExists") {
     if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
-            echo true;
+            if($row != null) {
+                echo $row;
+            }
+            else {
+                echo false;
+            }
         }
     } 
     else {
-        echo false;
+        "Error: " . $sql . "<br>" . $conn->error;
     }
 
 $conn->close();

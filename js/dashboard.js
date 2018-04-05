@@ -115,7 +115,7 @@ var DashboardController = {
                              '"#enter-game-' + counter + '" data-lity class="btn dark control-panel">Enter Game</a></div>'  +
                              '</div></div></div>';
                 
-                if (!counter % 2) {
+                if (counter % 2) {
                     document.getElementById('game-list-right-side').innerHTML += htmlString;
                 }
                 else {

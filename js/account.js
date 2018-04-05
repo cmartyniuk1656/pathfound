@@ -20,6 +20,7 @@ var AccountController = {
     "Init": function() {
         AccountController.Events.addAll();
         $('#userName-value').val(User.username);
+        $('#profile-picture').attr('src', User.avatarPath);
     }
     
 }

@@ -1,7 +1,8 @@
 var User = {
     
     "username": '',
-    "password": ''
+    "password": '',
+    "avatarPath": ''
         
 }
     
@@ -17,6 +18,10 @@ var UserController = {
             sessionStorage.setItem('user', JSON.stringify(User));
         },
         
+        "storeUserInfoWithAvatar": function() {
+            
+        },
+        
         "getUserInfo": function() {
             
             if (sessionStorage.user != null && sessionStorage.user != '' && typeof(sessionStorage.user != 'undefined')) {
@@ -27,6 +32,10 @@ var UserController = {
                 return false;
             }
     
+        },
+        
+        "getUserAvatar": function(userName) {
+            IO.db.checkUserAvatarExists(userName, password);
         }
     },
     

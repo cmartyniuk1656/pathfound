@@ -100,8 +100,7 @@ var IO = {
                 type: 'POST',
                 success: function (response) {
                     if (response == true) {
-                        UserController.Util.storeUserInfo(userName, password);
-                        $(location).attr('href', "dashboard.html");
+                        IO.db.checkUserAvatarExists(userName, password);
                     }
                 }  
             });
@@ -120,7 +119,7 @@ var IO = {
                 type: 'POST',
                 success: function (response) {
                     if (response != true) {
-                        UserController.Util.storeUserInfo(userName, password);
+                        IO.db.checkUserAvatarExists(userName, password);
                     }
                 }  
             });
@@ -166,6 +165,31 @@ var IO = {
                     else {
                         console.info(response);
                     }
+                }  
+            });
+            
+        },
+        
+        "checkUserAvatarExists": function(userName, password) {
+            
+            $.ajax({
+                url: '../io/imageHandler.php',
+                data: {
+                    accUserName: userName,
+                    intent: 'checkAvatarExists',
+                },
+                type: 'POST',
+                success: function (response) {
+                    if (response == true) {
+                        User.avatarPath = 'io/dam/avatar/' + userName + '.jpg';
+                        UserController.Util.storeUserInfo(userName, password);
+                    }
+                    else {
+                        User.avatarPath = 'img/COOL_DRAGON.png';
+                        UserController.Util.storeUserInfo(userName, password);
+                    }
+                    
+                     $(location).attr('href', "dashboard.html");
                 }  
             });
             

@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 
  $dir = $_SERVER['DOCUMENT_ROOT'];
  $intent = $_POST['intent'];
- $fileName = $_POST['userName'];
+ $fileName = $_POST['accUserName'];
  $path = $_SERVER['DOCUMENT_ROOT'] . '/io/dam/avatar/';
  $valid_file = true;
 
@@ -45,11 +45,12 @@ if ($intent == 'updateUserImage') {
                 
                 if(move_uploaded_file($_FILES['photo']['tmp_name'], $target . '.jpg')) {
                     
-                    $sql = "INSERT INTO User userAvatarPath WHERE userName = '" . $username . "' 
-                    VALUES ('" . $target . ".jpg" . "')";
+                    $sql = "UPDATE User 
+                    SET userAvatarPath = '/io/dam/avatar/" . $fileName . ".jpg" . "' 
+                    WHERE userName = '" . $fileName . "'";
                     
-                    if ($conn->query($sqlGameRoomId) === TRUE) {
-                        echo "Success";
+                    if ($conn->query($sql) === TRUE) {
+                        echo "Success"; 
                     }   
                     else {
                         error_log("Error: " . $sql . "<br>" . $conn->error);
@@ -79,5 +80,27 @@ if ($intent == 'updateUserImage') {
 	}
 
         
+}
+
+else if ($intent == 'checkAvatarExists') {
+    
+    $sql = "SELECT userAvatarPath FROM User WHERE userName = '" . $fileName . "'";
+    $result = $conn->query($sql);
+    
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            
+            if($row['userAvatarPath'] === null) {
+                echo false;
+            } 
+            else {
+                echo true;
+            }
+        }   
+    }
+    else {
+        echo false;
+    }
+    
 }
     
