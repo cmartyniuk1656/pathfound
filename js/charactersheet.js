@@ -30,7 +30,7 @@ var CharacterSheet =
                     console.info("unchecked");
                     $("#sidebar-name-div").addClass('hidden');
                 }
-            })
+            });
             $("#character-alignment-visible").change(function()
             {
                 if (this.checked)
@@ -44,7 +44,7 @@ var CharacterSheet =
                     console.info("unchecked");
                     $("#sidebar-alignment-div").addClass('hidden');
                 }
-            })
+            });
             $("#character-deity-visible").change(function()
             {
                 if (this.checked)
@@ -58,7 +58,7 @@ var CharacterSheet =
                     console.info("unchecked");
                     $("#sidebar-deity-div").addClass('hidden');
                 }
-            })
+            });
             $("#character-race-visible").change(function()
             {
                 if (this.checked)
@@ -72,7 +72,7 @@ var CharacterSheet =
                     console.info("unchecked");
                     $("#sidebar-race-div").addClass('hidden');
                 }
-            })
+            });
             $("#character-size-visible").change(function()
             {
                 if (this.checked)
@@ -86,7 +86,7 @@ var CharacterSheet =
                     console.info("unchecked");
                     $("#sidebar-size-div").addClass('hidden');
                 }
-            })
+            });
             $("#character-gender-visible").change(function()
             {
                 if (this.checked)
@@ -100,7 +100,7 @@ var CharacterSheet =
                     console.info("unchecked");
                     $("#sidebar-gender-div").addClass('hidden');
                 }
-            })
+            });
             $("#character-age-visible").change(function()
             {
                 if (this.checked)
@@ -114,7 +114,7 @@ var CharacterSheet =
                     console.info("unchecked");
                     $("#sidebar-age-div").addClass('hidden');
                 }
-            })
+            });
 
             $("#character-sheet-save").click(function()
                 {
@@ -125,7 +125,7 @@ var CharacterSheet =
                     CharacterObj.Size = $("#character-size").val();
                     CharacterObj.Gender = $("#character-gender").val();
                     CharacterObj.Age = $("#character-age").val();
-                })
+                });
 
             $("#character-sheet-load").click(function()
                 {
@@ -136,7 +136,7 @@ var CharacterSheet =
                     console.info("Size: " + CharacterObj.Size);
                     console.info("Gender: " + CharacterObj.Gender);
                     console.info("Age: " + CharacterObj.Age);
-                })
+                });
         }
     },
 
@@ -148,7 +148,7 @@ var CharacterSheet =
         console.info("Initializing...");
         CharacterSheet.Events.addAll()
     }
-}
+};
 
 
 $(document).ready(function()
@@ -156,4 +156,4 @@ $(document).ready(function()
         console.info("dom is ready");
         CharacterSheet.Init();
     }
-)
+);
