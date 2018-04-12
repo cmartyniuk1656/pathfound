@@ -179,35 +179,850 @@
                     <td><input type="number" id="sheet-cmd-dex"></td>
                     <td><input type="number" id="sheet-cmd-size"></td>
                 </tr>
+            </table>
+        </div>
+        <div id="sheet-attacks-workspace">
+            <table>
                 <tr>
-                    <td>TODO: WEAPONS</td>
+                    <th><label for="sheet-weapon-1">Weapon</label></th>
+                    <th><label for="sheet-weapon-bonus-1">Attack Bonus</label></th>
+                    <th><label for="sheet-weapon-crit-range-1">Critical Range</label></th>
+                    <th><label for="sheet-weapon-crit-mult-1">Critical Multiplier</label></th>
+                    <th><label for="sheet-weapon-damage-1">Damage</label></th>
+                    <th><label for="sheet-weapon-damage-type-1">Damage Type</label></th>
+                    <th><label for="sheet-weapon-range-1">Range</label></th>
+                    <th><label for="sheet-weapon-ammo-1">Ammunition</label></th>
                 </tr>
                 <tr>
-                    <td>TODO: SKILLS</td>
+                    <td><input type="text" id="sheet-weapon-1"></td>
+                    <td><input type="number" id="sheet-weapon-bonus-1"></td>
+                    <td><input type="number" id="sheet-weapon-crit-range-1"></td>
+                    <td><input type="number" id="sheet-weapon-crit-mult-1"></td>
+                    <td><input type="text" id="sheet-weapon-damage-1"></td>
+                    <td><input type="text" id="sheet-weapon-damage-type-1"></td>
+                    <td><input type="text" id="sheet-weapon-range-1"></td>
+                    <td><input type="text" id="sheet-weapon-ammo-1"></td>
                 </tr>
                 <tr>
-                    <td>TODO: TRAITS AND RACIAL FEATURES</td>
+                    <th><label for="sheet-weapon-2">Weapon</label></th>
+                    <th><label for="sheet-weapon-bonus-2">Attack Bonus</label></th>
+                    <th><label for="sheet-weapon-crit-range-2">Critical Range</label></th>
+                    <th><label for="sheet-weapon-crit-mult-2">Critical Multiplier</label></th>
+                    <th><label for="sheet-weapon-damage-2">Damage</label></th>
+                    <th><label for="sheet-weapon-damage-type-2">Damage Type</label></th>
+                    <th><label for="sheet-weapon-range-2">Range</label></th>
+                    <th><label for="sheet-weapon-ammo-2">Ammunition</label></th>
                 </tr>
                 <tr>
-                    <td>TODO: CLASS FEATURES</td>
+                    <td><input type="text" id="sheet-weapon-2"></td>
+                    <td><input type="number" id="sheet-weapon-bonus-2"></td>
+                    <td><input type="number" id="sheet-weapon-crit-range-2"></td>
+                    <td><input type="number" id="sheet-weapon-crit-mult-2"></td>
+                    <td><input type="text" id="sheet-weapon-damage-2"></td>
+                    <td><input type="text" id="sheet-weapon-damage-type-2"></td>
+                    <td><input type="text" id="sheet-weapon-range-2"></td>
+                    <td><input type="text" id="sheet-weapon-ammo-2"></td>
                 </tr>
                 <tr>
-                    <td>TODO: FEATS</td>
+                    <th><label for="sheet-weapon-3">Weapon</label></th>
+                    <th><label for="sheet-weapon-bonus-3">Attack Bonus</label></th>
+                    <th><label for="sheet-weapon-crit-range-3">Critical Range</label></th>
+                    <th><label for="sheet-weapon-crit-mult-3">Critical Multiplier</label></th>
+                    <th><label for="sheet-weapon-damage-3">Damage</label></th>
+                    <th><label for="sheet-weapon-damage-type-3">Damage Type</label></th>
+                    <th><label for="sheet-weapon-range-3">Range</label></th>
+                    <th><label for="sheet-weapon-ammo-3">Ammunition</label></th>
                 </tr>
                 <tr>
-                    <td>TODO: MISC SPECIAL ABILITIES</td>
+                    <td><input type="text" id="sheet-weapon-3"></td>
+                    <td><input type="number" id="sheet-weapon-bonus-3"></td>
+                    <td><input type="number" id="sheet-weapon-crit-range-3"></td>
+                    <td><input type="number" id="sheet-weapon-crit-mult-3"></td>
+                    <td><input type="text" id="sheet-weapon-damage-3"></td>
+                    <td><input type="text" id="sheet-weapon-damage-type-3"></td>
+                    <td><input type="text" id="sheet-weapon-range-3"></td>
+                    <td><input type="text" id="sheet-weapon-ammo-3"></td>
                 </tr>
                 <tr>
-                    <td>TODO: INVENTORY</td>
+                    <th><label for="sheet-weapon-4">Weapon</label></th>
+                    <th><label for="sheet-weapon-bonus-4">Attack Bonus</label></th>
+                    <th><label for="sheet-weapon-crit-range-4">Critical Range</label></th>
+                    <th><label for="sheet-weapon-crit-mult-4">Critical Multiplier</label></th>
+                    <th><label for="sheet-weapon-damage-4">Damage</label></th>
+                    <th><label for="sheet-weapon-damage-type-4">Damage Type</label></th>
+                    <th><label for="sheet-weapon-range-4">Range</label></th>
+                    <th><label for="sheet-weapon-ammo-4">Ammunition</label></th>
                 </tr>
-
                 <tr>
-                    <td>TODO: SPELLS</td>
+                    <td><input type="text" id="sheet-weapon-4"></td>
+                    <td><input type="number" id="sheet-weapon-bonus-4"></td>
+                    <td><input type="number" id="sheet-weapon-crit-range-4"></td>
+                    <td><input type="number" id="sheet-weapon-crit-mult-4"></td>
+                    <td><input type="text" id="sheet-weapon-damage-4"></td>
+                    <td><input type="text" id="sheet-weapon-damage-type-4"></td>
+                    <td><input type="text" id="sheet-weapon-range-4"></td>
+                    <td><input type="text" id="sheet-weapon-ammo-4"></td>
+                </tr>
+            </table>
+        </div>
+        <div id="sheet-skills">
+            <table>
+                <tr>
+                    <th>Skill Names</th>
+                    <th>Total Bonus</th>
+                    <th></th>
+                    <th>Abilitiy Modifier</th>
+                    <th>Ranks</th>
+                    <th>Misc. Mod</th>
                 </tr>
                 <tr>
-                    <td>TODO: MONEY, ENCUMBRANCE, AND EXPERIENCE</td>
+                    <td>Acrobatics</td>
+                    <td><input type="number" id="sheet-skill-acrobatics-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
                 </tr>
-
+                <tr>
+                    <td>Appraise</td>
+                    <td><input type="number" id="sheet-skill-appraise-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Bluff</td>
+                    <td><input type="number" id="sheet-skill-bluff-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Climb</td>
+                    <td><input type="number" id="sheet-skill-climb-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Craft <input type="text"></td>
+                    <td><input type="number" id="sheet-skill-craft-1-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Craft <input type="text"></td>
+                    <td><input type="number" id="sheet-skill-craft-2-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Craft <input type="text"></td>
+                    <td><input type="number" id="sheet-skill-craft-3-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Diplomacy</td>
+                    <td><input type="number" id="sheet-skill-diplomacy-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Disable Device</td>
+                    <td><input type="number" id="sheet-skill-disable-device-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Disguise</td>
+                    <td><input type="number" id="sheet-skill-disguise-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Escape Artist</td>
+                    <td><input type="number" id="sheet-skill-escape-artist-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Fly</td>
+                    <td><input type="number" id="sheet-skill-fly-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Handle Animal</td>
+                    <td><input type="number" id="sheet-skill-handle-animal-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Heal</td>
+                    <td><input type="number" id="sheet-skill-heal-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Intimidate</td>
+                    <td><input type="number" id="sheet-skill-intimidate-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Knowledge (Arcana)</td>
+                    <td><input type="number" id="sheet-skill-arcana-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Knowledge (Dungeoneering)</td>
+                    <td><input type="number" id="sheet-skill-dungeoneering-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Knowledge (Engineering)</td>
+                    <td><input type="number" id="sheet-skill-engineering-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Knowledge (Geography)</td>
+                    <td><input type="number" id="sheet-skill-geography-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Knowledge (History)</td>
+                    <td><input type="number" id="sheet-skill-history-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Knowledge (Local)</td>
+                    <td><input type="number" id="sheet-skill-local-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Knowledge (Nature)</td>
+                    <td><input type="number" id="sheet-skill-nature-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Knowledge (Nobility)</td>
+                    <td><input type="number" id="sheet-skill-nobility-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Knowledge (Planes)</td>
+                    <td><input type="number" id="sheet-skill-planes-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Knowledge (Religion)</td>
+                    <td><input type="number" id="sheet-skill-religion-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Linguistics</td>
+                    <td><input type="number" id="sheet-skill-linguistics-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Perception</td>
+                    <td><input type="number" id="sheet-skill-perception-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Perform <input type="text"></td>
+                    <td><input type="number" id="sheet-skill-perform-1-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Perform <input type="text"></td>
+                    <td><input type="number" id="sheet-skill-perform-2-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Profession <input type="text"></td>
+                    <td><input type="number" id="sheet-skill-profession-1-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Profession <input type="text"></td>
+                    <td><input type="number" id="sheet-skill-profession-2-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Ride</td>
+                    <td><input type="number" id="sheet-skill-ride-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Sense Motive</td>
+                    <td><input type="number" id="sheet-skill-sense-motive-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Sleight of Hand</td>
+                    <td><input type="number" id="sheet-skill-sleight-of-hand-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Spellcraft</td>
+                    <td><input type="number" id="sheet-skill-spellcraft-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Stealth</td>
+                    <td><input type="number" id="sheet-skill-stealth-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Survival</td>
+                    <td><input type="number" id="sheet-skill-survival-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Swim</td>
+                    <td><input type="number" id="sheet-skill-swim-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>Use Magic Device</td>
+                    <td><input type="number" id="sheet-skill-umd-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td><input type="text"></td>
+                    <td><input type="number" id="sheet-skill-misc-1-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td><input type="text"></td>
+                    <td><input type="number" id="sheet-skill-misc-2-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td><input type="text"></td>
+                    <td><input type="number" id="sheet-skill-misc-3-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td><input type="text"></td>
+                    <td><input type="number" id="sheet-skill-misc-4-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td><input type="text"></td>
+                    <td><input type="number" id="sheet-skill-misc-5-total"></td>
+                    <td>
+                        <select>
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
+                        </select>
+                    </td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
             </table>
         </div>
 
