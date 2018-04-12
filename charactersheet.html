@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>sheet Sheet Testing</title>
+    <title>Character Sheet Testing</title>
     <style>
         .hidden
         {
@@ -15,33 +15,27 @@
 
 <!------------------------------Character Sheet Begin----------------------------->
     <div>
-        <div>
-            <label for="sheet-name">Name</label>
-            <input type="text" id="sheet-name">
-        </div>
-        <div>
-            <label for="sheet-alignment">Alignment</label>
-            <input type="text" id="sheet-alignment">
-        </div>
-        <div>
-            <label for="sheet-deity">Deity</label>
-            <input type="text" id="sheet-deity">
-        </div>
-        <div>
-            <label for="sheet-race">Race</label>
-            <input type="text" id="sheet-race">
-        </div>
-        <div>
-            <label for="sheet-size">Size</label>
-            <input type="text" id="sheet-size">
-        </div>
-        <div>
-            <label for="sheet-gender">Gender</label>
-            <input type="text" id="sheet-gender">
-        </div>
-        <div>
-            <label for="sheet-age">Age</label>
-            <input type="text" id="sheet-age">
+        <div id="sheet-details">
+            <table>
+            <tr>
+                <td><label for="sheet-name">Name</label></td>
+                <td><input type="text" id="sheet-name"></td>
+                <td><label for="sheet-alignment">Alignment</label></td>
+                <td><input type="text" id="sheet-alignment"></td>
+                <td><label for="sheet-deity">Deity</label></td>
+                <td><input type="text" id="sheet-deity"></td>
+            </tr>
+            <tr>
+                <td><label for="sheet-race">Race</label></td>
+                <td><input type="text" id="sheet-race"></td>
+                <td><label for="sheet-size">Size</label></td>
+                <td><input type="text" id="sheet-size"></td>
+                <td><label for="sheet-gender">Gender</label></td>
+                <td><input type="text" id="sheet-gender"></td>
+                <td><label for="sheet-age">Age</label></td>
+                <td><input type="text" id="sheet-age"></td>
+            </tr>
+            </table>
         </div>
         <div id="sheet-ability-scores">
             <table>
@@ -99,6 +93,15 @@
                     <td><input type="number" id="sheet-temp-chascore"></td>
                     <td><input type="number" id="sheet-temp-chamod" disabled></td>
                 </tr>
+            </table>
+        </div>
+        <div id="sheet-vitals">
+            <table>
+                <tr>
+                    <td><label for="sheet-hp-max">Max HP</label></td>
+                    <td><input type="number" id="sheet-hp-max"></td>
+                </tr>
+
             </table>
         </div>
 
