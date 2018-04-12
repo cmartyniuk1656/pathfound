@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>Character Sheet Testing</title>
+    <title>sheet Sheet Testing</title>
     <style>
         .hidden
         {
@@ -16,48 +16,100 @@
 <!------------------------------Character Sheet Begin----------------------------->
     <div>
         <div>
-            <input type="checkbox" id="character-name-visible">
-            <label for="character-name">Character Name</label>
-            <input type="text" id="character-name">
+            <label for="sheet-name">Name</label>
+            <input type="text" id="sheet-name">
         </div>
         <div>
-            <input type="checkbox" id="character-alignment-visible">
-            <label for="character-alignment">Alignment</label>
-            <input type="text" id="character-alignment">
+            <label for="sheet-alignment">Alignment</label>
+            <input type="text" id="sheet-alignment">
         </div>
         <div>
-            <input type="checkbox" id="character-deity-visible">
-            <label for="character-deity">Deity</label>
-            <input type="text" id="character-deity">
+            <label for="sheet-deity">Deity</label>
+            <input type="text" id="sheet-deity">
         </div>
         <div>
-            <input type="checkbox" id="character-race-visible">
-            <label for="character-race">Race</label>
-            <input type="text" id="character-race">
+            <label for="sheet-race">Race</label>
+            <input type="text" id="sheet-race">
         </div>
         <div>
-            <input type="checkbox" id="character-size-visible">
-            <label for="character-size">Size</label>
-            <input type="text" id="character-size">
+            <label for="sheet-size">Size</label>
+            <input type="text" id="sheet-size">
         </div>
         <div>
-            <input type="checkbox" id="character-gender-visible">
-            <label for="character-gender">Gender</label>
-            <input type="text" id="character-gender">
+            <label for="sheet-gender">Gender</label>
+            <input type="text" id="sheet-gender">
         </div>
         <div>
-            <input type="checkbox" id="character-age-visible">
-            <label for="character-age">Age</label>
-            <input type="text" id="character-age">
+            <label for="sheet-age">Age</label>
+            <input type="text" id="sheet-age">
         </div>
+        <div id="sheet-ability-scores">
+            <table>
+                <tr>
+                    <th></th>
+                    <th colspan="2">Base</th>
+                    <th colspan="2">Temp</th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th>Score</th>
+                    <th>Mod</th>
+                    <th>Score</th>
+                    <th>Mod</th>
+                </tr>
+                <tr>
+                    <td>STR</td>
+                    <td><input type="number" id="sheet-strscore"></td>
+                    <td><input type="number" id="sheet-strmod" disabled></td>
+                    <td><input type="number" id="sheet-temp-strscore"></td>
+                    <td><input type="number" id="sheet-temp-strmod" disabled></td>
+                </tr>
+                <tr>
+                    <td>DEX</td>
+                    <td><input type="number" id="sheet-dexscore"></td>
+                    <td><input type="number" id="sheet-dexmod" disabled></td>
+                    <td><input type="number" id="sheet-temp-dexscore"></td>
+                    <td><input type="number" id="sheet-temp-dexmod" disabled></td>
+                </tr>
+                <tr>
+                    <td>CON</td>
+                    <td><input type="number" id="sheet-conscore"></td>
+                    <td><input type="number" id="sheet-conmod" disabled></td>
+                    <td><input type="number" id="sheet-temp-conscore"></td>
+                    <td><input type="number" id="sheet-temp-conmod" disabled></td>
+                </tr>
+                <tr>
+                    <td>INT</td>
+                    <td><input type="number" id="sheet-intscore"></td>
+                    <td><input type="number" id="sheet-intmod" disabled></td>
+                    <td><input type="number" id="sheet-temp-intscore"></td>
+                    <td><input type="number" id="sheet-temp-intmod" disabled></td>
+                </tr>
+                <tr>
+                    <td>WIS</td>
+                    <td><input type="number" id="sheet-wisscore"></td>
+                    <td><input type="number" id="sheet-wismod" disabled></td>
+                    <td><input type="number" id="sheet-temp-wisscore"></td>
+                    <td><input type="number" id="sheet-temp-wismod" disabled></td>
+                </tr>
+                <tr>
+                    <td>CHA</td>
+                    <td><input type="number" id="sheet-chascore"></td>
+                    <td><input type="number" id="sheet-chamod" disabled></td>
+                    <td><input type="number" id="sheet-temp-chascore"></td>
+                    <td><input type="number" id="sheet-temp-chamod" disabled></td>
+                </tr>
+            </table>
+        </div>
+
         <div>
-            <input type="button" id="character-sheet-save" value="Save">
-            <input type="button" id="character-sheet-load" value="Load">
+            <input type="button" id="sheet-sheet-save" value="Save">
+            <input type="button" id="sheet-sheet-load" value="Load">
         </div>
     </div>
 <!------------------------------Character Sheet End------------------------------->
 
-<!------------------------------Character Sidebar Begin--------------------------->
+<!------------------------------Character Sidebar Begin---------------------------
     <div>
         <div id="sidebar-name-div" class="hidden">
             <input type="text" id="sidebar-name" disabled>

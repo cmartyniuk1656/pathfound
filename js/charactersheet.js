@@ -1,5 +1,6 @@
 var CharacterObj =
 {
+    "UserID": "",
     "Name": "",
     "Alignment": "",
     "Deity": "",
