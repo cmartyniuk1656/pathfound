@@ -1,13 +1,26 @@
 var CharacterObj =
 {
-    "UserID": "",
     "Name": "",
-    "Alignment": "",
-    "Deity": "",
     "Race": "",
     "Size": "",
+    "Class": "",
     "Gender": "",
-    "Age": ""
+    "Age": "",
+    "Alignment": "",
+    "Deity": "",
+    "Str": "",
+    "TempStr": "",
+    "Dex": "",
+    "TempDex": "",
+    "Con": "",
+    "TempCon": "",
+    "Int": "",
+    "TempInt": "",
+    "Wis": "",
+    "TempWis": "",
+    "Cha": "",
+    "TempCha": "",
+
 }
 
 

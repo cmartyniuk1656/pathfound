@@ -15,6 +15,10 @@
 
 <!------------------------------Character Sheet Begin----------------------------->
     <div>
+        <div>
+            <input type="button" id="sheet-sheet-save" value="Save">
+            <input type="button" id="sheet-sheet-load" value="Load">
+        </div>
         <div id="sheet-details">
             <table>
             <tr>
@@ -1137,8 +1141,44 @@
         <div id="sheet-ac-items">
             <table>
                 <tr>
-                    <td><label for="sheet-armour">Armour</label></td>
-                    <td></></td>
+                    <th><label for="sheet-armour-name">Armour</label></th>
+                    <th><label for="sheet-armour-bonus">Bonus</label></th>
+                    <th><label for="sheet-armour-max-dex">Max Dex</label></th>
+                    <th><label for="sheet-armour-type">Type</label></th>
+                    <th><label for="sheet-armour-penalty">Check Penalty</label></th>
+                    <th><label for="sheet-armour-spell-failure">Spell Failure</label></th>
+                    <th><label for="sheet-armour-weight">Weight</label></th>
+                    <th><label for="sheet-armour-properties">Properties</label></th>
+                </tr>
+                <tr>
+                    <td><input type="text" id="sheet-armour-name"></td>
+                    <td><input type="text" id="sheet-armour-bonus"></td>
+                    <td><input type="text" id="sheet-armour-max-dex"></td>
+                    <td><input type="text" id="sheet-armour-type"></td>
+                    <td><input type="text" id="sheet-armour-penalty"></td>
+                    <td><input type="text" id="sheet-armour-spell-failure"></td>
+                    <td><input type="text" id="sheet-armour-weight"></td>
+                    <td><input type="text" id="sheet-armour-properties"></td>
+                </tr>
+                <tr>
+                    <th><label for="sheet-shield-name">Shield</label></th>
+                    <th><label for="sheet-shield-bonus">Bonus</label></th>
+                    <th><label for="sheet-shield-max-dex">Max Dex</label></th>
+                    <th><label for="sheet-shield-type">Type</label></th>
+                    <th><label for="sheet-shield-penalty">Check Penalty</label></th>
+                    <th><label for="sheet-shield-spell-failure">Spell Failure</label></th>
+                    <th><label for="sheet-shield-weight">Weight</label></th>
+                    <th><label for="sheet-shield-properties">Properties</label></th>
+                </tr>
+                <tr>
+                    <td><input type="text" id="sheet-shield-name"></td>
+                    <td><input type="text" id="sheet-shield-bonus"></td>
+                    <td><input type="text" id="sheet-shield-max-dex"></td>
+                    <td><input type="text" id="sheet-shield-type"></td>
+                    <td><input type="text" id="sheet-shield-penalty"></td>
+                    <td><input type="text" id="sheet-shield-spell-failure"></td>
+                    <td><input type="text" id="sheet-shield-weight"></td>
+                    <td><input type="text" id="sheet-shield-properties"></td>
                 </tr>
             </table>
         </div>
@@ -1395,10 +1435,45 @@
                     <td><input type="text" id="sheet-item-30-value"></td>
                 </tr>
             </table>
-        </div>
-        <div>
-            <input type="button" id="sheet-sheet-save" value="Save">
-            <input type="button" id="sheet-sheet-load" value="Load">
+            <table>
+                <tr>
+                    <td><label for="sheet-light-load">Light Load</label></td>
+                    <td><input type="number" id="sheet-light-load" disabled></td>
+                </tr>
+                <tr>
+                    <td><label for="sheet-medium-load">Medium Load</label></td>
+                    <td><input type="number" id="sheet-medium-load" disabled></td>
+                </tr>
+                <tr>
+                    <td><label for="sheet-heavy-load">Heavy Load</label></td>
+                    <td><input type="number" id="sheet-heavy-load" disabled></td>
+                </tr>
+                <tr>
+                    <td><label for="sheet-max-load">Max Load</label></td>
+                    <td><input type="number" id="sheet-max-load" disabled></td>
+                </tr>
+                <tr>
+                    <td><label for="sheet-head-load">Lift over head</label></td>
+                    <td><input type="number" id="sheet-head-load" disabled></td>
+                </tr>
+                <tr>
+                    <td><label for="sheet-ground-load">Lift off ground</label></td>
+                    <td><input type="number" id="sheet-ground-load" disabled></td>
+                </tr>
+                <tr>
+                    <td><label for="sheet-drag-load">Push/drag</label></td>
+                    <td><input type="number" id="sheet-drag-load" disabled></td>
+                </tr>
+
+            </table>
+            <table>
+                <tr>
+                    <td><label for="sheet-currencies">Currencies</label></td>
+                </tr>
+                <tr>
+                    <td><textarea name="sheet-currencies" id="sheet-currencies" cols="30" rows="10"></textarea></td>
+                </tr>
+            </table>
         </div>
     </div>
 <!------------------------------Character Sheet End------------------------------->
