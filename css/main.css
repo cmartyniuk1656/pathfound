@@ -90,16 +90,27 @@ hr {
     cursor: pointer;
 }
 
+#bg {
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+	
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+
 /*FONT CSS START------------------------------------------------------*/
 
 @font-face {
     font-family: pathfinder;
-    src: url(/assets/fonts/MoriaCitadel.TTF);
+    src: url(/assets/fonts/2-Questa_Regular.otf);
 }
 
 @font-face {
     font-family: modern;
-    src: url(/assets/fonts/nasalization-rg.ttf);
+    src: url(/assets/fonts/TradeWinds-Regular.ttf);
 }
 
 /*FONT CSS END--------------------------------------------------------*/
@@ -110,6 +121,7 @@ hr {
 #login-div {
     text-align: center;
     color: #fff;
+    
 }
 
 #login-div label {
@@ -121,11 +133,15 @@ hr {
     margin-top: 12.5%;
 }
 
+#login-div .row div {
+    margin-top: 0%;
+}
+
 #login-wrapper {
     background-color: rgba(0, 0, 0, 0.7) !important;
     font-family: modern, sans-serif;
     color: #aaaaaa;
-    padding: 10% 10% 15% 10%;
+    padding: 3% 3% 3% 3%;
 }
 #login-title {
     font-family: modern;
@@ -135,7 +151,7 @@ hr {
 }
 
 .form-wrapper {
-    background-color: rgba(184, 172, 154, 0.9) !important;
+    background-color: rgba(255, 255, 255, 0.6) !important;
     padding: 5% 10% 5% 10%;
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 20px 20px 20px 20px;
