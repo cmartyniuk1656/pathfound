@@ -37,7 +37,12 @@ var GameroomController = {
         
         "getFromServer": function() {
             IO.read(Gameroom);
+        },
+        
+        "readFromServer": function() {
+            IO.getUpdated(Gameroom);
         }
+        
         
     },
     
@@ -52,5 +57,11 @@ var GameroomController = {
 $(document).ready(function() {
     
     GameroomController.Init();
+    
+    //Update Loop
+    var sleep = time => new Promise(resolve => setTimeout(resolve, time))
+            var poll = (promiseFn, time) => promiseFn().then(sleep(time).then(() => poll(promiseFn, time)))
+
+            poll(() => new Promise(() => GameroomController.Util.readFromServer()), 5000);
     
 })

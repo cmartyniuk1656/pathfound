@@ -11,6 +11,8 @@ var ChatController = {
     "chatLog": document.getElementById('chat-log'),
     "chatTextField": document.getElementById('chat-bar'),
     
+    "eventsAdded": false,
+    
     
     //Controls for chat log
     "Controls": {
@@ -63,8 +65,12 @@ var ChatController = {
     "Util": {
         
         "updateChatLog": function() {
-            ChatController.chatLog.innerHTML = Chatbox.chatString;
-            $(ChatController.chatLog).scrollTop($(ChatController.chatLog)[0].scrollHeight); 
+            
+            if(ChatController.chatLog.innerHTML != Chatbox.chatString) {
+                ChatController.chatLog.innerHTML = Chatbox.chatString;
+                $(ChatController.chatLog).scrollTop($(ChatController.chatLog)[0].scrollHeight); 
+            }
+            
         },
         
         "clearChatTextField": function() {
@@ -81,7 +87,9 @@ var ChatController = {
     //Initialization call to set up ChatController Object
     "Init": function() {
 
-        ChatController.Events.addAll();
+        if(!ChatController.eventsAdded) {
+           ChatController.Events.addAll();
+        }
         ChatController.Util.updateChatLog();
         
     }    

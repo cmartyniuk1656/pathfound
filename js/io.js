@@ -46,8 +46,6 @@ var IO = {
             success: function(response) {
                 
                 
-                console.info('response is: ' + response);
-                
                 if (objType == 'gameroom') {
                     
                     //If gameroom file is found on the server
@@ -72,6 +70,64 @@ var IO = {
                         Gameroom.Chatbox = Chatbox;
                         
                         GameroomController.Util.updateServer();
+                    }
+                }
+                
+                
+                else if (objType == 'character') {
+                    //Placeholder for when we have character objects         
+                }
+                
+            
+            }
+        });
+
+    },
+    
+    "getUpdated": function (jsonObj) {
+
+        
+        var objType = jsonObj.objType;
+        var dataString = jsonObj;
+        var path = jsonObj.fileName;
+
+        $.ajax({
+            url: '../io/io.php',
+            data: {
+                myData: dataString,
+                myDestination: path,
+                myType: objType,
+                requestType: 'read',
+                intet: 'getJson'
+            },
+            type: 'POST',
+            success: function(response) {
+                
+                
+                if (objType == 'gameroom') {
+                    
+                    //If gameroom file is found on the server
+                    if (response != null && response != '' && typeof(response) != 'undefined') {
+                        
+                        Gameroom = JSON.parse(response);
+                        
+                        if (Map != Gameroom.Map) {
+                            Map = Gameroom.Map;
+                            MapController.Util.updateMapDom();
+                        }
+                        
+                        if (Chatbox != Gameroom.Chatbox) {
+                            Chatbox = Gameroom.Chatbox;
+                            ChatController.Init();
+                        }
+
+                        
+                    }
+                    
+                    //Else upload a new one to the server
+                    else {
+                        
+                        console.info('Error retrieving gameroom from server...')
                     }
                 }
                 

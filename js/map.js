@@ -10,12 +10,12 @@ var Map = {
     "mapList": {},
     
     //Used for zoom logic
-    "zoomLevels": ['0.25', '0.50', '0.75', '1.0', '1.25', '1.50', '1.75', '2.0'],
-    "selectedZoomIndex": 3,
-    
-    //Used for pan logic
-    "topTranslate": 0,
-    "leftTranslate": 0,
+//    "zoomLevels": ['0.25', '0.50', '0.75', '1.0', '1.25', '1.50', '1.75', '2.0'],
+//    "selectedZoomIndex": 3,
+//    
+//    //Used for pan logic
+//    "topTranslate": 0,
+//    "leftTranslate": 0,
     
     //Determines total cell count of the map
     "mapCellHeight": 21,                            //TODO: Make user selectable
@@ -23,7 +23,21 @@ var Map = {
     
     
     //Path to map background image
-    "backgroundImg": ''
+    "backgroundImg": '',
+    
+    "mapDom": ''
+    
+}
+
+var LocalMapVars = {
+    
+    //Used for zoom logic
+    "zoomLevels": ['0.25', '0.50', '0.75', '1.0', '1.25', '1.50', '1.75', '2.0'],
+    "selectedZoomIndex": 3,
+    
+    //Used for pan logic
+    "topTranslate": 0,
+    "leftTranslate": 0
     
 }
 
@@ -41,6 +55,8 @@ var MapController = {
         
     },
     
+    "eventsAdded": false,
+    
     //Map DOM elements
     "map": document.getElementById('map'),
     "mapGrid": document.getElementById('map-grid'),
@@ -52,9 +68,9 @@ var MapController = {
         //Zoom in the map
         "zoomInMap": function() {
             
-            if(Map.selectedZoomIndex < 7) {
+            if(LocalMapVars.selectedZoomIndex < 7) {
                 
-                Map.selectedZoomIndex ++;
+                LocalMapVars.selectedZoomIndex ++;
                 MapController.Util.setMapTransform();
             }     
         },
@@ -62,9 +78,9 @@ var MapController = {
         //Zoom out the map
         "zoomOutMap": function() {
             
-            if(Map.selectedZoomIndex > 0) {
+            if(LocalMapVars.selectedZoomIndex > 0) {
                 
-                Map.selectedZoomIndex --;            
+                LocalMapVars.selectedZoomIndex --;            
                 MapController.Util.setMapTransform();
                      
             }
@@ -73,7 +89,7 @@ var MapController = {
         //Pan map view to the left
         "panLeft": function() {
             
-            Map.leftTranslate += 50;
+            LocalMapVars.leftTranslate += 50;
             MapController.Util.setMapTransform();
         
         },
@@ -81,7 +97,7 @@ var MapController = {
         //Pan map view to the right
         "panRight": function() {
             
-            Map.leftTranslate -= 50;
+            LocalMapVars.leftTranslate -= 50;
             MapController.Util.setMapTransform();
                         
         },
@@ -89,7 +105,7 @@ var MapController = {
         //Pan map view up
         "panUp": function() {
             
-            Map.topTranslate += 50;
+            LocalMapVars.topTranslate += 50;
             MapController.Util.setMapTransform();
             
         },
@@ -97,7 +113,7 @@ var MapController = {
         //Pan map view down
         "panDown": function() {
             
-            Map.topTranslate -= 50;      
+            LocalMapVars.topTranslate -= 50;      
             MapController.Util.setMapTransform();
             
         }
@@ -194,7 +210,7 @@ var MapController = {
             
             
             
-            MapController.Events.mapClickEvents();
+//            MapController.Events.mapClickEvents();
             
         },
         
@@ -260,6 +276,10 @@ var MapController = {
                         
                             
                             MapController.SelectedTile.element = {};
+                            
+                            MapController.Util.saveMapDom();
+                            GameroomController.Map = Map;
+                            GameroomController.Util.updateServer();
                         }
                         
                     }
@@ -313,8 +333,8 @@ var MapController = {
         
         "setMapTransform": function() {
             
-            var scaleStyleString = 'translate(' + Map.leftTranslate.toString() + 'px, ' + Map.topTranslate.toString() + 'px)';
-            var zoomStyleString = 'scale(' + Map.zoomLevels[Map.selectedZoomIndex] + ')';
+            var scaleStyleString = 'translate(' + LocalMapVars.leftTranslate.toString() + 'px, ' + LocalMapVars.topTranslate.toString() + 'px)';
+            var zoomStyleString = 'scale(' + LocalMapVars.zoomLevels[LocalMapVars.selectedZoomIndex] + ')';
             
             MapController.map.style.transform = scaleStyleString;
             MapController.map.style.transform += zoomStyleString;
@@ -329,6 +349,26 @@ var MapController = {
         
         "getFromServer": function() {
             IO.read(Map);
+        },
+        
+        "setFileName": function() {
+            var mapId = location.href.split('?')[1];;
+            Map.fileName = '/' + mapId + '.json';
+        },
+        
+        "saveMapDom": function() {
+            Map.mapDom = MapController.map.innerHTML.toString();
+        },
+        
+        "updateMapDom": function() {
+            
+            
+            if (MapController.SelectedTile.isEmtpy != false) {
+                MapController.map.innerHTML = Map.mapDom;
+                MapController.Events.mapClickEvents();
+            }
+             
+            
         }
         
         
@@ -336,20 +376,24 @@ var MapController = {
     },
     
     "Init": function() {
+        
         MapController.Util.getMapBackground();
         MapController.Util.setMapBackground();
-        MapController.Util.buildMapGrid();
-        MapController.Util.setMapSize();
-        MapController.Events.addAll();
+        
+        if (!MapController.eventsAdded) {
+            MapController.Util.setFileName();
+            MapController.eventsAdded = true;
+            MapController.Util.buildMapGrid();
+            MapController.Util.setMapSize();
+            
+            
+            //Debug code - used for testing map token functionality 
+//          $( "#cell-150" ).append( '<img style="width: 50px; height: 50px;" src="assets/images/test-img.png"/>' );
+            
+            MapController.Util.updateMapDom();
+            MapController.Events.addAll();
+            
+        }
     }
 }
-
-//$(document).ready(function() {
-//    
-//    MapController.Init();
-//    
-//    //Debug code - used for testing map token functionality 
-//    $( "#cell-150" ).append( '<img style="width: 50px; height: 50px;" src="assets/images/test-img.png"/>' );
-//    
-//})
 

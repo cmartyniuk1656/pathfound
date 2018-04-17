@@ -37,3 +37,12 @@ else if ($reqType == 'get') {
     }
     
 }
+
+
+else if ($reqType == 'read') {
+    
+    $returnData = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/io/dam/json/' . $objType . $fileName);
+    echo $returnData;
+
+    
+}

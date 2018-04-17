@@ -33,6 +33,7 @@ hr {
     background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
     background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
     background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0); 
+    margin: auto !important;
     
 }
 
@@ -101,6 +102,21 @@ hr {
   z-index: -1;
 }
 
+::-webkit-scrollbar {
+    width: 12px;
+    
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.8); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,1); 
+}
 /*FONT CSS START------------------------------------------------------*/
 
 @font-face {
@@ -168,12 +184,33 @@ hr {
 }
 
 #login-bg {
-    position: absolute;
     z-index: -1;
     background-image: url(/assets/images/bg/forest-bg.jpg);
     background-position: cover;
-    height: 100vh;
-    width: 100vw;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-size: cover;
+}
+
+#gameroom-bg {
+    z-index: -1;
+    background-image: url(/assets/images/bg/test-bg.jpg);
+    background-position: cover;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-size: cover;
 }
 
 #sign-up {
@@ -217,7 +254,7 @@ hr {
     display: inline-block;
     padding: 3px;
     vertical-align: middle;
-    background: #000 !important;
+    background: rgba(0, 0, 0, 0) !important;
     background-image: none;
     background-color: #000;
     float: left;
@@ -308,8 +345,6 @@ hr {
 }
 
 .panel-light {
-    -webkit-border-radius: 5px 20px 5px 20px;
-    border-radius: 5px 20px 5px 20px;
     background: rgba(255, 255, 255, 0.7);
     font-family: lato, sans-serif;
     font-size: 1rem;
@@ -318,6 +353,17 @@ hr {
     -moz-box-shadow: 10px 10px 5px #000000;
     -webkit-box-shadow: 10px 10px 5px #000000;
     box-shadow: 10px 10px 5px #000000;
+    padding: 16px;
+}
+
+.news-panel-light {
+    -webkit-border-radius: 5px 20px 5px 20px;
+    border-radius: 5px 20px 5px 20px;
+    background: rgba(255, 255, 255, 0.7);
+    font-family: modern, sans-serif;
+    font-size: 1rem;
+    color: #000;
+    text-shadow: none;
     padding: 16px;
 }
 
@@ -367,7 +413,7 @@ hr {
 }
 
 .btn.dark {
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.6);
     border-right: solid #fff;
     border-width: 0 1px 1px 0;
 }
@@ -555,7 +601,7 @@ hr {
 }
 
 .create-game-btn {
-    width: 60%;
+    width: 80%;
 }
 
 .join-game-btn:hover {
