@@ -19,7 +19,7 @@ var IO = {
             type: 'POST',
             success: function (response) {
                 
-                console.info('Successful Post');
+                GameroomController.updating = false;
                 
             }
         });
@@ -51,6 +51,8 @@ var IO = {
                     //If gameroom file is found on the server
                     if (response != null && response != '' && typeof(response) != 'undefined') {
                         
+                        console.info('Returned GameRoom');
+                        console.info(JSON.parse(response));
                         Gameroom = JSON.parse(response);
                         Map = Gameroom.Map;
                         Chatbox = Gameroom.Chatbox;
@@ -63,7 +65,8 @@ var IO = {
                     //Else upload a new one to the server
                     else {
                         
-                        MapController.Init();
+                        console.info('no gameroom found...')
+                        MapController.Init();   
                         ChatController.Init();
                         
                         Gameroom.Map = Map;

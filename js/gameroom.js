@@ -23,6 +23,8 @@ var Gameroom = {
 
 var GameroomController = {
     
+    "updating": false,
+    
     "Util": {
         
         "checkRoomId": function() {
@@ -31,6 +33,7 @@ var GameroomController = {
         },
         
         "updateServer": function() {
+            GameroomController.updating = true;
             IO.write(Gameroom);    
         },
         
@@ -40,7 +43,10 @@ var GameroomController = {
         },
         
         "readFromServer": function() {
-            IO.getUpdated(Gameroom);
+            
+            if(!GameroomController.updating) {
+                IO.getUpdated(Gameroom);
+            }
         }
         
         
@@ -48,8 +54,10 @@ var GameroomController = {
     
     "Init": function() {
         
+        MapController.Util.setFileName();
         GameroomController.Util.checkRoomId();
         GameroomController.Util.getFromServer();
+        
     }  
     
 }
@@ -58,10 +66,15 @@ $(document).ready(function() {
     
     GameroomController.Init();
     
-    //Update Loop
-    var sleep = time => new Promise(resolve => setTimeout(resolve, time))
-            var poll = (promiseFn, time) => promiseFn().then(sleep(time).then(() => poll(promiseFn, time)))
-
-            poll(() => new Promise(() => GameroomController.Util.readFromServer()), 5000);
+//    var roomCode =  Map.fileName.replace('/', '');
+//    var source = new EventSource('../io/sse.php?roomId=' + roomCode);
+//    source.onmessage = function(event) {
+//        console.info('something returned...');
+//        console.info(event.data);
+});
     
-})
+   // Update Loop
+        var sleep = time => new Promise(resolve => setTimeout(resolve, time))
+        var poll = (promiseFn, time) => promiseFn().then(sleep(time).then(() => poll(promiseFn, time)))
+        poll(() => new Promise(() => GameroomController.Util.readFromServer()), 3500);
+    

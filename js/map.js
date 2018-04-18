@@ -1,7 +1,7 @@
 var Map = {
     
     //Required when the object is called from the server
-    "fileName": '/testMap.json',
+    "fileName": '',
     
     //Used for directory mapping
     "objType": 'map',
@@ -320,6 +320,8 @@ var MapController = {
                 MapController.map.innerHTML += divString;
         
             }
+            
+            
         
         },
         
@@ -364,8 +366,17 @@ var MapController = {
             
             
             if (MapController.SelectedTile.isEmtpy != false) {
-                MapController.map.innerHTML = Map.mapDom;
-                MapController.Events.mapClickEvents();
+                if (Map.mapDom != '') {
+                    MapController.map.innerHTML = Map.mapDom;
+                    MapController.Events.mapClickEvents();
+                }
+                else {
+                    Map.mapDom = MapController.map.innerHTML;
+                    Gameroom.map = Map;
+                    GameroomController.Util.updateServer();
+                    MapController.Events.mapClickEvents();
+                }
+                
             }
              
             
@@ -381,8 +392,8 @@ var MapController = {
         MapController.Util.setMapBackground();
         
         if (!MapController.eventsAdded) {
+            
             MapController.Util.setFileName();
-            MapController.eventsAdded = true;
             MapController.Util.buildMapGrid();
             MapController.Util.setMapSize();
             
@@ -392,6 +403,8 @@ var MapController = {
             
             MapController.Util.updateMapDom();
             MapController.Events.addAll();
+            MapController.eventsAdded = true;
+            Map.mapDom = MapController.map.innerHTML;
             
         }
     }
