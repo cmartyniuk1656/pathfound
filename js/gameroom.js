@@ -41,7 +41,16 @@ var GameroomController = {
              
             $('#character-select-arrow').click(function() {
                 $('#character-dropdown').slideToggle('fast');
-            })
+            });
+            
+            $('#image-submit').click(function() {
+                $('[data-lity-close]').trigger('click');
+            });
+            
+            $('#create-map-btn').click(function() {
+                IO.db.getUserMapImages(User.username);
+            });
+            
         },
         
         "importCharacterToRoomEvents": function() {
@@ -189,12 +198,18 @@ var GameroomController = {
         
         "updateStatsPanel": function() {
             
-            var statValues = [activeChar.Race, activeChar.Class, activeChar.Age, activeChar.Gender, activeChar.Size, activeChar.Alignment, 
+            var formFields = ['#sheet-name','#sheet-race', '#sheet-class', '#sheet-age', '#sheet-gender', '#sheet-size', '#sheet-alignment', '#sheet-deity',
+                              '#sheet-current-hp', '#sheet-strscore', '#sheet-dexscore', '#sheet-conscore', '#sheet-intscore',
+                              '#sheet-wisscore', '#sheet-chascore', '#sheet-temp-strscore', '#sheet-temp-dexscore', 
+                              '#sheet-temp-conscore', '#sheet-temp-intscore', '#sheet-temp-wisscore', '#sheet-temp-chascore', 
+                              '#sheet-initiative-misc', '#sheet-speed-base', '#sheet-speed-mod', '#sheet-hp-max'];
+            
+            var statValues = [activeChar.Name, activeChar.Race, activeChar.Class, activeChar.Age, activeChar.Gender, activeChar.Size, activeChar.Alignment, 
                               activeChar.Deity, activeChar.CurrentHP, activeChar.Str, activeChar.Dex, activeChar.Con, activeChar.Int, activeChar.Wis, 
                               activeChar.Cha, activeChar.TempStr, activeChar.TempDex, activeChar.TempCon, activeChar.TempInt, activeChar.TempWis, 
-                              activeChar.TempCha, activeChar.InitiativeMisc, activeChar.BaseSpeed, activeChar.ModSpeed, activeChar.MaxHP]
+                              activeChar.TempCha, activeChar.InitiativeMisc, activeChar.BaseSpeed, activeChar.ModSpeed, activeChar.MaxHP];
             
-            var statElementIds = ['#stats-race', '#stats-class', '#stats-age', '#stats-gender', '#stats-size', '#stats-alignment', '#stats-deity',
+            var statElementIds = ['#character-name-show', '#stats-race', '#stats-class', '#stats-age', '#stats-gender', '#stats-size', '#stats-alignment', '#stats-deity',
                                   '#stats-current-hp', '#stats-strscore', '#stats-dexscore', '#stats-conscore', '#stats-intscore',
                                   '#stats-wisscore', '#stats-chascore', '#stats-temp-strscore', '#stats-temp-dexscore', 
                                   '#stats-temp-conscore', '#stats-temp-intscore', '#stats-temp-wisscore', '#stats-temp-chascore', 
@@ -202,6 +217,7 @@ var GameroomController = {
             
             for (i=0; i < statValues.length; i++) {
                 $(statElementIds[i]).html(statValues[i]);
+                $(formFields[i]).val(statValues[i]);
             }
             
         }

@@ -473,12 +473,65 @@
             </div>
             <div id="control-panel-tab-3" class="row full-width hidden">
                 <h2>Settings</h2>
+                <div class="column small-12 medium-12 large-12">
+                    <a id="add-map-btn" class="btn" href="#add-map-modal" data-lity>Add Map Image</a>
+                </div>
+                <div class="column small-12 medium-12 large-12">
+                    <a style="margin-top: 15px;" id="create-map-btn" class="btn" href="#create-map-modal" data-lity>Create New Map</a>
+                </div>
+                
             </div>
             </div>
         </div>
         
-<!----------------CONTROL PANEL END----------------------------------------------------------------------------->    
+<!----------------CONTROL PANEL END---------------------------------------------------------------------------->    
+        
+<!----------------MAP EDIT PANEL START------------------------------------------------------------------------->    
 
+        
+    <div id="add-map-modal" class="row full-width lity-hide">
+        <div class="column small-12 medium-12 large-12">
+            <div class="row">
+                <div class="column small-12 medium-12 large-12">
+                    <h3 id="add-map-image">Add Map Image</h3>
+                </div>
+            </div>
+            <div class="row">
+                <h3 id="change-profile-picture-btn">Update Profile Picture</h3>
+                <form action="/io/imageHandler.php" method="post" enctype="multipart/form-data" target="myIframe">
+                    <input type='hidden' name='intent' value='addMapImage'/> 
+                    <input id="userName-value" type='hidden' name='accUserName' value=''/>
+                    <input id="gameroom-value" type='hidden' name='roomCode' value=''/> 
+                    <input type="file" id="picture-select" name="photo">
+                    <input id="image-submit" type="submit">
+                </form>
+                </div>
+            </div>
+        </div>
+        <div id="create-map-modal" class="row full-width lity-hide">
+            <div class="column small-12 medium-12 large-12">
+                <div class="row">
+                    <div class="column small-12 medium-12 large-12">
+                        <h3 id="add-map-image">Add Map Image</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <h3 id="change-profile-picture-btn">Update Profile Picture</h3>
+                    <form action="/io/imageHandler.php" method="post" enctype="multipart/form-data" target="myIframe">
+                        <input type='hidden' name='intent' value='addMapImage'/> 
+                        <input id="userName-value" type='hidden' name='accUserName' value=''/>
+                        <input id="gameroom-value" type='hidden' name='roomCode' value=''/> 
+                        <input type="file" id="picture-select" name="photo">
+                        <input id="image-submit" type="submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    
+        
+<!----------------MAP EDIT PANEL END---------------------------------------------------------------------------->    
 
 <!----------------DICE PANEL START------------------------------------------------------------------------------>  
         
