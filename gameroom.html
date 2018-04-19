@@ -35,15 +35,6 @@
                     <div id="character-name">Select a Character</div>
                     <div id="character-dropdown" style="display: none;">
                         <div id="char-dropdown-container" class="row full-width">
-                            <div class="column small-12 medium-12 large-12 character-selector" data-index="0">
-                                Test
-                            </div>
-                            <div class="column small-12 medium-12 large-12 character-selector">
-                                Test
-                            </div>
-                            <div class="column small-12 medium-12 large-12 character-selector">
-                                Test
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -52,112 +43,109 @@
                 <div id="stats-panel-wrapper" class="game-panel">
                 <div class="row full-width">
                     <h3 id="character-name-show" style="font-family: modern;">Character Name</h3>
-                    <br> 
-                    <div class="column small-4 medium-4 large-4 full-width">
-                        <label>HP</label>
+                    <div class="row">
+                        <div class="column small-12 medium-12 large-6 full-width">
+                            <p id="stats-race" data-stat>Human</p>
+                        </div>
+                        <div class="column small-12 medium-12 large-6 full-width">
+                            <p id="stats-class" data-stat>Pirate</p>
+                        </div>
                     </div>
-                    <div class="column small-3 medium-3 large-3 full-width">
-                        <div id="current-hp">50</div>
+                    <hr>
+                    <div class="row">
+                        <div class="column small-12 medium-12 large-6 full-width">
+                            <p>Age: <span id="stats-age" data-stat>46</span></p>
+                        </div>
+                        <div class="column small-12 medium-12 large-6 full-width">
+                            <p>Gender: <span id="stats-gender" data-stat>Male</span></p>
+                        </div>
+                        <div class="column small-12 medium-12 large-6 full-width">
+                            <p>Size: <span id="stats-size" data-stat>Medium</span></p>
+                        </div>
+                        <div class="column small-12 medium-12 large-6 full-width">
+                            <p>Alignment: <span id="stats-alignment" data-stat>Nuetral</span></p>
+                        </div>
+                        <div class="column small-12 medium-12 large-4 large-offset-4 end full-width">
+                            <p>Deity: <span id="stats-deity" data-stat>Satan</span></p>
+                        </div>
                     </div>
-                    <div class="column small-2 medium-2 large-2 full-width">
-                        <div>/</div>
+                    <hr>
+                    <div class="row">
+                        <div class="column small-12 medium-12 large-12 full-width">
+                            <h4>HP: <span id="stats-current-hp" data-stat>50 </span>/ <span id="stats-max-hp">50</span></h4>
+                        </div>
+                        <div class="column small-12 medium-12 large-3 full-width">
+                            <h4 style="font-family: modern;">Base</h4>
+                            <p>Str: <span id="stats-strscore" data-stat>10</span></p>
+                            <p>Dex: <span id="stats-dexscore" data-stat>10</span></p>
+                            <p>Con: <span id="stats-conscore" data-stat>10</span></p>
+                            <p>Int: <span id="stats-intscore" data-stat>10</span></p>
+                            <p>Wis: <span id="stats-wisscore" data-stat>10</span></p>
+                            <p>Cha: <span id="stats-chascore" data-stat>10</span></p>
+                        </div>
+                        <div class="column small-0 medium-0 large-3 full-width show-for-large">
+                            <h4 style="font-family: modern;">Mod</h4>
+                            <p><span id="stats-strmod" data-stat>0</span></p>
+                            <p><span id="stats-dexmod" data-stat>0</span></p>
+                            <p><span id="stats-conmod" data-stat>0</span></p>
+                            <p><span id="stats-intmod" data-stat>0</span></p>
+                            <p><span id="stats-wismod" data-stat>0</span></p>
+                            <p><span id="stats-chamod" data-stat>0</span></p>
+                        </div>
+                        <div class="column small-0 medium-12 large-3 full-width show-for-large">
+                            <h4 style="font-family: modern;">Temp</h4>
+                            <p><span id="stats-temp-strscore" data-stat>0</span></p>
+                            <p><span id="stats-temp-dexscore" data-stat>0</span></p>
+                            <p><span id="stats-temp-conscore" data-stat>0</span></p>
+                            <p><span id="stats-temp-intscore" data-stat>0</span></p>
+                            <p><span id="stats-temp-wisscore" data-stat>0</span></p>
+                            <p><span id="stats-temp-chascore" data-stat>0</span></p>
+                        </div>
+                        <div class="column small-0 medium-12 large-3 full-width show-for-large">
+                            <h4 style="font-family: modern;">Mod</h4>
+                            <p><span id="stats-temp-strmod" data-stat>0</span></p>
+                            <p><span id="stats-temp-dexmod" data-stat>0</span></p>
+                            <p><span id="stats-temp-conmod" data-stat>0</span></p>
+                            <p><span id="stats-temp-intmod" data-stat>0</span></p>
+                            <p><span id="stats-temp-wismod" data-stat>0</span></p>
+                            <p><span id="stats-temp-chamod" data-stat>0</span></p>
+                        </div>
                     </div>
-                    <div class="column small-3 medium-3 large-3 full-width">
-                        <div id="max-hp">50</div>
+                    <div class="row">
+                        <div class="column small-12 medium-12 large-6 full-width stat-box">
+                            <h4>Initiative</h4>
+                            <p>Base: <span id="stats-initiative" data-stat>5</span></p>
+                            <p>Dex: <span id="stats-initiative-dex" data-stat>1</span></p>
+                            <p>Misc: <span id="stats-initiative-misc" data-stat>0</span></p>
+                        </div>
+                        <div class="column small-12 medium-12 large-6 full-width stat-box">
+                            <h4>Speed</h4>
+                            <p>Base: <span id="stats-speed-base" data-stat>5</span></p>
+                            <p>Mod: <span id="stats-speed-mod" data-stat>0</span></p>
+                            <p>&nbsp;</p>
+                        </div>
                     </div>
-                </div>
-                <div class="row full-width">
-                    <div class="column small-4 medium-4 large-4 full-width">
-                        <label>NON-LETHAL</label>
+                    <div class="row">
+                        <div class="column small-12 medium-12 large-12 full-width stat-box">
+                            <h4>Damage Reduction</h4>
+                            <p>DR: <span id="stats-dr" data-stat>5</span></p>
+                        </div>
                     </div>
-                    <div class="column small-8 medium-8 large-8 full-width">
-                        <div id="non-lethal">50</div>
+                    <div class="row">
+                        <div class="column small-12 medium-12 large-6 full-width">
+                            <p>AC: <span id="stats-ac-total">7</span></p>
+                            <p>Fortitude: <span id="stats-fort-total">5</span></p>
+                        </div>
+                        <div class="column small-12 medium-12 large-6 full-width">
+                            <p>Reflex: <span id="stats-ref-total">7</span></p>
+                            <p>Will: <span id="stats-will-total">5</span></p>
+                        </div>
                     </div>
-                    <div class="column small-12 medium-12 large-12 full-width">
-                        <hr> 
-                    </div>
-                </div>
-                <div class="row full-width">
-                    <div class="column small-4 medium-4 large-4 full-width">
-                        <label class="stat-label-2">AC</label>
-                    </div>
-                    <div class="column small-8 medium-8 large-8 full-width">
-                        <div class="stat-value-2" id="character-ac">10</div>
-                    </div>
-                </div>
-                <div class="row full-width">
-                    <div class="column small-4 medium-4 large-4 full-width">
-                        <label class="stat-label-2">TOUCH AC</label>
-                    </div>
-                    <div class="column small-8 medium-8 large-8 full-width">
-                        <div class="stat-value-2" id="character-touch-ac">5</div>
-                    </div>
-                </div>
-                <div class="row full-width">
-                    <div class="column small-4 medium-4 large-4 full-width">
-                        <label class="stat-label-2">FF AC</label>
-                    </div>
-                    <div class="column small-8 medium-8 large-8 full-width">
-                        <div class="stat-value-2" id="character-ff-ac">2</div>
-                    </div>
-                </div>
-                <div class="row full-width">
-                    <div class="column small-4 medium-4 large-4 full-width">
-                        <label class="stat-label-2">CMD</label>
-                    </div>
-                    <div class="column small-8 medium-8 large-8 full-width">
-                        <div class="stat-value-2" id="character-cmd">9</div>
-                    </div>
-                    <div class="column small-12 medium-12 large-12 full-width">
-                        <hr> 
-                    </div>
-                </div>
-                <div class="row full-width">
-                    <div class="column small-4 medium-4 large-4 full-width">
-                        <label class="stat-label-2">STR</label>
-                    </div>
-                    <div class="column small-8 medium-8 large-8 full-width">
-                        <div class="stat-value-2" id="character-strength">15</div>
-                    </div>
-                </div>
-                <div class="row full-width">
-                    <div class="column small-4 medium-4 large-4 full-width">
-                        <label class="stat-label-2">DEX</label>
-                    </div>
-                    <div class="column small-8 medium-8 large-8 full-width">
-                        <div class="stat-value-2" id="character-strength">7</div>
-                    </div>
-                </div>
-                <div class="row full-width">
-                    <div class="column small-4 medium-4 large-4 full-width">
-                        <label class="stat-label-2">CON</label>
-                    </div>
-                    <div class="column small-8 medium-8 large-8 full-width">
-                        <div class="stat-value-2" id="character-constitution">1</div>
-                    </div>
-                </div>
-                <div class="row full-width">
-                    <div class="column small-4 medium-4 large-4 full-width">
-                        <label class="stat-label-2">INT</label>
-                    </div>
-                    <div class="column small-8 medium-8 large-8 full-width">
-                        <div class="stat-value-2" id="character-intellect">0</div>
-                    </div>
-                </div>
-                <div class="row full-width">
-                    <div class="column small-4 medium-4 large-4 full-width">
-                        <label class="stat-label-2">WIS</label>
-                    </div>
-                    <div class="column small-8 medium-8 large-8 full-width">
-                        <div class="stat-value-2" id="character-wisdom">4</div>
-                    </div>
-                </div>
-                <div class="row full-width">
-                    <div class="column small-4 medium-4 large-4 full-width">
-                        <label class="stat-label-2">CHA</label>
-                    </div>
-                    <div class="column small-8 medium-8 large-8 full-width">
-                        <div class="stat-value-2" id="character-charisma">11</div>
+                    <div class="row">
+                        <div class="column small-12 medium-12 large-12 full-width">
+                            <p>Base Attack Bonus: <span id="stats-bab">2</span></p>
+                            <p>Spell Resistance: <span id="stats-sr">5</span></p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -262,10 +250,10 @@
             <div id="control-panel-wrapper" class="game-panel">
             <div id="control-panel-tab-1" class="row full-width">
                 <h2>Characters</h2>
-                <div class="column small-12 medium-6 large-6">
+                <div class="column small-12 medium-12 large-6">
                     <a class="btn" href="#character-edit-modal" data-lity>Create</a>
                 </div>
-                <div class="column small-12 medium-6 large-6">
+                <div class="column small-12 medium-12 large-6">
                     <a class="btn" href="#import-character-modal" data-lity>Import</a>
                 </div>
                 <div id="characters-panel-container">

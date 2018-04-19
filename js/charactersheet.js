@@ -1,4 +1,5 @@
 var selectedCharaterIndex;    
+var activeChar = {};
 
 
 var CharacterObj =

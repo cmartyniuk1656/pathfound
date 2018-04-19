@@ -63,8 +63,10 @@ var GameroomController = {
                 
                 var selectedIndex = $(this).attr("data-index");
                 selectedCharaterIndex = selectedIndex;
+                activeChar = RoomCharArray[selectedCharaterIndex];
                 document.getElementById('character-name-show').innerHTML = RoomCharArray[selectedIndex].Name;
                 $('#character-dropdown').slideToggle('fast');
+                GameroomController.Util.updateStatsPanel();
                 
             })
             
@@ -187,10 +189,25 @@ var GameroomController = {
         
         "updateStatsPanel": function() {
             
+            var statValues = [activeChar.Race, activeChar.Class, activeChar.Age, activeChar.Gender, activeChar.Size, activeChar.Alignment, 
+                              activeChar.Deity, activeChar.CurrentHP, activeChar.Str, activeChar.Dex, activeChar.Con, activeChar.Int, activeChar.Wis, 
+                              activeChar.Cha, activeChar.TempStr, activeChar.TempDex, activeChar.TempCon, activeChar.TempInt, activeChar.TempWis, 
+                              activeChar.TempCha, activeChar.InitiativeMisc, activeChar.BaseSpeed, activeChar.ModSpeed, activeChar.MaxHP]
+            
+            var statElementIds = ['#stats-race', '#stats-class', '#stats-age', '#stats-gender', '#stats-size', '#stats-alignment', '#stats-deity',
+                                  '#stats-current-hp', '#stats-strscore', '#stats-dexscore', '#stats-conscore', '#stats-intscore',
+                                  '#stats-wisscore', '#stats-chascore', '#stats-temp-strscore', '#stats-temp-dexscore', 
+                                  '#stats-temp-conscore', '#stats-temp-intscore', '#stats-temp-wisscore', '#stats-temp-chascore', 
+                                  '#stats-initiative-misc', '#stats-speed-base', '#stats-speed-mod', '#stats-hp-max'];
+            
+            for (i=0; i < statValues.length; i++) {
+                $(statElementIds[i]).html(statValues[i]);
+            }
+            
         }
         
     },
-    
+
     "Init": function() {
         
         GameroomController.Events.addAll();
