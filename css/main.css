@@ -24,6 +24,15 @@ label {
     color: #fff;
 }
 
+#character-edit-modal {
+    background: #fff;
+    overflow-y: scroll;
+}
+
+#character-edit-modal label {
+    color: #000;
+}
+
 hr {
     
     border: 0; 

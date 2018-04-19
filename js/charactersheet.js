@@ -1,3 +1,6 @@
+var selectedCharaterIndex;    
+
+
 var CharacterObj =
 {
     //Parameters
@@ -504,10 +507,15 @@ var CharacterSheet =
 {
     "Events":
     {
-        "addAll": function ()
+        "addAll": function()
         {
 
-            $("#character-sheet-save").click(CharacterSheet.Save());
+            $("#character-sheet-save").click(function() {
+                console.info('running...');
+                CharacterSheet.Save();
+            });
+                
+                
 
             $("#character-sheet-load").click(function()
                 {
@@ -521,6 +529,18 @@ var CharacterSheet =
                 });
         }
     },
+    
+    "Util": {
+        saveCharacterToServer: function() {
+            IO.saveCharacter(CharacterObj, User.username);
+        },
+        
+        saveCharacterToDatabase: function() {
+            IO.db.checkCharExistInDb(User.username, CharacterObj.Name);
+        }
+        
+    },
+    
     "Save": function ()
     {
         CharacterObj.Name = $("#sheet-name").val();
@@ -707,6 +727,9 @@ var CharacterSheet =
         CharacterObj.Skills.UmdAbil = $("#sheet-skill-umd-ability");
         CharacterObj.Skills.UmdRank = $("#sheet-skill-umd-rank");
         CharacterObj.Skills.UmdMisc = $("#sheet-skill-umd-misc");
+        
+        sessionStorage.setItem('activeCharacter', JSON.stringify(CharacterObj));
+        CharacterSheet.Util.saveCharacterToServer();
     },
 
 
@@ -722,7 +745,6 @@ var CharacterSheet =
 
 $(document).ready(function()
     {
-        console.info("dom is ready");
         CharacterSheet.Init();
     }
 );

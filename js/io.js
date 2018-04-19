@@ -145,6 +145,134 @@ var IO = {
 
     },
     
+    "saveCharacter": function(charObj, userName) {
+        
+        var objType = 'character';
+        var dataString = JSON.stringify(charObj);
+        var user = userName;
+        var charName = CharacterObj.Name;
+        var fileName = '/' + User.username + '-' + CharacterObj.Name + '.json';
+        fileName = fileName.replace(' ', '');
+            
+        $.ajax({
+            url: '../io/io.php',
+            data: {
+                dataType: 'json',
+                thisUser: user,
+                thisChar: charName,
+                myData: dataString,
+                myType: objType,
+                myDestination: fileName,
+                chracter: dataString,
+                requestType: 'saveCharacter',
+                roomCode: Gameroom.fileName
+            },
+            type: 'POST',
+            success: function (response) {
+                
+                if(response == true) {
+                    console.info('object written...');
+                    CharacterSheet.Util.saveCharacterToDatabase();
+                }
+                else{
+                
+                    console.info('Character JSON not written to server...');
+                
+                }
+            }  
+        });
+    },
+    
+    "getAllCharacterJson": function () {
+
+        var path = '/' + Charlist[GameroomController.CharCount].characterJSONPath;
+        path = path.replace(' ', '');
+        console.info(path);
+
+        $.ajax({
+            url: '../io/io.php',
+            data: {
+                myData: '',
+                myDestination: path,
+                myType: 'character',
+                requestType: 'getCharacterJSON'
+            },
+            type: 'POST',
+            success: function(response) {
+                
+                    
+                    //If gameroom file is found on the server
+                    if (response != null && response != '' && typeof(response) != 'undefined') {
+                        
+                        CharArray.push(JSON.parse(response));
+                        GameroomController.CharCount++;
+                        
+                        if (GameroomController.CharCount > Charlist.length - 1) {
+                            GameroomController.Util.updateCharacterListModal();
+                        }
+                        
+                        else {
+                            GameroomController.Util.getAllCharacterJson();
+                        }
+                        
+                    }
+                    
+                    else {
+                        
+                        console.info('no character object found...')
+                    }
+            
+            }
+        });
+
+    },
+    
+    "getAllRoomCharacterJson": function () {
+
+        var path = '/' + GameroomController.RoomCharList[GameroomController.RoomCharCount].characterJSONPath;
+        path = path.replace(' ', '');
+        console.info(path);
+
+        $.ajax({
+            url: '../io/io.php',
+            data: {
+                myData: '',
+                myDestination: path,
+                myType: 'character',
+                requestType: 'getRoomCharacterJSON'
+            },
+            type: 'POST',
+            success: function(response) {
+                
+                    
+                    //If gameroom file is found on the server
+                    if (response != null && response != '' && typeof(response) != 'undefined') {
+                        
+                        RoomCharArray.push(JSON.parse(response));
+                        GameroomController.RoomCharCount++;
+                        console.info(GameroomController.RoomCharCount);
+                        
+                        if (GameroomController.RoomCharCount > GameroomController.RoomCharList.length - 1) {
+                            console.info(RoomCharArray);
+                            GameroomController.Util.updateRoomCharacterElements();
+                        }
+                        
+                        else {
+                            GameroomController.Util.getAllRoomCharacterJson();
+                        }
+                        
+                    }
+                    
+                    else {
+                        
+                        console.info('no character object found...')
+                    }
+            
+            }
+        });
+
+    },
+    
     "db": {
         
         "login": function(userName, password) {
@@ -403,7 +531,148 @@ var IO = {
                 }  
             });
             
+        },
+        
+        "getCharacterAssets": function() {
+            
+            $.ajax({
+                url: '../io/playerGames.php',
+                data: {
+                    dataType: 'json',
+                    intent: 'getCharacterAssets',
+                },
+                type: 'POST',
+                success: function (response) {
+                    
+                    console.info(response);
+                    
+                    GameData.gameData.push(JSON.parse(response));
+                    
+                    if (GameData.gameRetrievalCount == GameData.gameIds.length - 1) {
+                        DashboardController.Util.buildGameListHTML();
+                    }
+                    GameData.gameRetrievalCount++;
+                }  
+            });
+        },
+        
+        "checkCharExistInDb": function(userNameArg, charNameArg) {
+            
+            var userName = userNameArg;
+            var characterName = charNameArg;
+            
+            $.ajax({
+                url: '../io/db.php',
+                data: {
+                    user: userName,
+                    charName: characterName,
+                    intent: 'checkCharacterExistsForPlayer',
+                },
+                type: 'POST',
+                success: function (response) {
+                    if (response == true) {
+                        console.info('Character didnt exist and was written to character table....');
+                        UserController.Util.getUserCharacters();
+                    }
+                    else if (response == false) {
+                        console.info('Character already exists exist in Character Table....');
+                        console.info(response);
+                    }
+                    else {
+                        console.info('Unkown resposne returned...');
+                        console.info(response);
+                    }
+                }  
+            });
+            
+        },
+        
+        "getUserCharacters": function(userNameArg, gameroomCodeArg) {
+            
+            var userName = userNameArg;
+            
+            $.ajax({
+                url: '../io/db.php',
+                data: {
+                    user: userName,
+                    intent: 'getUserCharacters',
+                },
+                type: 'POST',
+                success: function (response) {
+                    if (response == false) {
+                        console.info('No Playable characters found...');
+                    }
+                    else {
+                        Charlist = JSON.parse(response);
+                        GameroomController.Util.getAllCharacterJson();
+//                        GameroomController.Util.updateCharacterListModal();
+                    }
+                }  
+            });
+            
+        },
+        
+        "getAllRoomCharacters": function(userNameArg, gameroomCodeArg) {
+            
+            var userName = userNameArg;
+            var gameCode = gameroomCodeArg;
+            
+            $.ajax({
+                url: '../io/db.php',
+                data: {
+                    user: userName,
+                    roomCode: gameCode,
+                    intent: 'getRoomCharacters',
+                },
+                type: 'POST',
+                success: function (response) {
+                    if (response == false) {
+                        console.info('No room characters found...');
+                    }
+                    else {
+                        
+                        GameroomController.RoomCharList = JSON.parse(response);
+                        var roomCharList = JSON.parse(response);
+                        GameroomController.Util.getAllRoomCharacterJson();
+//                        GameroomController.Util.updateCharacterListModal();
+                    }
+                }  
+            });
+            
+        },
+        
+        "addCharacterToRoom": function(characterNameArg, roomCodeArg){
+            
+            var characterName = characterNameArg.replace(' ', '');
+            var gameCode = roomCodeArg;
+            
+            $.ajax({
+                url: '../io/db.php',
+                data: {
+                    user: User.username,
+                    roomCode: gameCode,
+                    charName: characterName,
+                    intent: 'addCharacterToRoom',
+                },
+                type: 'POST',
+                success: function (response) {
+                    if (response == true) {
+                        console.info('Character was added to the RoomMember Table....');
+                        UserController.Util.getAllRoomCharacters();
+                        UserController.Util.getUserCharacters();
+                    }
+                    else if (response == false) {
+                        console.info('Character already exists exist in RoomMember Table....');
+                        console.info(response);
+                    }
+                    else {
+                        console.info('Unkown resposne returned...');
+                        console.info(response);
+                    }
+                }  
+            });
         }
+        
   
     }
 

@@ -5,6 +5,7 @@
  $objType = $_POST['myType'];
  $reqType = $_POST['requestType'];
  $path = $_SERVER['DOCUMENT_ROOT'] . '/io/dam/json/' . $objType . $fileName;
+ $charPath = $_SERVER['DOCUMENT_ROOT'] . '/io/dam/json/' . $objType . $fileName;
 
 
 if ($reqType == 'post') {
@@ -36,7 +37,7 @@ else if ($reqType == 'get') {
         echo null;
     }
     
-}
+}   
 
 
 else if ($reqType == 'read') {
@@ -46,3 +47,47 @@ else if ($reqType == 'read') {
 
     
 }
+
+else if ($reqType == 'saveCharacter') {
+    
+    if ( !file_exists($charPath) ) {
+     $oldmask = umask(0);  // helpful when used in linux server  
+     mkdir ($dir, 0744);
+ }     
+    
+    file_put_contents ($_SERVER['DOCUMENT_ROOT'] . '/io/dam/json/' . $objType . $fileName, $obj); 
+    echo true;
+
+}
+
+else if ($reqType == 'getCharacterJSON') {
+    
+    if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/io/dam/json/' . $objType . $fileName)) {
+        
+        $returnData = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/io/dam/json/' . $objType . $fileName);
+        echo $returnData;
+        
+    } 
+    
+    else {
+        
+        echo null;
+    }
+}
+
+else if ($reqType == 'getRoomCharacterJSON') {
+    
+    if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/io/dam/json/' . $objType . $fileName)) {
+        
+        $returnData = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/io/dam/json/' . $objType . $fileName);
+        echo $returnData;
+        
+    } 
+    
+    else {
+        
+        echo null;
+    }
+}
+
+?>

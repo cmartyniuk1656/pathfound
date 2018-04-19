@@ -179,4 +179,151 @@ else if ($intent == "enterGame") {
     
     
 }
+
+else if ($intent == "checkCharacterExistsForPlayer") {
+    
+    $charName = $_POST['charName'];
+    
+    $userIdSql = "SELECT userID FROM User WHERE userName = '" . $usernameInput . "'";
+    $resultId = $conn->query($userIdSql);
+    
+    if ($resultId->num_rows > 0) {
+        
+        $userId = mysqli_fetch_array($resultId);
+        
+        $sqlCheckCharacter = "SELECT * FROM UserCharacters WHERE characterName = '" . $charName . "' AND userID = '" . $userId[0] . "'";
+        
+        $resultCheckCharacter = $conn->query($sqlCheckCharacter);
+        
+        if ($resultCheckCharacter->num_rows > 0) { 
+            
+            echo false;
+    
+        }
+        
+        else {
+            
+            $path = $usernameInput . "-" . $charName . ".json";
+
+            $sqlInsert = "INSERT INTO UserCharacters (userID, characterName, characterJSONPath)
+                    VALUES ('" . $userId[0] . "', '" . $charName . "', '" . $path . "')";
+            
+                if ($conn->query($sqlInsert) === TRUE) {
+                    echo true;
+                }   
+                else {
+                    echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+        }
+        
+    }
+    else {
+        echo "Error: " . $userIdSql . "<br>" . $conn->error;
+    }
+    
+    
+    
+
+$conn->close();
+    
+}
+
+else if ($intent == "addCharacterToRoom") {
+    
+    $gameCode = $_POST['roomCode'];
+    $charName = $_POST['charName'];
+    $charJsonPath = $usernameInput . "-" . $charName . ".json";
+    
+    $sqlCheckCharacter = "SELECT * FROM RoomCharacters WHERE gameRoomCode = '" . $gameCode . "' AND characterJSONPath = '" . $charJsonPath . "'";
+        
+    $resultCheckCharacter = $conn->query($sqlCheckCharacter);
+        
+    if ($resultCheckCharacter->num_rows > 0) { 
+            
+        echo false;
+    
+    }
+    
+    else {
+        
+        $sqlInsert = "INSERT INTO RoomCharacters (gameRoomCode, userName, characterJSONPath)
+                    VALUES ('" . $gameCode . "', '" . $usernameInput . "', '" . $charJsonPath . "')";
+        
+        if ($conn->query($sqlInsert) === TRUE) {
+                    echo true;
+                }   
+                else {
+                    echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+        
+    }
+
+    $conn->close();
+    
+}
+
+else if ($intent == "getUserCharacters") {
+    
+    
+    $userIdSql = "SELECT userID FROM User WHERE userName = '" . $usernameInput . "'";
+    $resultId = $conn->query($userIdSql);
+    
+    $userId = mysqli_fetch_array($resultId);
+        
+    $sqlCheckCharacter = "SELECT characterJSONPath FROM UserCharacters WHERE userID = '" . $userId[0] . "'";
+        
+    $resultCheckCharacter = $conn->query($sqlCheckCharacter);
+    
+    if ($resultCheckCharacter->num_rows > 0) { 
+            
+        $rows = array();
+
+        while($r = mysqli_fetch_assoc($resultCheckCharacter)) {
+            $rows[] = $r;
+        }   
+
+        echo json_encode($rows);
+    
+    }
+        
+    else {
+            
+        echo false;
+            
+     }
+    
+    $conn->close();
+        
+}
+
+else if ($intent == "getRoomCharacters") {
+    
+    $gameCode = $_POST['roomCode'];
+    
+    $userRoomChars = "SELECT characterJSONPath FROM RoomCharacters WHERE userName = '" . $usernameInput . "' AND gameRoomCode = '" . $gameCode . "'";
+    $resultChars = $conn->query($userRoomChars);
+    
+    if ($resultChars->num_rows > 0) { 
+            
+        $rows = array();
+
+        while($r = mysqli_fetch_assoc($resultChars)) {
+            $rows[] = $r;
+        }   
+
+        echo json_encode($rows);
+    
+    }
+        
+    else {
+            
+        echo false;
+            
+     }
+    
+    $conn->close();
+        
+}
+
+
 ?>

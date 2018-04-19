@@ -104,3 +104,4 @@ else if ($intent == 'checkAvatarExists') {
     
 }
     
+?>

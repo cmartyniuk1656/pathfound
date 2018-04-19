@@ -34,6 +34,21 @@ var UserController = {
     
         },
         
+        "getUserCharacters": function() {
+            var roomCode = Gameroom.fileName;
+            roomCode = roomCode.replace('/', '');
+            roomCode = roomCode.replace('.json', '');
+            GameroomController.CharCount = 0;
+            CharArray = [];
+            IO.db.getUserCharacters(User.username, roomCode);
+        },
+        
+        "getAllRoomCharacters": function() {
+            
+            var roomCode = Gameroom.fileName.replace('/', '').replace('.json', '');
+            IO.db.getAllRoomCharacters(User.username, roomCode);
+        },
+        
         "getUserAvatar": function(userName) {
             IO.db.checkUserAvatarExists(userName, password);
         }
@@ -43,9 +58,17 @@ var UserController = {
         
         var thisUser = UserController.Util.getUserInfo();
         
+        
         if (thisUser == false && location.pathname != '/index.html') {
             $(location).attr('href', "index.html");
         }
+        
+        if (location.pathname.includes('gameroom.html')) {
+            UserController.Util.getUserCharacters();
+            UserController.Util.getAllRoomCharacters();
+            
+        }
+        
     }
                 
 }

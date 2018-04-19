@@ -32,13 +32,26 @@
                     </div>
                 </div>
                 <div class="column small-9 medium-9 large-9 full-width">
-                    <div id="character-name">Character Name</div>
+                    <div id="character-name">Select a Character</div>
+                    <div id="character-dropdown" style="display: none;">
+                        <div id="char-dropdown-container" class="row full-width">
+                            <div class="column small-12 medium-12 large-12 character-selector" data-index="0">
+                                Test
+                            </div>
+                            <div class="column small-12 medium-12 large-12 character-selector">
+                                Test
+                            </div>
+                            <div class="column small-12 medium-12 large-12 character-selector">
+                                Test
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div id="character-stats-panel">
                 <div id="stats-panel-wrapper" class="game-panel">
                 <div class="row full-width">
-                    <h3 style="font-family: modern;">Character Name</h3>
+                    <h3 id="character-name-show" style="font-family: modern;">Character Name</h3>
                     <br> 
                     <div class="column small-4 medium-4 large-4 full-width">
                         <label>HP</label>
@@ -200,6 +213,9 @@
                         <a href="#dice-modal" data-lity id="roll-dice">
                             <img src="/assets/images/dice/d20.svg"/>
                         </a>
+                        <div id="delete-asset-btn" class="btn" style="text-align-center">
+                            <i class="fa fa-eraser" aria-hidden="true"></i>
+                        </div>
                     </div>
                 </div>
                 
@@ -246,45 +262,226 @@
             <div id="control-panel-wrapper" class="game-panel">
             <div id="control-panel-tab-1" class="row full-width">
                 <h2>Characters</h2>
-                <div class="column small-12 medium-12 large-12 game-panel character-tile">
-                    <h3>Alister Brick</h3>
-                    <div class="row full-width">
-                        <div class="column small-6 medium-12 large-3">
-                            <p class="center">Lvl 3:</p>
-                        </div>
-                        <div class="column small-6 medium-12 large-3">
-                            <p class="center">Bard</p>
-                        </div>
-                        <div class="column small-12 medium-12 large-6">
-                            <a class="btn" href="charactersheet.html" data-lity>Edit</a>
-                        </div>
-                    </div>
+                <div class="column small-12 medium-6 large-6">
+                    <a class="btn" href="#character-edit-modal" data-lity>Create</a>
                 </div>
-                <div class="column small-12 medium-12 large-12 game-panel character-tile">
-                    <h3>Dick Benson</h3>
-                    <div class="row full-width">
-                        <div class="column small-6 medium-12 large-3">
-                            <p class="center">Lvl 5:</p>
-                        </div>
-                        <div class="column small-6 medium-12 large-3">
-                            <p class="center">Detective</p>
-                        </div>
-                        <div class="column small-12 medium-12 large-6">
-                            <a class="btn" href="charactersheet.html" data-lity>Edit</a>
-                        </div>
-                    </div>
+                <div class="column small-12 medium-6 large-6">
+                    <a class="btn" href="#import-character-modal" data-lity>Import</a>
+                </div>
+                <div id="characters-panel-container">
                 </div>
                 <div class="column small-12 medium-12 large-12 char-creation-row">
-                <div class="column small-12 medium-6 large-6">
-                    <a class="btn" href="charactersheet.html" data-lity>Create</a>
-                </div>
-                <div class="column small-12 medium-6 large-6">
-                    <a class="btn" href="charactersheet.html" data-lity>Import</a>
-                </div>
             </div>
             </div>
             <div id="control-panel-tab-2" class="row full-width hidden">
-                <h2>Assets</h2>
+                <div class="row full-width">
+                    <div class="column small-12 medium-12 large-12">
+                        <h2>Assets</h2>
+                        <hr>
+                    </div>
+                    <div class="column small-12 medium-12 large-12">
+                        <div id="character-asset-btn" class="btn" style="margin-top: 15px; float: none;">Character</div>
+                    </div>
+                    <div class="column small-12 medium-12 large-12">
+                        <div id="misc-asset-btn" class="btn" style="margin-top: 15px; float: none;">miscellaneous</div>
+                    </div>
+                    <div id="character-assets" class="column small-12 medium-12 large-12" style="display: none;">
+                        <div class="row full-width game-panel map-asset" data-assetpath="assets/images/character/humanToken.png">
+                            <div class="column small-12 medium-12 large-6">
+                               <img src="/assets/images/character/humanToken.png">
+                            </div>
+                            <div class="column small-12 medium-12 large-6 asset-label map-icon">
+                               Human
+                            </div>
+                        </div>
+                        <div class="row full-width game-panel map-asset" data-assetpath="assets/images/character/barKeepToken.png">
+                            <div class="column small-12 medium-12 large-6">
+                               <img src="/assets/images/character/barKeepToken.png">
+                            </div>
+                            <div class="column small-12 medium-12 large-6 asset-label map-icon">
+                               Bar Keeper
+                            </div>
+                        </div>
+                        <div class="row full-width game-panel map-asset" data-assetpath="assets/images/character/peasantToken.png">
+                            <div class="column small-12 medium-12 large-6">
+                               <img src="/assets/images/character/peasantToken.png">
+                            </div>
+                            <div class="column small-12 medium-12 large-6 asset-label map-icon">
+                               Peasant
+                            </div>
+                        </div>
+                        <div class="row full-width game-panel map-asset" data-assetpath="assets/images/character/warriorToken.png">
+                            <div class="column small-12 medium-12 large-6">
+                               <img src="/assets/images/character/warriorToken.png">
+                            </div>
+                            <div class="column small-12 medium-12 large-6 asset-label map-icon">
+                               Warrior
+                            </div>
+                        </div>
+                        <div class="row full-width game-panel map-asset" data-assetpath="assets/images/character/mageToken.png">
+                            <div class="column small-12 medium-12 large-6">
+                               <img src="/assets/images/character/mageToken.png">
+                            </div>
+                            <div class="column small-12 medium-12 large-6 asset-label map-icon">
+                               Mage
+                            </div>
+                        </div>
+                        <div class="row full-width game-panel map-asset" data-assetpath="assets/images/character/archerToken.png">
+                            <div class="column small-12 medium-12 large-6">
+                               <img src="/assets/images/character/archerToken.png">
+                            </div>
+                            <div class="column small-12 medium-12 large-6 asset-label map-icon">
+                               Archer
+                            </div>
+                        </div>
+                        <div class="row full-width game-panel map-asset" data-assetpath="assets/images/character/sorceressToken.png">
+                            <div class="column small-12 medium-12 large-6">
+                               <img src="/assets/images/character/sorceressToken.png">
+                            </div>
+                            <div class="column small-12 medium-12 large-6 asset-label map-icon">
+                               Sorceress
+                            </div>
+                        </div>
+                        <div class="row full-width game-panel map-asset" data-assetpath="assets/images/character/monsterDemonToken.png">
+                            <div class="column small-12 medium-12 large-6">
+                               <img src="/assets/images/character/monsterDemonToken.png">
+                            </div>
+                            <div class="column small-12 medium-12 large-6 asset-label map-icon">
+                               Demon
+                            </div>
+                        </div>
+                        <div class="row full-width game-panel map-asset" data-assetpath="assets/images/character/shatteredDemonToken.png">
+                            <div class="column small-12 medium-12 large-6">
+                               <img src="/assets/images/character/shatteredDemonToken.png">
+                            </div>
+                            <div class="column small-12 medium-12 large-6 asset-label map-icon">
+                               Shattered Demon
+                            </div>
+                        </div>
+                        <div class="row full-width game-panel map-asset" data-assetpath="assets/images/character/skeletonToken.png">
+                            <div class="column small-12 medium-12 large-6">
+                               <img src="/assets/images/character/skeletonToken.png">
+                            </div>
+                            <div class="column small-12 medium-12 large-6 asset-label map-icon">
+                               Skeleton
+                            </div>
+                        </div>
+                        <div class="row full-width game-panel map-asset" data-assetpath="assets/images/character/zombieToken.png">
+                            <div class="column small-12 medium-12 large-6">
+                               <img src="/assets/images/character/zombieToken.png">
+                            </div>
+                            <div class="column small-12 medium-12 large-6 asset-label map-icon">
+                               Zombie
+                            </div>
+                        </div>
+                    </div>
+                    <div id="misc-assets" class="column small-12 medium-12 large-12" style="display: none;">
+                        <div class="row full-width game-panel map-asset" data-assetpath="assets/images/misc/bloodSplatter.png">
+                            <div class="column small-12 medium-12 large-6">
+                                <img src="/assets/images/misc/bloodSplatter.png">
+                            </div>
+                            <div class="column small-12 medium-12 large-6 asset-label map-icon">
+                                Blood Splatter
+                            </div>
+                        </div>
+                        <div class="row full-width game-panel map-asset" data-assetpath="assets/images/misc/bonePile-1.png">
+                            <div class="column small-12 medium-12 large-6">
+                                <img src="/assets/images/misc/bonePile-1.png">
+                            </div>
+                            <div class="column small-12 medium-12 large-6 asset-label map-icon">
+                                Bone Pile 1
+                            </div>
+                        </div>
+                        <div class="row full-width game-panel map-asset" data-assetpath="assets/images/misc/bonePile-2.png">
+                            <div class="column small-12 medium-12 large-6">
+                                <img src="/assets/images/misc/bonePile-2.png">
+                            </div>
+                            <div class="column small-12 medium-12 large-6 asset-label map-icon">
+                                Bone Pile 2
+                            </div>
+                        </div>
+                        <div class="row full-width game-panel map-asset" data-assetpath="assets/images/misc/bonePile-3.png">
+                            <div class="column small-12 medium-12 large-6">
+                                <img src="/assets/images/misc/bonePile-3.png">
+                            </div>
+                            <div class="column small-12 medium-12 large-6 asset-label map-icon">
+                                Bone Pile 3
+                            </div>
+                        </div>
+                        <div class="row full-width game-panel map-asset" data-assetpath="assets/images/misc/bush-1.png">
+                            <div class="column small-12 medium-12 large-6">
+                                <img src="/assets/images/misc/bush-1.png">
+                            </div>
+                            <div class="column small-12 medium-12 large-6 asset-label map-icon">
+                                Bush
+                            </div>
+                        </div>
+                        <div class="row full-width game-panel map-asset" data-assetpath="assets/images/misc/chest.png">
+                            <div class="column small-12 medium-12 large-6">
+                                <img src="/assets/images/misc/chest.png">
+                            </div>
+                            <div class="column small-12 medium-12 large-6 asset-label map-icon">
+                                Chest
+                            </div>
+                        </div>
+                        <div class="row full-width game-panel map-asset" data-assetpath="assets/images/misc/drink.png">
+                            <div class="column small-12 medium-12 large-6">
+                                <img src="/assets/images/misc/drink.png">
+                            </div>
+                            <div class="column small-12 medium-12 large-6 asset-label map-icon">
+                                Drink
+                            </div>
+                        </div>
+                         <div class="row full-width game-panel map-asset" data-assetpath="assets/images/misc/pillar.png">
+                            <div class="column small-12 medium-12 large-6">
+                                <img src="/assets/images/misc/pillar.png">
+                            </div>
+                            <div class="column small-12 medium-12 large-6 asset-label map-icon">
+                                Pillar
+                            </div>
+                        </div>
+                        <div class="row full-width game-panel map-asset" data-assetpath="assets/images/misc/Rubble-1.png">
+                            <div class="column small-12 medium-12 large-6">
+                                <img src="/assets/images/misc/Rubble-1.png">
+                            </div>
+                            <div class="column small-12 medium-12 large-6 asset-label map-icon">
+                                Rubble 1
+                            </div>
+                        </div>
+                        <div class="row full-width game-panel map-asset" data-assetpath="assets/images/misc/Rubble-2.png">
+                            <div class="column small-12 medium-12 large-6">
+                                <img src="/assets/images/misc/rubble-2.png">
+                            </div>
+                            <div class="column small-12 medium-12 large-6 asset-label map-icon">
+                                Rubble 2
+                            </div>
+                        </div>
+                        <div class="row full-width game-panel map-asset" data-assetpath="assets/images/misc/sacLoot.png">
+                            <div class="column small-12 medium-12 large-6">
+                                <img src="/assets/images/misc/sacLoot.png">
+                            </div>
+                            <div class="column small-12 medium-12 large-6 asset-label map-icon">
+                                Loot Sac
+                            </div>
+                        </div>
+                        <div class="row full-width game-panel map-asset" data-assetpath="assets/images/misc/spotMarked.png">
+                            <div class="column small-12 medium-12 large-6">
+                                <img src="/assets/images/misc/spotMarked.png">
+                            </div>
+                            <div class="column small-12 medium-12 large-6 asset-label map-icon">
+                                Spot Marker
+                            </div>
+                        </div>
+                        <div class="row full-width game-panel map-asset" data-assetpath="assets/images/misc/stool.png">
+                            <div class="column small-12 medium-12 large-6">
+                                <img src="/assets/images/misc/stool.png">
+                            </div>
+                            <div class="column small-12 medium-12 large-6 asset-label map-icon">
+                                Stool
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="control-panel-tab-3" class="row full-width hidden">
                 <h2>Settings</h2>
@@ -323,9 +520,1571 @@
         
 <!----------------DICE PANEL END---------------------------------------------------------------------------------->  
         
+<!----------------CHARACTER LIST MODAL START---------------------------------------------------------------------->  
         
+    <div id="import-character-modal" class="lity-hide row">
+        <div class="column small-12 medium-12 large-12 end">
+            <div class="row">
+                <div class="column small-12 medium-12 large-12 end">
+                    <h3>Character List</h3>
+                </div>
+                <div class="row">
+                    <div id="character-list">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column small-12 medium-12 large-12">
+
+                </div>
+            </div>
+        </div>
+    </div>
+        
+<!----------------CHARACTER LIST MODAL END------------------------------------------------------------------------>  
+        
+<!----------------CHARACTER SHEET MODAL START--------------------------------------------------------------------->  
         
     </div>
+    
+    <div id="character-edit-modal" class="lity-hide">
+        <div class="row">
+            <div class="column small-12 medium-12 large-12">
+                <div class="row">
+                    <div class="column small-12 medium-12 large-12">
+                        <input type="button" id="character-sheet-save" value="Save">
+                        <input type="button" id="character-sheet-load" value="Load">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column small-12 medium-12 large-12">
+                        <div id="sheet-details">
+                            <table>
+                            <tr>
+                                <td><label for="sheet-name">Name</label></td>
+                                <td><input type="text" id="sheet-name"></td>
+                                <td><label for="sheet-race">Race</label></td>
+                                <td><input type="text" id="sheet-race"></td>
+                                <td><label for="sheet-size">Size</label></td>
+                                <td><select name="sheet-size" id="sheet-size">
+                                    <option value="fine">Fine</option>
+                                    <option value="diminutive">Diminutive</option>
+                                    <option value="tiny">Tiny</option>
+                                    <option value="small">Small</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="large">Large</option>
+                                    <option value="huge">Huge</option>
+                                    <option value="gargantuan">Gargantuan</option>
+                                    <option value="colossal">Colossal</option>
+                                </select></td>
+                                <td><label for="sheet-class">Class</label></td>
+                                <td><input type="text" id="sheet-class"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="sheet-gender">Gender</label></td>
+                                <td><input type="text" id="sheet-gender"></td>
+                                <td><label for="sheet-age">Age</label></td>
+                                <td><input type="text" id="sheet-age"></td>
+                                <td><label for="sheet-alignment">Alignment</label></td>
+                                <td><input type="text" id="sheet-alignment"></td>
+                                <td><label for="sheet-deity">Deity</label></td>
+                                <td><input type="text" id="sheet-deity"></td>
+                            </tr>
+                            </table>
+                        </div>
+                        <div id="sheet-ability-scores">
+                            <table>
+                                <tr>
+                                    <th></th>
+                                    <th colspan="2">Base</th>
+                                    <th colspan="2">Temp</th>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <th>Score</th>
+                                    <th>Mod</th>
+                                    <th>Score</th>
+                                    <th>Mod</th>
+                                </tr>
+                                <tr>
+                                    <td>STR</td>
+                                    <td><input type="number" id="sheet-strscore"></td>
+                                    <td><input type="number" id="sheet-strmod" disabled></td>
+                                    <td><input type="number" id="sheet-temp-strscore"></td>
+                                    <td><input type="number" id="sheet-temp-strmod" disabled></td>
+                                </tr>
+                                <tr>
+                                    <td>DEX</td>
+                                    <td><input type="number" id="sheet-dexscore"></td>
+                                    <td><input type="number" id="sheet-dexmod" disabled></td>
+                                    <td><input type="number" id="sheet-temp-dexscore"></td>
+                                    <td><input type="number" id="sheet-temp-dexmod" disabled></td>
+                                </tr>
+                                <tr>
+                                    <td>CON</td>
+                                    <td><input type="number" id="sheet-conscore"></td>
+                                    <td><input type="number" id="sheet-conmod" disabled></td>
+                                    <td><input type="number" id="sheet-temp-conscore"></td>
+                                    <td><input type="number" id="sheet-temp-conmod" disabled></td>
+                                </tr>
+                                <tr>
+                                    <td>INT</td>
+                                    <td><input type="number" id="sheet-intscore"></td>
+                                    <td><input type="number" id="sheet-intmod" disabled></td>
+                                    <td><input type="number" id="sheet-temp-intscore"></td>
+                                    <td><input type="number" id="sheet-temp-intmod" disabled></td>
+                                </tr>
+                                <tr>
+                                    <td>WIS</td>
+                                    <td><input type="number" id="sheet-wisscore"></td>
+                                    <td><input type="number" id="sheet-wismod" disabled></td>
+                                    <td><input type="number" id="sheet-temp-wisscore"></td>
+                                    <td><input type="number" id="sheet-temp-wismod" disabled></td>
+                                </tr>
+                                <tr>
+                                    <td>CHA</td>
+                                    <td><input type="number" id="sheet-chascore"></td>
+                                    <td><input type="number" id="sheet-chamod" disabled></td>
+                                    <td><input type="number" id="sheet-temp-chascore"></td>
+                                    <td><input type="number" id="sheet-temp-chamod" disabled></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="sheet-vitals">
+                            <table>
+                                <tr>
+                                    <td><label for="sheet-hp-max">Max HP</label></td>
+                                    <td><input type="number" id="sheet-hp-max"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="sheet-dr">DR</label></td>
+                                    <td><input type="text" id="sheet-dr"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="sheet-speed-base">Base Speed</label></td>
+                                    <td><input type="text" id="sheet-speed-base"></td>
+                                    <td><label for="sheet-speed-mod">Final Speed</label></td>
+                                    <td><input type="text" id="sheet-speed-mod"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="sheet-initiative">Initiative</label></td>
+                                    <td><input type="number" id="sheet-initiative" disabled></td>
+                                    <td><label for="sheet-initiative-dex">Dex</label></td>
+                                    <td><input type="number" id="sheet-initiative-dex" disabled></td>
+                                    <td><label for="sheet-initiative-misc">Misc</label></td>
+                                    <td><input type="number" id="sheet-initiative-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="sheet-ac-total">AC</label></td>
+                                    <td><input type="number" id="sheet-ac-total" disabled></td>
+                                    <td><label>= 10 +</label></td>
+                                    <td><input type="number" id="sheet-ac-armour"></td>
+                                    <td><input type="number" id="sheet-ac-shield"></td>
+                                    <td><input type="number" id="sheet-ac-dex-mod"></td>
+                                    <td><input type="number" id="sheet-ac-size"></td>
+                                    <td><input type="number" id="sheet-ac-natural"></td>
+                                    <td><input type="number" id="sheet-ac-deflection"></td>
+                                    <td><input type="number" id="sheet-ac-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="sheet-fort-total">Fortitude</label></td>
+                                    <td><input type="number" id="sheet-fort-total" disabled></td>
+                                    <td><input type="number" id="sheet-fort-base"></td>
+                                    <td><input type="number" id="sheet-fort-con-mod"></td>
+                                    <td><input type="number" id="sheet-fort-magic"></td>
+                                    <td><input type="number" id="sheet-fort-misc"></td>
+                                    <td><input type="number" id="sheet-fort-temp"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="sheet-ref-total">Reflex</label></td>
+                                    <td><input type="number" id="sheet-ref-total" disabled></td>
+                                    <td><input type="number" id="sheet-ref-base"></td>
+                                    <td><input type="number" id="sheet-ref-dex-mod"></td>
+                                    <td><input type="number" id="sheet-ref-magic"></td>
+                                    <td><input type="number" id="sheet-ref-misc"></td>
+                                    <td><input type="number" id="sheet-ref-temp"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="sheet-will-total">Will</label></td>
+                                    <td><input type="number" id="sheet-will-total" disabled></td>
+                                    <td><input type="number" id="sheet-will-base"></td>
+                                    <td><input type="number" id="sheet-will-wis-mod"></td>
+                                    <td><input type="number" id="sheet-will-magic"></td>
+                                    <td><input type="number" id="sheet-will-misc"></td>
+                                    <td><input type="number" id="sheet-will-temp"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="sheet-bab">Base Attack Bonus</label></td>
+                                    <td><input type="number" id="sheet-bab"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="sheet-sr">Spell Resistance</label></td>
+                                    <td><input type="number" id="sheet-sr"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="sheet-cmb-total">CMB</label></td>
+                                    <td><input type="number" id="sheet-cmb-total" disabled></td>
+                                    <td><input type="number" id="sheet-cmb-bab" disabled></td>
+                                    <td><input type="number" id="sheet-cmb-str" disabled></td>
+                                    <td><input type="number" id="sheet-cmb-size" disabled></td>
+                                    <td><input type="number" id="sheet-cmb-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="sheet-cmd-total">CMD</label></td>
+                                    <td><input type="number" id="sheet-cmd-total" disabled></td>
+                                    <td><input type="number" id="sheet-cmd-bab" disabled></td>
+                                    <td><input type="number" id="sheet-cmd-str" disabled></td>
+                                    <td><input type="number" id="sheet-cmd-dex" disabled></td>
+                                    <td><input type="number" id="sheet-cmd-size" disabled></td>
+                                    <td><input type="number" id="sheet-cmd-misc"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="sheet-skills">
+                            <table>
+                                <tr>
+                                    <th>Class Skill</th>
+                                    <th>Skill Names</th>
+                                    <th>Total Bonus</th>
+                                    <th></th>
+                                    <th>Abilitiy Modifier</th>
+                                    <th>Ranks</th>
+                                    <th>Misc. Mod</th>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-acrobatics-cs"></td>
+                                    <td>Acrobatics</td>
+                                    <td><input type="number" id="sheet-skill-acrobatics-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-acrobatics-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-acrobatics-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-acrobatics-rank"></td>
+                                    <td><input type="number" id="sheet-skill-acrobatics-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-appraise-cs"></td>
+                                    <td>Appraise</td>
+                                    <td><input type="number" id="sheet-skill-appraise-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-appraise-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-appraise-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-appraise-rank"></td>
+                                    <td><input type="number" id="sheet-skill-appraise-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-bluff-cs"></td>
+                                    <td>Bluff</td>
+                                    <td><input type="number" id="sheet-skill-bluff-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-bluff-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-bluff-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-bluff-rank"></td>
+                                    <td><input type="number" id="sheet-skill-bluff-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-climb-cs"></td>
+                                    <td>Climb</td>
+                                    <td><input type="number" id="sheet-skill-climb-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-climb-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-climb-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-climb-rank"></td>
+                                    <td><input type="number" id="sheet-skill-climb-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-craft-1-cs"></td>
+                                    <td>Craft <input type="text"></td>
+                                    <td><input type="number" id="sheet-skill-craft-1-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-craft-1-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-craft-1-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-craft-1-rank"></td>
+                                    <td><input type="number" id="sheet-skill-craft-1-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-craft-2-cs" disabled></td>
+                                    <td>Craft <input type="text"></td>
+                                    <td><input type="number" id="sheet-skill-craft-2-total"></td>
+                                    <td>
+                                        <select id="sheet-skill-craft-2-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-craft-2-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-craft-2-rank"></td>
+                                    <td><input type="number" id="sheet-skill-craft-2-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-craft-3-cs"></td>
+                                    <td>Craft <input type="text"></td>
+                                    <td><input type="number" id="sheet-skill-craft-3-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-craft-3-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-craft-3-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-craft-3-rank"></td>
+                                    <td><input type="number" id="sheet-skill-craft-3-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-diplomacy-cs"></td>
+                                    <td>Diplomacy</td>
+                                    <td><input type="number" id="sheet-skill-diplomacy-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-diplomacy-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-diplomacy-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-diplomacy-rank"></td>
+                                    <td><input type="number" id="sheet-skill-diplomacy-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-disable-device-cs"></td>
+                                    <td>Disable Device</td>
+                                    <td><input type="number" id="sheet-skill-disable-device-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-disable-device-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-disable-device-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-disable-device-rank"></td>
+                                    <td><input type="number" id="sheet-skill-disable-device-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-disguise-cs"></td>
+                                    <td>Disguise</td>
+                                    <td><input type="number" id="sheet-skill-disguise-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-disguise-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-disguise-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-disguise-rank"></td>
+                                    <td><input type="number" id="sheet-skill-disguise-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-escape-artist-cs"></td>
+                                    <td>Escape Artist</td>
+                                    <td><input type="number" id="sheet-skill-escape-artist-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-escape-artist-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-escape-artist-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-escape-artist-rank"></td>
+                                    <td><input type="number" id="sheet-skill-escape-artist-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-fly-cs"></td>
+                                    <td>Fly</td>
+                                    <td><input type="number" id="sheet-skill-fly-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-fly-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-fly-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-fly-rank"></td>
+                                    <td><input type="number" id="sheet-skill-fly-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-handle-animal-cs"></td>
+                                    <td>Handle Animal</td>
+                                    <td><input type="number" id="sheet-skill-handle-animal-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-handle-animal-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-handle-animal-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-handle-animal-rank"></td>
+                                    <td><input type="number" id="sheet-skill-handle-animal-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-heal-cs"></td>
+                                    <td>Heal</td>
+                                    <td><input type="number" id="sheet-skill-heal-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-heal-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-heal-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-heal-rank"></td>
+                                    <td><input type="number" id="sheet-skill-heal-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-intimidate-cs"></td>
+                                    <td>Intimidate</td>
+                                    <td><input type="number" id="sheet-skill-intimidate-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-intimidate-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-intimidate-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-intimidate-rank"></td>
+                                    <td><input type="number" id="sheet-skill-intimidate-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-arcana-cs"></td>
+                                    <td>Knowledge (Arcana)</td>
+                                    <td><input type="number" id="sheet-skill-arcana-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-arcana-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-arcana-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-arcana-rank"></td>
+                                    <td><input type="number" id="sheet-skill-arcana-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-dungeoneering-cs"></td>
+                                    <td>Knowledge (Dungeoneering)</td>
+                                    <td><input type="number" id="sheet-skill-dungeoneering-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-dungeoneering-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-dungeoneering-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-dungeoneering-rank"></td>
+                                    <td><input type="number" id="sheet-skill-dungeoneering-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-engineering-cs"></td>
+                                    <td>Knowledge (Engineering)</td>
+                                    <td><input type="number" id="sheet-skill-engineering-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-engineering-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-engineering-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-engineering-rank"></td>
+                                    <td><input type="number" id="sheet-skill-engineering-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-geography-cs"></td>
+                                    <td>Knowledge (Geography)</td>
+                                    <td><input type="number" id="sheet-skill-geography-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-geography-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-geography-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-geography-rank"></td>
+                                    <td><input type="number" id="sheet-skill-geography-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-history-cs"></td>
+                                    <td>Knowledge (History)</td>
+                                    <td><input type="number" id="sheet-skill-history-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-history-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-history-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-history-rank"></td>
+                                    <td><input type="number" id="sheet-skill-history-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-local-cs"></td>
+                                    <td>Knowledge (Local)</td>
+                                    <td><input type="number" id="sheet-skill-local-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-local-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-local-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-local-rank"></td>
+                                    <td><input type="number" id="sheet-skill-local-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-nature-cs"></td>
+                                    <td>Knowledge (Nature)</td>
+                                    <td><input type="number" id="sheet-skill-nature-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-nature-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-nature-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-nature-rank"></td>
+                                    <td><input type="number" id="sheet-skill-nature-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-nobility-cs"></td>
+                                    <td>Knowledge (Nobility)</td>
+                                    <td><input type="number" id="sheet-skill-nobility-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-nobility-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-nobility-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-nobility-rank"></td>
+                                    <td><input type="number" id="sheet-skill-nobility-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-planes-cs"></td>
+                                    <td>Knowledge (Planes)</td>
+                                    <td><input type="number" id="sheet-skill-planes-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-planes-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-planes-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-planes-rank"></td>
+                                    <td><input type="number" id="sheet-skill-planes-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-religion-cs"></td>
+                                    <td>Knowledge (Religion)</td>
+                                    <td><input type="number" id="sheet-skill-religion-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-religion-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-religion-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-religion-rank"></td>
+                                    <td><input type="number" id="sheet-skill-religion-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-linguistics-cs"></td>
+                                    <td>Linguistics</td>
+                                    <td><input type="number" id="sheet-skill-linguistics-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-linguistics-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-linguistics-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-linguistics-rank"></td>
+                                    <td><input type="number" id="sheet-skill-linguistics-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-perception-cs"></td>
+                                    <td>Perception</td>
+                                    <td><input type="number" id="sheet-skill-perception-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-perception-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-perception-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-perception-rank"></td>
+                                    <td><input type="number" id="sheet-skill-perception-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-perform-1-cs"></td>
+                                    <td>Perform <input type="text"></td>
+                                    <td><input type="number" id="sheet-skill-perform-1-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-perform-1-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-perform-1-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-perform-1-rank"></td>
+                                    <td><input type="number" id="sheet-skill-perform-1-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-perform-2-cs"></td>
+                                    <td>Perform <input type="text"></td>
+                                    <td><input type="number" id="sheet-skill-perform-2-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-perform-2-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-perform-2-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-perform-2-rank"></td>
+                                    <td><input type="number" id="sheet-skill-perform-2-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-profession-1-cs"></td>
+                                    <td>Profession <input type="text"></td>
+                                    <td><input type="number" id="sheet-skill-profession-1-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-profession-1-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-profession-1-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-profession-1-rank"></td>
+                                    <td><input type="number" id="sheet-skill-profession-1-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-profession-2-cs"></td>
+                                    <td>Profession <input type="text"></td>
+                                    <td><input type="number" id="sheet-skill-profession-2-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-profession-2-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-profession-2-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-profession-2-rank"></td>
+                                    <td><input type="number" id="sheet-skill-profession-2-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-ride-cs"></td>
+                                    <td>Ride</td>
+                                    <td><input type="number" id="sheet-skill-ride-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-ride-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-ride-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-ride-rank"></td>
+                                    <td><input type="number" id="sheet-skill-ride-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-sense-motive-cs"></td>
+                                    <td>Sense Motive</td>
+                                    <td><input type="number" id="sheet-skill-sense-motive-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-sense-motive-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-sense-motive-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-sense-motive-rank"></td>
+                                    <td><input type="number" id="sheet-skill-sense-motive-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-sleight-of-hand-cs"></td>
+                                    <td>Sleight of Hand</td>
+                                    <td><input type="number" id="sheet-skill-sleight-of-hand-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-sleight-of-hand-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-sleight-of-hand-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-sleight-of-hand-rank"></td>
+                                    <td><input type="number" id="sheet-skill-sleight-of-hand-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-spellcraft-cs"></td>
+                                    <td>Spellcraft</td>
+                                    <td><input type="number" id="sheet-skill-spellcraft-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-spellcraft-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-spellcraft-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-spellcraft-rank"></td>
+                                    <td><input type="number" id="sheet-skill-spellcraft-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-stealth-cs"></td>
+                                    <td>Stealth</td>
+                                    <td><input type="number" id="sheet-skill-stealth-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-stealth-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-stealth-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-stealth-rank"></td>
+                                    <td><input type="number" id="sheet-skill-stealth-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-survival-cs"></td>
+                                    <td>Survival</td>
+                                    <td><input type="number" id="sheet-skill-survival-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-survival-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-survival-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-survival-rank"></td>
+                                    <td><input type="number" id="sheet-skill-survival-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-swim-cs"></td>
+                                    <td>Swim</td>
+                                    <td><input type="number" id="sheet-skill-swim-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-swim-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-swim-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-swim-rank"></td>
+                                    <td><input type="number" id="sheet-skill-swim-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-umd-cs"></td>
+                                    <td>Use Magic Device</td>
+                                    <td><input type="number" id="sheet-skill-umd-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-umd-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-umd-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-umd-rank"></td>
+                                    <td><input type="number" id="sheet-skill-umd-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-misc-1-cs"></td>
+                                    <td><input type="text"></td>
+                                    <td><input type="number" id="sheet-skill-misc-1-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-misc-1-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-misc-1-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-misc-1-rank"></td>
+                                    <td><input type="number" id="sheet-skill-misc-1-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-misc-2-cs"></td>
+                                    <td><input type="text"></td>
+                                    <td><input type="number" id="sheet-skill-misc-2-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-misc-2-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-misc-2-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-misc-2-rank"></td>
+                                    <td><input type="number" id="sheet-skill-misc-2-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-misc-3-cs"></td>
+                                    <td><input type="text"></td>
+                                    <td><input type="number" id="sheet-skill-misc-3-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-misc-3-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-misc-3-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-misc-3-rank"></td>
+                                    <td><input type="number" id="sheet-skill-misc-3-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-misc-4-cs"></td>
+                                    <td><input type="text"></td>
+                                    <td><input type="number" id="sheet-skill-misc-4-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-misc-4-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-misc-4-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-misc-4-rank"></td>
+                                    <td><input type="number" id="sheet-skill-misc-4-misc"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="sheet-skill-misc-5-cs"></td>
+                                    <td><input type="text"></td>
+                                    <td><input type="number" id="sheet-skill-misc-5-total" disabled></td>
+                                    <td>
+                                        <select id="sheet-skill-misc-5-ability">
+                                            <option value="1">STR</option>
+                                            <option value="2">DEX</option>
+                                            <option value="3">CON</option>
+                                            <option value="4">INT</option>
+                                            <option value="5">WIS</option>
+                                            <option value="6">CHA</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="number" id="sheet-skill-misc-5-ability-mod" disabled></td>
+                                    <td><input type="number" id="sheet-skill-misc-5-rank"></td>
+                                    <td><input type="number" id="sheet-skill-misc-5-misc"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="sheet-trait-class-feat">
+                            <table>
+                                <tr>
+                                    <th>Traits and Racial Features</th>
+                                    <th>Class Features</th>
+                                    <th>Feats</th>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-trait-1"></td>
+                                    <td><input type="text" id="sheet-class-feature-1"></td>
+                                    <td><input type="text" id="sheet-feat-1"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-trait-2"></td>
+                                    <td><input type="text" id="sheet-class-feature-2"></td>
+                                    <td><input type="text" id="sheet-feat-2"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-trait-3"></td>
+                                    <td><input type="text" id="sheet-class-feature-3"></td>
+                                    <td><input type="text" id="sheet-feat-3"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-trait-4"></td>
+                                    <td><input type="text" id="sheet-class-feature-4"></td>
+                                    <td><input type="text" id="sheet-feat-4"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-trait-5"></td>
+                                    <td><input type="text" id="sheet-class-feature-5"></td>
+                                    <td><input type="text" id="sheet-feat-5"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-trait-6"></td>
+                                    <td><input type="text" id="sheet-class-feature-6"></td>
+                                    <td><input type="text" id="sheet-feat-6"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-trait-7"></td>
+                                    <td><input type="text" id="sheet-class-feature-7"></td>
+                                    <td><input type="text" id="sheet-feat-7"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-trait-8"></td>
+                                    <td><input type="text" id="sheet-class-feature-8"></td>
+                                    <td><input type="text" id="sheet-feat-8"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-trait-9"></td>
+                                    <td><input type="text" id="sheet-class-feature-9"></td>
+                                    <td><input type="text" id="sheet-feat-9"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-trait-10"></td>
+                                    <td><input type="text" id="sheet-class-feature-10"></td>
+                                    <td><input type="text" id="sheet-feat-10"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-trait-11"></td>
+                                    <td><input type="text" id="sheet-class-feature-11"></td>
+                                    <td><input type="text" id="sheet-feat-11"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-trait-12"></td>
+                                    <td><input type="text" id="sheet-class-feature-12"></td>
+                                    <td><input type="text" id="sheet-feat-12"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-trait-13"></td>
+                                    <td><input type="text" id="sheet-class-feature-13"></td>
+                                    <td><input type="text" id="sheet-feat-13"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-trait-14"></td>
+                                    <td><input type="text" id="sheet-class-feature-14"></td>
+                                    <td><input type="text" id="sheet-feat-14"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-trait-15"></td>
+                                    <td><input type="text" id="sheet-class-feature-15"></td>
+                                    <td><input type="text" id="sheet-feat-15"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-trait-16"></td>
+                                    <td><input type="text" id="sheet-class-feature-16"></td>
+                                    <td><input type="text" id="sheet-feat-16"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-trait-17"></td>
+                                    <td><input type="text" id="sheet-class-feature-17"></td>
+                                    <td><input type="text" id="sheet-feat-17"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-trait-18"></td>
+                                    <td><input type="text" id="sheet-class-feature-18"></td>
+                                    <td><input type="text" id="sheet-feat-18"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-trait-19"></td>
+                                    <td><input type="text" id="sheet-class-feature-19"></td>
+                                    <td><input type="text" id="sheet-feat-19"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-trait-20"></td>
+                                    <td><input type="text" id="sheet-class-feature-20"></td>
+                                    <td><input type="text" id="sheet-feat-20"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="sheet-attacks">
+                            <table>
+                                <tr>
+                                    <th><label for="sheet-weapon-1">Weapon</label></th>
+                                    <th><label for="sheet-weapon-bonus-1">Attack Bonus</label></th>
+                                    <th><label for="sheet-weapon-crit-range-1">Critical Range</label></th>
+                                    <th><label for="sheet-weapon-crit-mult-1">Critical Multiplier</label></th>
+                                    <th><label for="sheet-weapon-damage-1">Damage</label></th>
+                                    <th><label for="sheet-weapon-damage-type-1">Damage Type</label></th>
+                                    <th><label for="sheet-weapon-range-1">Range</label></th>
+                                    <th><label for="sheet-weapon-ammo-1">Ammunition</label></th>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-weapon-1"></td>
+                                    <td><input type="number" id="sheet-weapon-bonus-1"></td>
+                                    <td><input type="number" id="sheet-weapon-crit-range-1"></td>
+                                    <td><input type="number" id="sheet-weapon-crit-mult-1"></td>
+                                    <td><input type="text" id="sheet-weapon-damage-1"></td>
+                                    <td><input type="text" id="sheet-weapon-damage-type-1"></td>
+                                    <td><input type="text" id="sheet-weapon-range-1"></td>
+                                    <td><input type="text" id="sheet-weapon-ammo-1"></td>
+                                </tr>
+                                <tr>
+                                    <th><label for="sheet-weapon-2">Weapon</label></th>
+                                    <th><label for="sheet-weapon-bonus-2">Attack Bonus</label></th>
+                                    <th><label for="sheet-weapon-crit-range-2">Critical Range</label></th>
+                                    <th><label for="sheet-weapon-crit-mult-2">Critical Multiplier</label></th>
+                                    <th><label for="sheet-weapon-damage-2">Damage</label></th>
+                                    <th><label for="sheet-weapon-damage-type-2">Damage Type</label></th>
+                                    <th><label for="sheet-weapon-range-2">Range</label></th>
+                                    <th><label for="sheet-weapon-ammo-2">Ammunition</label></th>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-weapon-2"></td>
+                                    <td><input type="number" id="sheet-weapon-bonus-2"></td>
+                                    <td><input type="number" id="sheet-weapon-crit-range-2"></td>
+                                    <td><input type="number" id="sheet-weapon-crit-mult-2"></td>
+                                    <td><input type="text" id="sheet-weapon-damage-2"></td>
+                                    <td><input type="text" id="sheet-weapon-damage-type-2"></td>
+                                    <td><input type="text" id="sheet-weapon-range-2"></td>
+                                    <td><input type="text" id="sheet-weapon-ammo-2"></td>
+                                </tr>
+                                <tr>
+                                    <th><label for="sheet-weapon-3">Weapon</label></th>
+                                    <th><label for="sheet-weapon-bonus-3">Attack Bonus</label></th>
+                                    <th><label for="sheet-weapon-crit-range-3">Critical Range</label></th>
+                                    <th><label for="sheet-weapon-crit-mult-3">Critical Multiplier</label></th>
+                                    <th><label for="sheet-weapon-damage-3">Damage</label></th>
+                                    <th><label for="sheet-weapon-damage-type-3">Damage Type</label></th>
+                                    <th><label for="sheet-weapon-range-3">Range</label></th>
+                                    <th><label for="sheet-weapon-ammo-3">Ammunition</label></th>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-weapon-3"></td>
+                                    <td><input type="number" id="sheet-weapon-bonus-3"></td>
+                                    <td><input type="number" id="sheet-weapon-crit-range-3"></td>
+                                    <td><input type="number" id="sheet-weapon-crit-mult-3"></td>
+                                    <td><input type="text" id="sheet-weapon-damage-3"></td>
+                                    <td><input type="text" id="sheet-weapon-damage-type-3"></td>
+                                    <td><input type="text" id="sheet-weapon-range-3"></td>
+                                    <td><input type="text" id="sheet-weapon-ammo-3"></td>
+                                </tr>
+                                <tr>
+                                    <th><label for="sheet-weapon-4">Weapon</label></th>
+                                    <th><label for="sheet-weapon-bonus-4">Attack Bonus</label></th>
+                                    <th><label for="sheet-weapon-crit-range-4">Critical Range</label></th>
+                                    <th><label for="sheet-weapon-crit-mult-4">Critical Multiplier</label></th>
+                                    <th><label for="sheet-weapon-damage-4">Damage</label></th>
+                                    <th><label for="sheet-weapon-damage-type-4">Damage Type</label></th>
+                                    <th><label for="sheet-weapon-range-4">Range</label></th>
+                                    <th><label for="sheet-weapon-ammo-4">Ammunition</label></th>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-weapon-4"></td>
+                                    <td><input type="number" id="sheet-weapon-bonus-4"></td>
+                                    <td><input type="number" id="sheet-weapon-crit-range-4"></td>
+                                    <td><input type="number" id="sheet-weapon-crit-mult-4"></td>
+                                    <td><input type="text" id="sheet-weapon-damage-4"></td>
+                                    <td><input type="text" id="sheet-weapon-damage-type-4"></td>
+                                    <td><input type="text" id="sheet-weapon-range-4"></td>
+                                    <td><input type="text" id="sheet-weapon-ammo-4"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="sheet-ac-items">
+                            <table>
+                                <tr>
+                                    <th><label for="sheet-armour-name">Armour</label></th>
+                                    <th><label for="sheet-armour-bonus">Bonus</label></th>
+                                    <th><label for="sheet-armour-max-dex">Max Dex</label></th>
+                                    <th><label for="sheet-armour-type">Type</label></th>
+                                    <th><label for="sheet-armour-penalty">Check Penalty</label></th>
+                                    <th><label for="sheet-armour-spell-failure">Spell Failure</label></th>
+                                    <th><label for="sheet-armour-weight">Weight</label></th>
+                                    <th><label for="sheet-armour-properties">Properties</label></th>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-armour-name"></td>
+                                    <td><input type="text" id="sheet-armour-bonus"></td>
+                                    <td><input type="text" id="sheet-armour-max-dex"></td>
+                                    <td><input type="text" id="sheet-armour-type"></td>
+                                    <td><input type="text" id="sheet-armour-penalty"></td>
+                                    <td><input type="text" id="sheet-armour-spell-failure"></td>
+                                    <td><input type="text" id="sheet-armour-weight"></td>
+                                    <td><input type="text" id="sheet-armour-properties"></td>
+                                </tr>
+                                <tr>
+                                    <th><label for="sheet-shield-name">Shield</label></th>
+                                    <th><label for="sheet-shield-bonus">Bonus</label></th>
+                                    <th><label for="sheet-shield-max-dex">Max Dex</label></th>
+                                    <th><label for="sheet-shield-type">Type</label></th>
+                                    <th><label for="sheet-shield-penalty">Check Penalty</label></th>
+                                    <th><label for="sheet-shield-spell-failure">Spell Failure</label></th>
+                                    <th><label for="sheet-shield-weight">Weight</label></th>
+                                    <th><label for="sheet-shield-properties">Properties</label></th>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-shield-name"></td>
+                                    <td><input type="text" id="sheet-shield-bonus"></td>
+                                    <td><input type="text" id="sheet-shield-max-dex"></td>
+                                    <td><input type="text" id="sheet-shield-type"></td>
+                                    <td><input type="text" id="sheet-shield-penalty"></td>
+                                    <td><input type="text" id="sheet-shield-spell-failure"></td>
+                                    <td><input type="text" id="sheet-shield-weight"></td>
+                                    <td><input type="text" id="sheet-shield-properties"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="sheet-magic-items">
+                            <table>
+                                <tr>
+                                    <td><label for="sheet-magic-belt">Belt</label></td>
+                                    <td><input type="text" id="sheet-magic-belt"></td>
+                                    <td><input type="text" id="sheet-magic-belt-description"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="sheet-magic-body">Body</label></td>
+                                    <td><input type="text" id="sheet-magic-body"></td>
+                                    <td><input type="text" id="sheet-magic-body-description"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="sheet-magic-chest">Chest</label></td>
+                                    <td><input type="text" id="sheet-magic-chest"></td>
+                                    <td><input type="text" id="sheet-magic-chest-description"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="sheet-magic-eyes">Eyes</label></td>
+                                    <td><input type="text" id="sheet-magic-eyes"></td>
+                                    <td><input type="text" id="sheet-magic-eyes-description"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="sheet-magic-feet">feet</label></td>
+                                    <td><input type="text" id="sheet-magic-feet"></td>
+                                    <td><input type="text" id="sheet-magic-feet-description"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="sheet-magic-hand">Hand</label></td>
+                                    <td><input type="text" id="sheet-magic-hand"></td>
+                                    <td><input type="text" id="sheet-magic-hand-description"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="sheet-magic-headband">Headband</label></td>
+                                    <td><input type="text" id="sheet-magic-headband"></td>
+                                    <td><input type="text" id="sheet-magic-headband-description"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="sheet-magic-neck">Neck</label></td>
+                                    <td><input type="text" id="sheet-magic-neck"></td>
+                                    <td><input type="text" id="sheet-magic-neck-description"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="sheet-magic-shoulders">Shoulders</label></td>
+                                    <td><input type="text" id="sheet-magic-shoulders"></td>
+                                    <td><input type="text" id="sheet-magic-shoulders-description"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="sheet-magic-wrist">Wrist</label></td>
+                                    <td><input type="text" id="sheet-magic-wrist"></td>
+                                    <td><input type="text" id="sheet-magic-wrist-description"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="sheet-magic-ring-1">Ring 1</label></td>
+                                    <td><input type="text" id="sheet-magic-ring-1"></td>
+                                    <td><input type="text" id="sheet-magic-ring-1-description"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="sheet-magic-ring-2">Ring 2</label></td>
+                                    <td><input type="text" id="sheet-magic-ring-2"></td>
+                                    <td><input type="text" id="sheet-magic-ring-2-description"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="sheet-inventory">
+                            <table>
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Quantity</th>
+                                    <th>Weight</th>
+                                    <th>Value</th>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-item-1-name"></td>
+                                    <td><input type="text" id="sheet-item-1-qty"></td>
+                                    <td><input type="text" id="sheet-item-1-weight"></td>
+                                    <td><input type="text" id="sheet-item-1-value"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-item-2-name"></td>
+                                    <td><input type="text" id="sheet-item-2-qty"></td>
+                                    <td><input type="text" id="sheet-item-2-weight"></td>
+                                    <td><input type="text" id="sheet-item-2-value"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-item-3-name"></td>
+                                    <td><input type="text" id="sheet-item-3-qty"></td>
+                                    <td><input type="text" id="sheet-item-3-weight"></td>
+                                    <td><input type="text" id="sheet-item-3-value"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-item-4-name"></td>
+                                    <td><input type="text" id="sheet-item-4-qty"></td>
+                                    <td><input type="text" id="sheet-item-4-weight"></td>
+                                    <td><input type="text" id="sheet-item-4-value"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-item-5-name"></td>
+                                    <td><input type="text" id="sheet-item-5-qty"></td>
+                                    <td><input type="text" id="sheet-item-5-weight"></td>
+                                    <td><input type="text" id="sheet-item-5-value"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-item-6-name"></td>
+                                    <td><input type="text" id="sheet-item-6-qty"></td>
+                                    <td><input type="text" id="sheet-item-6-weight"></td>
+                                    <td><input type="text" id="sheet-item-6-value"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-item-7-name"></td>
+                                    <td><input type="text" id="sheet-item-7-qty"></td>
+                                    <td><input type="text" id="sheet-item-7-weight"></td>
+                                    <td><input type="text" id="sheet-item-7-value"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-item-8-name"></td>
+                                    <td><input type="text" id="sheet-item-8-qty"></td>
+                                    <td><input type="text" id="sheet-item-8-weight"></td>
+                                    <td><input type="text" id="sheet-item-8-value"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-item-9-name"></td>
+                                    <td><input type="text" id="sheet-item-9-qty"></td>
+                                    <td><input type="text" id="sheet-item-9-weight"></td>
+                                    <td><input type="text" id="sheet-item-9-value"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-item-10-name"></td>
+                                    <td><input type="text" id="sheet-item-10-qty"></td>
+                                    <td><input type="text" id="sheet-item-10-weight"></td>
+                                    <td><input type="text" id="sheet-item-10-value"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-item-11-name"></td>
+                                    <td><input type="text" id="sheet-item-11-qty"></td>
+                                    <td><input type="text" id="sheet-item-11-weight"></td>
+                                    <td><input type="text" id="sheet-item-11-value"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-item-12-name"></td>
+                                    <td><input type="text" id="sheet-item-12-qty"></td>
+                                    <td><input type="text" id="sheet-item-12-weight"></td>
+                                    <td><input type="text" id="sheet-item-12-value"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-item-13-name"></td>
+                                    <td><input type="text" id="sheet-item-13-qty"></td>
+                                    <td><input type="text" id="sheet-item-13-weight"></td>
+                                    <td><input type="text" id="sheet-item-13-value"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-item-14-name"></td>
+                                    <td><input type="text" id="sheet-item-14-qty"></td>
+                                    <td><input type="text" id="sheet-item-14-weight"></td>
+                                    <td><input type="text" id="sheet-item-14-value"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-item-15-name"></td>
+                                    <td><input type="text" id="sheet-item-15-qty"></td>
+                                    <td><input type="text" id="sheet-item-15-weight"></td>
+                                    <td><input type="text" id="sheet-item-15-value"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-item-16-name"></td>
+                                    <td><input type="text" id="sheet-item-16-qty"></td>
+                                    <td><input type="text" id="sheet-item-16-weight"></td>
+                                    <td><input type="text" id="sheet-item-16-value"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-item-17-name"></td>
+                                    <td><input type="text" id="sheet-item-17-qty"></td>
+                                    <td><input type="text" id="sheet-item-17-weight"></td>
+                                    <td><input type="text" id="sheet-item-17-value"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-item-18-name"></td>
+                                    <td><input type="text" id="sheet-item-18-qty"></td>
+                                    <td><input type="text" id="sheet-item-18-weight"></td>
+                                    <td><input type="text" id="sheet-item-18-value"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-item-19-name"></td>
+                                    <td><input type="text" id="sheet-item-19-qty"></td>
+                                    <td><input type="text" id="sheet-item-19-weight"></td>
+                                    <td><input type="text" id="sheet-item-19-value"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-item-20-name"></td>
+                                    <td><input type="text" id="sheet-item-20-qty"></td>
+                                    <td><input type="text" id="sheet-item-20-weight"></td>
+                                    <td><input type="text" id="sheet-item-20-value"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-item-21-name"></td>
+                                    <td><input type="text" id="sheet-item-21-qty"></td>
+                                    <td><input type="text" id="sheet-item-21-weight"></td>
+                                    <td><input type="text" id="sheet-item-21-value"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-item-22-name"></td>
+                                    <td><input type="text" id="sheet-item-22-qty"></td>
+                                    <td><input type="text" id="sheet-item-22-weight"></td>
+                                    <td><input type="text" id="sheet-item-22-value"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-item-23-name"></td>
+                                    <td><input type="text" id="sheet-item-23-qty"></td>
+                                    <td><input type="text" id="sheet-item-23-weight"></td>
+                                    <td><input type="text" id="sheet-item-23-value"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-item-24-name"></td>
+                                    <td><input type="text" id="sheet-item-24-qty"></td>
+                                    <td><input type="text" id="sheet-item-24-weight"></td>
+                                    <td><input type="text" id="sheet-item-24-value"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-item-25-name"></td>
+                                    <td><input type="text" id="sheet-item-25-qty"></td>
+                                    <td><input type="text" id="sheet-item-25-weight"></td>
+                                    <td><input type="text" id="sheet-item-25-value"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-item-26-name"></td>
+                                    <td><input type="text" id="sheet-item-26-qty"></td>
+                                    <td><input type="text" id="sheet-item-26-weight"></td>
+                                    <td><input type="text" id="sheet-item-26-value"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-item-27-name"></td>
+                                    <td><input type="text" id="sheet-item-27-qty"></td>
+                                    <td><input type="text" id="sheet-item-27-weight"></td>
+                                    <td><input type="text" id="sheet-item-27-value"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-item-28-name"></td>
+                                    <td><input type="text" id="sheet-item-28-qty"></td>
+                                    <td><input type="text" id="sheet-item-28-weight"></td>
+                                    <td><input type="text" id="sheet-item-28-value"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-item-29-name"></td>
+                                    <td><input type="text" id="sheet-item-29-qty"></td>
+                                    <td><input type="text" id="sheet-item-29-weight"></td>
+                                    <td><input type="text" id="sheet-item-29-value"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="sheet-item-30-name"></td>
+                                    <td><input type="text" id="sheet-item-30-qty"></td>
+                                    <td><input type="text" id="sheet-item-30-weight"></td>
+                                    <td><input type="text" id="sheet-item-30-value"></td>
+                                </tr>
+                            </table>
+                            <table>
+                                <tr>
+                                    <td><label for="sheet-light-load">Light Load</label></td>
+                                    <td><input type="number" id="sheet-light-load" disabled></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="sheet-medium-load">Medium Load</label></td>
+                                    <td><input type="number" id="sheet-medium-load" disabled></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="sheet-heavy-load">Heavy Load</label></td>
+                                    <td><input type="number" id="sheet-heavy-load" disabled></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="sheet-max-load">Max Load</label></td>
+                                    <td><input type="number" id="sheet-max-load" disabled></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="sheet-head-load">Lift over head</label></td>
+                                    <td><input type="number" id="sheet-head-load" disabled></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="sheet-ground-load">Lift off ground</label></td>
+                                    <td><input type="number" id="sheet-ground-load" disabled></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="sheet-drag-load">Push/drag</label></td>
+                                    <td><input type="number" id="sheet-drag-load" disabled></td>
+                                </tr>
+
+                            </table>
+                            <table>
+                                <tr>
+                                    <td><label for="sheet-currencies">Currencies</label></td>
+                                </tr>
+                                <tr>
+                                    <td><textarea name="sheet-currencies" id="sheet-currencies" cols="30" rows="10"></textarea></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!----------------CHARACTER SHEET MODAL END----------------------------------------------------------------------->  
+    
+    
+    
     <script src="js/temp.js"></script>
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
@@ -339,6 +2098,8 @@
     <script src="js/controlPanel.js"></script>
     <script src="js/dice.js"></script>
     <script src="js/user.js"></script>
+    <script src="js/assets.js"></script>
+    <script src="js/charactersheet.js"></script>
     <script src="js/vendor/lity/dist/lity.js"></script>
 </body>
 
