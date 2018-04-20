@@ -118,7 +118,7 @@ var IO = {
                             Map = Gameroom.Map;
                             MapController.Util.updateMapDom();
                         }
-                        
+                            
                         if (Chatbox != Gameroom.Chatbox) {
                             Chatbox = Gameroom.Chatbox;
                             ChatController.Init();
@@ -227,11 +227,64 @@ var IO = {
 
     },
     
+    "test": function() {
+        
+        var charPaths = [];
+        
+        for (i=0; i < Charlist.length; i++) {
+            
+            charPaths.push(CharList[i].characterJSONPath);
+            
+        }
+        
+        console.info(charPaths);
+        
+//        var path = '/' + Charlist[GameroomController.CharCount].characterJSONPath;
+//        path = path.replace(' ', '');
+//        console.info(path);
+//
+//        $.ajax({
+//            url: '../io/io.php',
+//            data: {
+//                myData: '',
+//                myDestination: path,
+//                myType: 'character',
+//                requestType: 'getCharacterJSON'
+//            },
+//            type: 'POST',
+//            success: function(response) {
+//                
+//                    
+//                    //If gameroom file is found on the server
+//                    if (response != null && response != '' && typeof(response) != 'undefined') {
+//                        
+//                        CharArray.push(JSON.parse(response));
+//                        GameroomController.CharCount++;
+//                        
+//                        if (GameroomController.CharCount > Charlist.length - 1) {
+//                            GameroomController.Util.updateCharacterListModal();
+//                        }
+//                        
+//                        else {
+//                            GameroomController.Util.getAllCharacterJson();
+//                        }
+//                        
+//                    }
+//                    
+//                    else {
+//                        
+//                        console.info('no character object found...')
+//                    }
+//            
+//            }
+//        });
+        
+    },
+    
     "getAllRoomCharacterJson": function () {
 
         var path = '/' + GameroomController.RoomCharList[GameroomController.RoomCharCount].characterJSONPath;
         path = path.replace(' ', '');
-        console.info(path);
 
         $.ajax({
             url: '../io/io.php',
@@ -250,10 +303,8 @@ var IO = {
                         
                         RoomCharArray.push(JSON.parse(response));
                         GameroomController.RoomCharCount++;
-                        console.info(GameroomController.RoomCharCount);
                         
                         if (GameroomController.RoomCharCount > GameroomController.RoomCharList.length - 1) {
-                            console.info(RoomCharArray);
                             GameroomController.Util.updateRoomCharacterElements();
                         }
                         
@@ -396,12 +447,11 @@ var IO = {
                 },
                 type: 'POST',
                 success: function (response) {
-                    console.info(response);
                     if (response == true) {;
                         console.info('record added.');
                     }
                     else {
-                        console.info(response);
+                        sessionStorage.removeItem('GameData');
                         $(location).attr('href', "dashboard.html");
                     }
                 }  
@@ -444,12 +494,10 @@ var IO = {
                 type: 'POST',
                 success: function (response) {
                     if (response == true) {
-                        console.info('Game Exists?');
                         GameValueStorage.joinGame();
                     }
                     else {
                         
-                        console.info('Game Doesnt Exist?');
                         DashboardController.Util.updateJoinErrorMessage();
                     }
                 }  
@@ -471,11 +519,10 @@ var IO = {
                 type: 'POST',
                 success: function (response) {
                     if (response == true) {
-                        console.info('Record added');
+                        sessionStorage.removeItem('GameData');
                         $(location).attr('href', "dashboard.html");
                     }
                     else {
-                        console.info('Fail');
                         console.info(response);
                     }
                 }  
@@ -520,11 +567,10 @@ var IO = {
                 type: 'POST',
                 success: function (response) {
                     
-                    console.info(response);
-                    
                     GameData.gameData.push(JSON.parse(response));
                     
                     if (GameData.gameRetrievalCount == GameData.gameIds.length - 1) {
+                        sessionStorage.setItem('GameData', JSON.stringify(GameData));
                         DashboardController.Util.buildGameListHTML();
                     }
                     GameData.gameRetrievalCount++;
@@ -543,8 +589,6 @@ var IO = {
                 },
                 type: 'POST',
                 success: function (response) {
-                    
-                    console.info(response);
                     
                     GameData.gameData.push(JSON.parse(response));
                     
@@ -576,11 +620,9 @@ var IO = {
                     }
                     else if (response == false) {
                         console.info('Character already exists exist in Character Table....');
-                        console.info(response);
                     }
                     else {
                         console.info('Unkown resposne returned...');
-                        console.info(response);
                     }
                 }  
             });
@@ -605,7 +647,6 @@ var IO = {
                     else {
                         Charlist = JSON.parse(response);
                         GameroomController.Util.getAllCharacterJson();
-//                        GameroomController.Util.updateCharacterListModal();
                     }
                 }  
             });
@@ -634,7 +675,6 @@ var IO = {
                         GameroomController.RoomCharList = JSON.parse(response);
                         var roomCharList = JSON.parse(response);
                         GameroomController.Util.getAllRoomCharacterJson();
-//                        GameroomController.Util.updateCharacterListModal();
                     }
                 }  
             });
@@ -663,7 +703,6 @@ var IO = {
                     }
                     else if (response == false) {
                         console.info('Character already exists exist in RoomMember Table....');
-                        console.info(response);
                     }
                     else {
                         console.info('Unkown resposne returned...');

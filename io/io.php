@@ -44,7 +44,6 @@ else if ($reqType == 'read') {
     
     $returnData = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/io/dam/json/' . $objType . $fileName);
     echo $returnData;
-
     
 }
 
@@ -88,6 +87,10 @@ else if ($reqType == 'getRoomCharacterJSON') {
         
         echo null;
     }
+}
+
+else if ($reqType == 'test') {
+    
 }
 
 ?>

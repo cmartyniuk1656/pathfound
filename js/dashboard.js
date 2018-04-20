@@ -46,6 +46,14 @@ var DashboardController = {
                 DashboardController.Util.joinGame();
             })
             
+        },
+        
+        "addGamePanelAnimations": function() {
+            
+            var gamePanels = $('.anim-fadein-init');
+            
+            gamePanels.addClass('anim-fadein-trigger');
+            
         }
     },
     
@@ -105,15 +113,15 @@ var DashboardController = {
             
              for (counter = 0; counter < GameData.gameIds.length; counter++) {
                 
-                htmlString = '<div class="column small-12 medium-12 large-12 full-width">' +
-                             '<div class="panel-light game-panel-wrapper"><h3>' + GameData.gameData[counter][0].gameRoomName +
+                htmlString = '<a href="#enter-game-' + counter + '" data-lity class="control-panel"><div ' +
+                             'class="column small-12 medium-12 large-12 full-width anim anim-fadein-init">' +
+                             '<div class="panel-light game-panel-wrapper anim"><h3>' + GameData.gameData[counter][0].gameRoomName +
                              '</h3><hr>' + GameData.gameData[counter][0].gameRoomDescription + '<div class="row full-width">'+
                              '<div class="column small-12 medium-12 large-12"><h3 class="schedule"><b>Schedule</b></h3>'     +
                              '</div><div class="column small-12 medium-12 large-12 schedule-text">'                          +  
                              GameData.gameData[counter][0].gameRoomSchedule + '</div><div class="column small-6 medium-6'    +
-                             'large-6 full-width"></div><div class="column small-6 medium-6 large-6 full-width"><a href='    +
-                             '"#enter-game-' + counter + '" data-lity class="btn dark control-panel">Enter Game</a></div>'  +
-                             '</div></div></div>';
+                             'large-6 full-width"></div><div class="column small-6 medium-6 large-6 full-width">'    +
+                             '</div></div></div></div></a>';
                 
                 if (counter % 2) {
                     document.getElementById('game-list-right-side').innerHTML += htmlString;
@@ -145,8 +153,12 @@ var DashboardController = {
                              '</a></div></div></div></div>';
                 
                 document.getElementById('enter-game-modals').innerHTML += htmlString; 
+                
                  
             }
+            
+            setTimeout(function(){DashboardController.Events.addGamePanelAnimations()}, 250);
+            
             
         },
         
@@ -166,13 +178,35 @@ var DashboardController = {
         
         "updateJoinErrorMessage": function() {
             document.getElementById('error-msg-join-game').innerHTML='Game doesn\'t Exist';
+        },
+        
+        "triggerAnimations": function() {
+            
+            var slideLeft = $(".anim-slide-left-init");
+            var slideRight = $(".anim-slide-right-init");
+            
+            if(slideLeft.length) {
+                slideLeft.addClass('anim-slide-left-trigger');
+            } 
+            
+            if(slideRight.length) {
+                slideRight.addClass('anim-slide-right-trigger');
+            } 
+            
         }
     },
     
     //
     "Init": function() {
         DashboardController.Events.addAll();
-        IO.db.getPlayerGameIds(User.username);
+        DashboardController.Util.triggerAnimations();
+        if (sessionStorage.getItem('GameData') !== null && typeof(sessionStorage.getItem('GameData')) != 'undefined') {
+            GameData = JSON.parse(sessionStorage.getItem('GameData'));
+            DashboardController.Util.buildGameListHTML();
+        }
+        else {
+            IO.db.getPlayerGameIds(User.username);
+        }
     }
 }
 

@@ -335,6 +335,17 @@ var MapController = {
                     
                 });
             }
+        },
+        
+        "removeMapClickEvents": function() {
+            
+            for (i=0; i < (Map.mapCellHeight * Map.mapCellWidth); i++) {
+             
+                var id = '#cell-' + i;
+                $(id).unbind('click');
+                
+            }
+            
         }
         
     },
@@ -416,6 +427,7 @@ var MapController = {
             
             if (MapController.SelectedTile.isEmtpy != false) {
                 if (Map.mapDom != '') {
+                    MapController.Events.removeMapClickEvents();
                     MapController.map.innerHTML = Map.mapDom;
                     MapController.Events.mapClickEvents();
                 }

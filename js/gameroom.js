@@ -73,12 +73,29 @@ var GameroomController = {
                 var selectedIndex = $(this).attr("data-index");
                 selectedCharaterIndex = selectedIndex;
                 activeChar = RoomCharArray[selectedCharaterIndex];
+                CharacterSheet.Util.initializeStatValueArray();
                 document.getElementById('character-name-show').innerHTML = RoomCharArray[selectedIndex].Name;
                 $('#character-dropdown').slideToggle('fast');
                 GameroomController.Util.updateStatsPanel();
                 
             })
             
+        },
+        
+        "characterEditBtnEvents": function() {
+            
+            $('.character-edit').click(function() {
+                
+                console.info('Testing Click stuff...');
+                console.info($('.character-edit'));
+                console.info(RoomCharArray);
+                var selectedIndex = $(this).attr("data-index");
+                selectedEditableIndex = selectedIndex;
+                editableChar = RoomCharArray[selectedEditableIndex];
+                initStatValueArray(editableChar, 'editable');
+                GameroomController.Util.updateFormValuesForEdit();
+                
+            })
         }
         
         
@@ -99,6 +116,7 @@ var GameroomController = {
         
         
         "getFromServer": function() {
+            console.info(Gameroom);
             IO.read(Gameroom);
         },
         
@@ -145,13 +163,14 @@ var GameroomController = {
                              '</h3><div class="row full-width"><div class="column small-6 medium-12 large-3"><p class="center">'             + 
                              RoomCharArray[counter].Race + '</p></div><div class="column small-6 medium-12 large-3"><p class="center">'      +
                              RoomCharArray[counter].Class + '</p></div><div class="column small-12 medium-12 large-6">'                      +
-                             '<a class="btn" href="#character-edit-modal" data-lity data-index="' + counter + '">Edit</a></div></div></div>';
+                             '<a class="btn character-edit" href="#character-edit-modal" data-lity data-index="' + counter + '">Edit</a>'    +
+                             '</div></div></div>';
                 
                 document.getElementById('characters-panel-container').innerHTML += htmlString;
                 
             }
             
-//            GameroomController.Events.importCharacterToRoomEvents();
+            GameroomController.Events.characterEditBtnEvents();
         
         },
         
@@ -198,28 +217,18 @@ var GameroomController = {
         
         "updateStatsPanel": function() {
             
-            var formFields = ['#sheet-name','#sheet-race', '#sheet-class', '#sheet-age', '#sheet-gender', '#sheet-size', '#sheet-alignment', '#sheet-deity',
-                              '#sheet-current-hp', '#sheet-strscore', '#sheet-dexscore', '#sheet-conscore', '#sheet-intscore',
-                              '#sheet-wisscore', '#sheet-chascore', '#sheet-temp-strscore', '#sheet-temp-dexscore', 
-                              '#sheet-temp-conscore', '#sheet-temp-intscore', '#sheet-temp-wisscore', '#sheet-temp-chascore', 
-                              '#sheet-initiative-misc', '#sheet-speed-base', '#sheet-speed-mod', '#sheet-hp-max'];
-            
-            var statValues = [activeChar.Name, activeChar.Race, activeChar.Class, activeChar.Age, activeChar.Gender, activeChar.Size, activeChar.Alignment, 
-                              activeChar.Deity, activeChar.CurrentHP, activeChar.Str, activeChar.Dex, activeChar.Con, activeChar.Int, activeChar.Wis, 
-                              activeChar.Cha, activeChar.TempStr, activeChar.TempDex, activeChar.TempCon, activeChar.TempInt, activeChar.TempWis, 
-                              activeChar.TempCha, activeChar.InitiativeMisc, activeChar.BaseSpeed, activeChar.ModSpeed, activeChar.MaxHP];
-            
-            var statElementIds = ['#character-name-show', '#stats-race', '#stats-class', '#stats-age', '#stats-gender', '#stats-size', '#stats-alignment', '#stats-deity',
-                                  '#stats-current-hp', '#stats-strscore', '#stats-dexscore', '#stats-conscore', '#stats-intscore',
-                                  '#stats-wisscore', '#stats-chascore', '#stats-temp-strscore', '#stats-temp-dexscore', 
-                                  '#stats-temp-conscore', '#stats-temp-intscore', '#stats-temp-wisscore', '#stats-temp-chascore', 
-                                  '#stats-initiative-misc', '#stats-speed-base', '#stats-speed-mod', '#stats-hp-max'];
-            
-            for (i=0; i < statValues.length; i++) {
-                $(statElementIds[i]).html(statValues[i]);
-                $(formFields[i]).val(statValues[i]);
+            for (i=0; i < activeStatValueArray.length; i++) {
+                $(statElementArray[i]).html(activeStatValueArray[i]);
+                $(FormFieldArray[i]).val(activeStatValueArray[i]);
             }
             
+        },
+        
+        "updateFormValuesForEdit": function() {
+            
+            for (i=0; i < editStatValueArray.length; i++) {
+                $(FormFieldArray[i]).val(editStatValueArray[i]);
+            }
         }
         
     },

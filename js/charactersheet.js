@@ -1,5 +1,48 @@
 var selectedCharaterIndex;    
+var selectedEditableIndex;
 var activeChar = {};
+var editableChar = {};
+var editStatValueArray = [];
+var activeStatValueArray = [];
+
+var FormFieldArray = ['#sheet-name','#sheet-race', '#sheet-class', '#sheet-age', '#sheet-gender', '#sheet-size', '#sheet-alignment', 
+                      '#sheet-deity', '#sheet-current-hp', '#sheet-strscore', '#sheet-dexscore', '#sheet-conscore', '#sheet-intscore',
+                      '#sheet-wisscore', '#sheet-chascore', '#sheet-temp-strscore', '#sheet-temp-dexscore', '#sheet-temp-conscore', 
+                      '#sheet-temp-intscore', '#sheet-temp-wisscore', '#sheet-temp-chascore', '#sheet-initiative-misc', '#sheet-speed-base', 
+                      '#sheet-speed-mod', '#sheet-hp-max'];
+            
+var statElementArray = ['#character-name-show', '#stats-race', '#stats-class', '#stats-age', '#stats-gender', '#stats-size', 
+                        '#stats-alignment', '#stats-deity', '#stats-current-hp', '#stats-strscore', '#stats-dexscore', '#stats-conscore', 
+                        '#stats-intscore', '#stats-wisscore', '#stats-chascore', '#stats-temp-strscore', '#stats-temp-dexscore', 
+                        '#stats-temp-conscore', '#stats-temp-intscore', '#stats-temp-wisscore', '#stats-temp-chascore', 
+                        '#stats-initiative-misc', '#stats-speed-base', '#stats-speed-mod', '#stats-hp-max'];
+
+var initStatValueArray = function(character, type) {
+    
+    var valueArray = [];
+    
+    if (character != null && typeof(character != 'undefined')) {
+        
+        valueArray = [character.Name, character.Race, character.Class, character.Age, character.Gender, character.Size, character.Alignment, 
+                      character.Deity, character.CurrentHP, character.Str, character.Dex, character.Con, character.Int, character.Wis, 
+                      character.Cha, character.TempStr, character.TempDex, character.TempCon, character.TempInt, character.TempWis, 
+                      character.TempCha, character.InitiativeMisc, character.BaseSpeed, character.ModSpeed, character.MaxHP];
+        
+    }
+    
+    if (type == 'active') {
+        activeStatValueArray = valueArray;
+    }
+    
+    else if (type == 'editable'){
+        editStatValueArray = valueArray;
+    }
+    
+    else if (type == 'blank') {
+        //do something
+    }
+    
+}
 
 
 var CharacterObj =
@@ -512,22 +555,17 @@ var CharacterSheet =
         {
 
             $("#character-sheet-save").click(function() {
-                console.info('running...');
                 CharacterSheet.Save();
             });
+            
+            $("#create-character-btn").click(function() {
                 
+                for (i = 0; i < FormFieldArray.length; i ++) {
+                    $(FormFieldArray[i]).val('');
+                }
                 
-
-            $("#character-sheet-load").click(function()
-                {
-                    console.info("Name: " + CharacterObj.Name);
-                    console.info("Alignment: " + CharacterObj.Alignment);
-                    console.info("Deity: " + CharacterObj.Deity);
-                    console.info("Race: " + CharacterObj.Race);
-                    console.info("Size: " + CharacterObj.Size);
-                    console.info("Gender: " + CharacterObj.Gender);
-                    console.info("Age: " + CharacterObj.Age);
-                });
+            });
+                
         }
     },
     
@@ -538,6 +576,10 @@ var CharacterSheet =
         
         saveCharacterToDatabase: function() {
             IO.db.checkCharExistInDb(User.username, CharacterObj.Name);
+        },
+        
+        initializeStatValueArray() {
+            initStatValueArray(activeChar, 'active');
         }
         
     },
@@ -738,8 +780,8 @@ var CharacterSheet =
 
     "Init": function ()
     {
-        console.info("Initializing...");
         CharacterSheet.Events.addAll()
+        CharacterSheet.Util.initializeStatValueArray();
     }
 };
 

@@ -27,9 +27,7 @@ var LoginController = {
                 var username = $('#username-textfield').val();
                 var password = $('#password-textfield').val();
 
-                console.info(username);
-                console.info(password);
-
+                sessionStorage.removeItem('GameData');
                 IO.db.login(username, password);
     
             });  
@@ -55,8 +53,6 @@ var LoginController = {
             
             loginCallbackStorage.username = username;
             loginCallbackStorage.password = password;
-            
-            console.info(loginCallbackStorage);
     
             errorDiv.innerHTML = errorMsg;
             
@@ -80,6 +76,7 @@ var LoginController = {
             }
             
             else if (valid) {
+                sessionStorage.removeItem('GameData');
                 IO.db.checkUserExists(username);
             }
             
