@@ -16,7 +16,7 @@ var GameValueStorage = {
 
 var GameData = {
     
-    "gameIds": {},
+    "gameIds": [],
     "gameRetrievalCount" : 0,
     "gameData": []
     
@@ -98,12 +98,7 @@ var DashboardController = {
         
         "buildGameList": function() {
             
-            
-            for (counter = 0; counter < GameData.gameIds.length; counter++) {
-                IO.db.getGameInfo(User.username, GameData.gameIds[counter].gameRoomID);
-                
-                
-            }
+            IO.db.getGameInfo(User.username, GameData);
             
         },
         
@@ -115,11 +110,11 @@ var DashboardController = {
                 
                 htmlString = '<a href="#enter-game-' + counter + '" data-lity class="control-panel"><div ' +
                              'class="column small-12 medium-12 large-12 full-width anim anim-fadein-init">' +
-                             '<div class="panel-light game-panel-wrapper anim"><h3>' + GameData.gameData[counter][0].gameRoomName +
-                             '</h3><hr>' + GameData.gameData[counter][0].gameRoomDescription + '<div class="row full-width">'+
+                             '<div class="panel-light game-panel-wrapper anim"><h3>' + GameData.gameData[0][counter].gameRoomName +
+                             '</h3><hr>' + GameData.gameData[0][counter].gameRoomDescription + '<div class="row full-width">'+
                              '<div class="column small-12 medium-12 large-12"><h3 class="schedule"><b>Schedule</b></h3>'     +
                              '</div><div class="column small-12 medium-12 large-12 schedule-text">'                          +  
-                             GameData.gameData[counter][0].gameRoomSchedule + '</div><div class="column small-6 medium-6'    +
+                             GameData.gameData[0][counter].gameRoomSchedule + '</div><div class="column small-6 medium-6'    +
                              'large-6 full-width"></div><div class="column small-6 medium-6 large-6 full-width">'    +
                              '</div></div></div></div></a>';
                 
@@ -137,16 +132,16 @@ var DashboardController = {
                 htmlString = '<div id="enter-game-' + counter + '" class="row full-width lity-hide join-game">' +
                              '<div class="column small-12 medium-12 large-12 end"><div class="row">'            +
                              '<div class="column small-12 medium-12 large-12 end"><h3 class="game-name">'       +
-                             GameData.gameData[counter][0].gameRoomName + '</h3> </div></div><div class="row">' +
+                             GameData.gameData[0][counter].gameRoomName + '</h3> </div></div><div class="row">' +
                              '<div class="column small-12 medium-12 large-8 end enter-game-left">'              +
                              '<h3>NUMBER OF PLAYERS: <span id="number-of-players">X</span></h3>'                +
                              '<h3>GAMETIME: <span id="gametime">XX:XX:XX</span></h3><h3>GAME CODE: '            +
-                             '<span id="gametime">' + GameData.gameData[counter][0].gameRoomUrlCode             +
+                             '<span id="gametime">' + GameData.gameData[0][counter].gameRoomUrlCode             +
                              '</span></h3></div><div class="column small-12 medium-12'                          +
                              'large-4 end enter-game-right"><a class="enter-game-btn btn" data-lity'            +
                              'data-lity-target="/charactersheet.html">IMPORT CHARACTER</a>'                     +
                              '<a class="join-game-btn btn" href="/gameroom.html?'                               + 
-                             GameData.gameData[counter][0].gameRoomUrlCode + '">ENTER GAME</a></div></div>'     +
+                             GameData.gameData[0][counter].gameRoomUrlCode + '">ENTER GAME</a></div></div>'     +
                              '<div class="row"><div id="enter-game-bottom" class="column small-12 medium-12'    +
                              'large-12 end"></div><div class="column small-12 medium-12 large-12 end'           +
                              'account-management-left return-link"><a href="/dashboard.html"><h3>Return</h3>'   +

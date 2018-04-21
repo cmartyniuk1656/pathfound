@@ -53,19 +53,28 @@ if ($intent == "getPlayerGames") {
 
 else if ($intent == "getGameInfo") {
     
-    $gameID = $_POST['gameId'];
+    $obj = json_decode($_POST['gameId']);
     
-    $sql = "SELECT gameRoomName, gameRoomDescription, gameRoomSchedule, gameRoomUrlCode FROM GameRoom WHERE gameRoomID = ' " . $gameID . "'";
+    $gameIdList = $obj->ids->gameIds; 
+    $gameObjects = array();
+    $size = sizeof($gameIdList);
     
-    $result = $conn->query($sql);
-    
-    $rows = array();
-    while($r = mysqli_fetch_assoc($result)) {
-        $rows[] = $r;
+    for ($x = 0; $x <= $size-1; $x++) { 
+
+        $sql = "SELECT gameRoomName, gameRoomDescription, gameRoomSchedule, gameRoomUrlCode FROM GameRoom WHERE gameRoomID = ' " .  $gameIdList[$x]->gameRoomID . "'";
+        
+        $result = $conn->query($sql);
+        
+
+        while($r = mysqli_fetch_assoc($result)) {
+            array_push($gameObjects, $r);
+        }
+        
+        
     }
-    
-    echo json_encode($rows);
-    
+      $returnObj = json_encode($gameObjects);
+
+      echo $returnObj;
 }
 
 ?>

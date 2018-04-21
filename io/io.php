@@ -89,8 +89,4 @@ else if ($reqType == 'getRoomCharacterJSON') {
     }
 }
 
-else if ($reqType == 'test') {
-    
-}
-
 ?>

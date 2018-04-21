@@ -86,9 +86,6 @@ var GameroomController = {
             
             $('.character-edit').click(function() {
                 
-                console.info('Testing Click stuff...');
-                console.info($('.character-edit'));
-                console.info(RoomCharArray);
                 var selectedIndex = $(this).attr("data-index");
                 selectedEditableIndex = selectedIndex;
                 editableChar = RoomCharArray[selectedEditableIndex];
@@ -116,7 +113,6 @@ var GameroomController = {
         
         
         "getFromServer": function() {
-            console.info(Gameroom);
             IO.read(Gameroom);
         },
         
@@ -129,23 +125,27 @@ var GameroomController = {
         
         "updateCharacterListModal": function() {
             
+            
             var htmlString = '';
             var counter = 0;
             GameroomController.CharCount = 0;
             
             document.getElementById('character-list').innerHTML = '';
-            
             for (counter; counter < Charlist.length; counter++) {
+                console.info('rolling....');
                 
-                htmlString = '<div class="column small-12 medium-12 large-12 game-panel character-tile import-tile" style="color: #fff;">'       +
-                             '<h3>' + CharArray[counter].Name + '</h3><div class="row full-width"><div class="column small-6 medium-12 large-3">' +
-                             '<p class="center">' + CharArray[counter].Race + '</p></div><div class="column small-6 medium-12 large-3">'          +
-                             '<p class="center">' + CharArray[counter].Class + '</p></div><div class="column small-12 medium-12 large-6">'        +
-                             '<div class="btn import-btn" data-index="' + counter + '">Import</div></div></div></div>';
                 
-                document.getElementById('character-list').innerHTML += htmlString;
-                
+                htmlString += '<div class="column small-12 medium-12 large-12 game-panel character-tile import-tile" style="color: #fff;">'       +
+                              '<h3>' + CharArray[counter].Name + '</h3><div class="row full-width"><div class="column small-6 medium-12 large-3">' +
+                              '<p class="center">' + CharArray[counter].Race + '</p></div><div class="column small-6 medium-12 large-3">'          +
+                              '<p class="center">' + CharArray[counter].Class + '</p></div><div class="column small-12 medium-12 large-6">'        +
+                              '<div class="btn import-btn" data-index="' + counter + '">Import</div></div></div></div>';
+                console.info(htmlString);
             }
+            
+            
+            $('#character-list').html(htmlString);
+            console.info(document.getElementById('character-list').innerHTML);
             
             GameroomController.Events.importCharacterToRoomEvents();
         },
@@ -179,7 +179,7 @@ var GameroomController = {
             var dropDownHtmlString = '';
             var counter = 0;
             GameroomController.RoomCharCount = 0;
-            document.getElementById('character-list').innerHTML = '';
+            //document.getElementById('character-list').innerHTML = '';
             
             document.getElementById('char-dropdown-container').innerHTML = '';
             
@@ -204,7 +204,7 @@ var GameroomController = {
             if (Gameroom.CharCount == 0) {
                 CharArray = [];
             }
-            IO.getAllCharacterJson();
+            IO.getAllCharacterJson(Charlist);
         },
         
         "getAllRoomCharacterJson": function() {
@@ -212,7 +212,7 @@ var GameroomController = {
             if (GameroomController.RoomCharCount == 0) {
                 RoomCharArray = [];
             }
-            IO.getAllRoomCharacterJson();
+            IO.getAllRoomCharacterJson(GameroomController.RoomCharList);
         },
         
         "updateStatsPanel": function() {

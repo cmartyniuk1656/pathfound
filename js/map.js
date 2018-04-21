@@ -9,14 +9,6 @@ var Map = {
     //Keep track of all the map objects in the gameroom
     "mapList": {},
     
-    //Used for zoom logic
-//    "zoomLevels": ['0.25', '0.50', '0.75', '1.0', '1.25', '1.50', '1.75', '2.0'],
-//    "selectedZoomIndex": 3,
-//    
-//    //Used for pan logic
-//    "topTranslate": 0,
-//    "leftTranslate": 0,
-    
     //Determines total cell count of the map
     "mapCellHeight": 21,                            //TODO: Make user selectable
     "mapCellWidth": 21,                             //TODO: Make user selectable

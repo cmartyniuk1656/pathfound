@@ -26,7 +26,7 @@ var IO = {
 
     },
     
-    "read": function (jsonObj) {
+    "read": function(jsonObj) {
 
         
         var objType = jsonObj.objType;
@@ -52,7 +52,6 @@ var IO = {
                     if (response != null && response != '' && typeof(response) != 'undefined') {
                         
                         console.info('Returned GameRoom');
-                        console.info(JSON.parse(response));
                         Gameroom = JSON.parse(response);
                         Map = Gameroom.Map;
                         Chatbox = Gameroom.Chatbox;
@@ -183,65 +182,47 @@ var IO = {
         });
     },
     
-    "getAllCharacterJson": function () {
-
-        var path = '/' + Charlist[GameroomController.CharCount].characterJSONPath;
-        path = path.replace(' ', '');
-        console.info(path);
-
-        $.ajax({
-            url: '../io/io.php',
-            data: {
-                myData: '',
-                myDestination: path,
-                myType: 'character',
-                requestType: 'getCharacterJSON'
-            },
-            type: 'POST',
-            success: function(response) {
-                
+    "getAllCharacterJson": function(listOfChars) {
+        
+        (console.info('getting all char jsons'));
+        
+        charList = listOfChars;
+        var charPaths = {paths: []};
+        
+        for (i=0; i < charList.length; i++) {
+            
+            charPaths.paths.push(charList[i].characterJSONPath);
+            
+        }
+        
+            $.ajax({
+                url: '../io/charList.php',
+                data: {
+                    myData: JSON.stringify(charPaths),
+                    requestType: 'getCharacterJSON'
+                },
+                type: 'POST',
+                success: function(response) {
                     
-                    //If gameroom file is found on the server
                     if (response != null && response != '' && typeof(response) != 'undefined') {
-                        
-                        CharArray.push(JSON.parse(response));
-                        GameroomController.CharCount++;
-                        
-                        if (GameroomController.CharCount > Charlist.length - 1) {
-                            GameroomController.Util.updateCharacterListModal();
-                        }
-                        
-                        else {
-                            GameroomController.Util.getAllCharacterJson();
-                        }
+                    
+                        CharArray = response;
+                        GameroomController.Util.updateCharacterListModal();
                         
                     }
                     
                     else {
-                        
-                        console.info('no character object found...')
+                        console.info('Error retreiving character JSONS for CharArray');
                     }
-            
-            }
-        });
 
+                }
+            }); 
     },
     
-    "test": function() {
-        
-        var charPaths = [];
-        
-        for (i=0; i < Charlist.length; i++) {
-            
-            charPaths.push(CharList[i].characterJSONPath);
-            
-        }
-        
-        console.info(charPaths);
-        
-//        var path = '/' + Charlist[GameroomController.CharCount].characterJSONPath;
+//    "getAllRoomCharacterJson": function () {
+//
+//        var path = '/' + GameroomController.RoomCharList[GameroomController.RoomCharCount].characterJSONPath;
 //        path = path.replace(' ', '');
-//        console.info(path);
 //
 //        $.ajax({
 //            url: '../io/io.php',
@@ -249,7 +230,7 @@ var IO = {
 //                myData: '',
 //                myDestination: path,
 //                myType: 'character',
-//                requestType: 'getCharacterJSON'
+//                requestType: 'getRoomCharacterJSON'
 //            },
 //            type: 'POST',
 //            success: function(response) {
@@ -258,15 +239,15 @@ var IO = {
 //                    //If gameroom file is found on the server
 //                    if (response != null && response != '' && typeof(response) != 'undefined') {
 //                        
-//                        CharArray.push(JSON.parse(response));
-//                        GameroomController.CharCount++;
+//                        RoomCharArray.push(JSON.parse(response));
+//                        GameroomController.RoomCharCount++;
 //                        
-//                        if (GameroomController.CharCount > Charlist.length - 1) {
-//                            GameroomController.Util.updateCharacterListModal();
+//                        if (GameroomController.RoomCharCount > GameroomController.RoomCharList.length - 1) {
+//                            GameroomController.Util.updateRoomCharacterElements();
 //                        }
 //                        
 //                        else {
-//                            GameroomController.Util.getAllCharacterJson();
+//                            GameroomController.Util.getAllRoomCharacterJson();
 //                        }
 //                        
 //                    }
@@ -278,49 +259,38 @@ var IO = {
 //            
 //            }
 //        });
-        
-    },
+//
+//    },
     
-    "getAllRoomCharacterJson": function () {
-
+    "getAllRoomCharacterJson": function (roomCharacters) {
+        
+        var roomChars = {paths: []};
+        
+        for (i=0; i < roomCharacters.length; i++) {
+            roomChars.paths.push(roomCharacters[i].characterJSONPath);
+        }
+        
         var path = '/' + GameroomController.RoomCharList[GameroomController.RoomCharCount].characterJSONPath;
         path = path.replace(' ', '');
 
+        console.info('test stuff..');
+        console.info(roomChars);
+        
         $.ajax({
-            url: '../io/io.php',
-            data: {
-                myData: '',
-                myDestination: path,
-                myType: 'character',
-                requestType: 'getRoomCharacterJSON'
-            },
-            type: 'POST',
-            success: function(response) {
-                
+                url: '../io/charList.php',
+                data: {
+                    myData: JSON.stringify(roomChars),
+                    requestType: 'getRoomCharacterJSON'
+                },
+                type: 'POST',
+                success: function(response) {
                     
-                    //If gameroom file is found on the server
-                    if (response != null && response != '' && typeof(response) != 'undefined') {
-                        
-                        RoomCharArray.push(JSON.parse(response));
-                        GameroomController.RoomCharCount++;
-                        
-                        if (GameroomController.RoomCharCount > GameroomController.RoomCharList.length - 1) {
-                            GameroomController.Util.updateRoomCharacterElements();
-                        }
-                        
-                        else {
-                            GameroomController.Util.getAllRoomCharacterJson();
-                        }
-                        
-                    }
-                    
-                    else {
-                        
-                        console.info('no character object found...')
-                    }
-            
-            }
-        });
+                      RoomCharArray = response;
+                      console.info(RoomCharArray);
+                      GameroomController.Util.updateRoomCharacterElements();
+                     
+                }
+            }); 
 
     },
     
@@ -554,26 +524,33 @@ var IO = {
             
         },
         
-        "getGameInfo": function(userName, gameID) {
+        "getGameInfo": function(userName, gameIDs) {
+            
+            var gameIdObj = gameIDs;
+            var idArrays = {ids: []};
+            
+            for (i=0; i < gameIdObj.gameIds.length; i++) {
+                idArrays.ids.push(gameIdObj.gameIds[i].gameRoomID);
+            }
+            
+            idArrays.ids = gameIDs;
             
             $.ajax({
                 url: '../io/playerGames.php',
                 data: {
                     dataType: 'json',
                     user: userName,
-                    gameId: gameID,
+                    gameId: JSON.stringify(idArrays),
                     intent: 'getGameInfo',
                 },
                 type: 'POST',
                 success: function (response) {
                     
                     GameData.gameData.push(JSON.parse(response));
+                    console.info(GameData.gameData);
                     
-                    if (GameData.gameRetrievalCount == GameData.gameIds.length - 1) {
-                        sessionStorage.setItem('GameData', JSON.stringify(GameData));
                         DashboardController.Util.buildGameListHTML();
-                    }
-                    GameData.gameRetrievalCount++;
+                    
                 }  
             });
             
