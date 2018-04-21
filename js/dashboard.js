@@ -40,6 +40,7 @@ var DashboardController = {
             
             $('#create-game-btn').click(function() {
                 DashboardController.Util.createGame();
+                $('[data-lity-close]').trigger('click');
             })
                 
             $('#join-game-btn').click(function() {

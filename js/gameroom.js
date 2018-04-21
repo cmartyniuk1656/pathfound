@@ -44,6 +44,11 @@ var GameroomController = {
             });
             
             $('#image-submit').click(function() {
+                $('#image-submit').get(0).click();
+                $('[data-lity-close]').trigger('click');
+            });
+            
+            $('#character-sheet-save').click(function() {
                 $('[data-lity-close]').trigger('click');
             });
             
@@ -60,9 +65,11 @@ var GameroomController = {
                 var selectedIndex = $(this).attr("data-index");
                 var charName = CharArray[selectedIndex].Name;
                 var roomCode = Gameroom.fileName.replace('/', '').replace('.json', '');
+                $('[data-lity-close]').trigger('click');
                 
                 IO.db.addCharacterToRoom(charName, roomCode);
             })
+            
             
         },
         
@@ -93,6 +100,7 @@ var GameroomController = {
                 GameroomController.Util.updateFormValuesForEdit();
                 
             })
+            
         }
         
         
@@ -132,15 +140,12 @@ var GameroomController = {
             
             document.getElementById('character-list').innerHTML = '';
             for (counter; counter < Charlist.length; counter++) {
-                console.info('rolling....');
-                
                 
                 htmlString += '<div class="column small-12 medium-12 large-12 game-panel character-tile import-tile" style="color: #fff;">'       +
                               '<h3>' + CharArray[counter].Name + '</h3><div class="row full-width"><div class="column small-6 medium-12 large-3">' +
                               '<p class="center">' + CharArray[counter].Race + '</p></div><div class="column small-6 medium-12 large-3">'          +
                               '<p class="center">' + CharArray[counter].Class + '</p></div><div class="column small-12 medium-12 large-6">'        +
                               '<div class="btn import-btn" data-index="' + counter + '">Import</div></div></div></div>';
-                console.info(htmlString);
             }
             
             

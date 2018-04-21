@@ -2,6 +2,7 @@
 $servername = "pathfound.ca";
 $username = "pathfound";
 $password = "toaster100";
+http_response_code(204);
 
 
 // Create connection
