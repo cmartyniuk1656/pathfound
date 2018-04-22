@@ -66,7 +66,7 @@ var UserController = {
         if (location.pathname.includes('gameroom.html')) {
             UserController.Util.getUserCharacters();
             UserController.Util.getAllRoomCharacters();
-            $('#userName-value').val(User.username);
+            $('.userName-value').val(User.username);
             $('#gameroom-value').val(Gameroom.fileName.replace('/', '').replace('.json', ''));
             
         }

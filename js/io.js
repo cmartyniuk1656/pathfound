@@ -658,6 +658,59 @@ var IO = {
             
         },
         
+        "getMapImages": function(userNameArg) {
+            
+            var userName = userNameArg;
+            
+            $.ajax({
+                url: '../io/playerGames.php',
+                data: {
+                    user: userName,
+                    intent: 'getMapImages',
+                },
+                type: 'POST',
+                success: function (response) {
+                    if (response == false) {
+                        console.info('No user map images found...');
+                        
+                    }
+                    else {
+                        MapImagePaths = JSON.parse(response);
+                        console.info(MapImagePaths);
+                    }
+                    
+                    GameroomController.Util.addPlayerMaps();
+                }  
+            });
+            
+        },
+        
+        "getUserImages": function(userNameArg) {
+            
+            var userName = userNameArg;
+            
+            $.ajax({
+                url: '../io/playerGames.php',
+                data: {
+                    user: userName,
+                    intent: 'getUserImages',
+                },
+                type: 'POST',
+                success: function (response) {
+                    if (response == false) {
+                        console.info('No user map images found...');
+                        
+                    }
+                    else {
+                        UserImagePaths = JSON.parse(response);
+                        console.info(UserImagePaths);
+                        GameroomController.Util.updateUserAssets();
+                    }
+                }  
+            });
+            
+        },
+        
         "addCharacterToRoom": function(characterNameArg, roomCodeArg){
             
             var characterName = characterNameArg.replace(' ', '');

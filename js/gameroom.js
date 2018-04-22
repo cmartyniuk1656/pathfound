@@ -25,6 +25,7 @@ var Charlist = {};
 var CharArray = [];
 var RoomCharList = {};
 var RoomCharArray = [];
+var MapImagePaths = [];
 
 var GameroomController = {
     
@@ -43,9 +44,8 @@ var GameroomController = {
                 $('#character-dropdown').slideToggle('fast');
             });
             
-            $('#image-submit').click(function() {
-                $('#image-submit').get(0).click();
-                $('[data-lity-close]').trigger('click');
+            $('#upload-map-submit-btn').click(function() {
+//                IO.db.getMapImages(User.username);
             });
             
             $('#character-sheet-save').click(function() {
@@ -53,8 +53,27 @@ var GameroomController = {
             });
             
             $('#create-map-btn').click(function() {
-                IO.db.getUserMapImages(User.username);
+//                IO.db.getUserMapImages(User.username);
             });
+            
+            $('#create-map-btn').click(function() {
+                $('.modal-wrap, .modal-container').removeClass('modal-hide');
+                $(window).trigger('resize');
+            })
+            
+            $('#return-from-map-select').click(function() {
+                $('.modal-wrap, .modal-container').addClass('modal-hide');
+            })
+            
+            $('#add-map-btn').click(function() {
+                $('#add-map-form').slideToggle('slow');
+            })
+            
+            
+            
+            
+            //GameroomController.Events.changeMapEvents();
+
             
         },
         
@@ -100,6 +119,31 @@ var GameroomController = {
                 GameroomController.Util.updateFormValuesForEdit();
                 
             })
+            
+        },
+        
+        "changeMapEvents": function() {
+            
+            $('.selectable-map').click(function() {
+                
+                var imgSource = $(this).attr("src");
+                MapController.Util.updateMapBg(imgSource);
+                $('.modal-wrap, .modal-container').addClass('modal-hide');
+            })
+            
+            $('.your-class').slick({
+                centerMode: true,
+                respondTo: 'min',
+                infinite: true,
+                slidesToShow: 2,
+                prevArrow: $('.prev'),
+                nextArrow: $('.next')
+
+            })
+            
+            $('.next').trigger('click');
+            
+            
             
         }
         
@@ -204,6 +248,79 @@ var GameroomController = {
             
         },
         
+        "addPlayerMaps": function() {
+            
+            var htmlString = '';
+            var counter = 0;
+            var startString = '<div><img class="selectable-map" src="';
+            var endString = '"/></div>';
+            
+            $('.your-class').removeClass('slick-initialized').removeClass('slick-slider');
+            
+            
+            htmlString = '<div><img class="selectable-map" src="/assets/images/maps/img-map-placeholder.jpg"/></div>' +
+                         '<div><img class="selectable-map" src="/assets/images/maps/ocean-map.jpg"/></div>' +
+                         '<div><img class="selectable-map" src="/assets/images/maps/dungeon-1.jpg"/></div>' +
+                         '<div><img class="selectable-map" src="/assets/images/maps/dungeon-2.jpg"/></div>' +
+                         '<div><img class="selectable-map" src="/assets/images/maps/town-square.jpg"/></div>';
+            
+            $('.your-class').html(htmlString);
+            
+            htmlString = '';
+            
+            for (counter; counter < MapImagePaths.length; counter++) {
+                
+                
+                htmlString = startString + MapImagePaths[counter].imagePath.replace('/home/eqq4dr1yy627/public_html', '') + endString;
+                
+                document.getElementsByClassName('your-class')[0].innerHTML += htmlString;
+                
+            }
+            
+            GameroomController.Events.changeMapEvents();
+            
+            
+        },
+        
+        "updateUserAssets": function() {
+            
+            AssetController.assetSelected = false;
+            AssetController.selectedAsset = '';
+            $('.map-asset').removeClass('selected');
+            AssetController.userAssetSelected = false;
+            AssetController.selectedUserAsset = '';
+            $('.user-asset').removeClass('selected');
+            AssetController.selectedAssetDiv = {};
+            AssetController.selectedUserAssetDiv = {};
+            
+            var htmlString = '';
+            var counter = 0;
+            var startString = '<div class="user-asset" data-index="';
+            var middleString = '"><img data-index="';
+            var middleEndString = '" src="';
+            var endString = '" height="50px" width="50px"/></div>';
+            
+            document.getElementById('user-assets').innerHTML = '';
+            
+            for (counter; counter < UserImagePaths.length; counter++) {
+                
+                
+                htmlString = startString + counter + middleString + counter + middleEndString + 
+                             UserImagePaths[counter].imagePath.replace('/home/eqq4dr1yy627/public_html', '') + endString;
+                
+                document.getElementById('user-assets').innerHTML += htmlString;
+                
+            }
+            
+            AssetController.Events.userAssetEvents();
+            
+        },
+        
+        "addPlayerAssets": function() {
+            
+            
+        },
+        
         "getAllCharacterJson": function() {
             
             if (Gameroom.CharCount == 0) {
@@ -244,6 +361,8 @@ var GameroomController = {
         MapController.Util.setFileName();
         GameroomController.Util.checkRoomId();
         GameroomController.Util.getFromServer();
+        setTimeout(function(){IO.db.getMapImages(User.username)}, 500);
+        setTimeout(function(){IO.db.getUserImages(User.username)}, 750);
         
     }  
     

@@ -17,7 +17,8 @@ var Map = {
     //Path to map background image
     "backgroundImg": '',
     
-    "mapDom": ''
+    "mapDom": '',
+    "mapBackground": ''
     
 }
 
@@ -52,6 +53,7 @@ var MapController = {
     //Map DOM elements
     "map": document.getElementById('map'),
     "mapGrid": document.getElementById('map-grid'),
+    "mapBackground": 'assets/images/maps/img-map-placeholder.jpg',
     
     
     //Utility functions for map controls
@@ -238,7 +240,7 @@ var MapController = {
                     e.stopPropagation(); // Prevent bubbling to parent, to avoid loop
                     
                     
-                    if (!AssetController.assetSelected) { 
+                    if (!AssetController.assetSelected && !AssetController.userAssetSelected) { 
                     
                         //Check state of map tile selection
                         if (MapController.SelectedTile.state == 'idle') {
@@ -299,10 +301,19 @@ var MapController = {
                             }
 
                         }
+                        
+                        AssetController.assetSelected = false;
+                        AssetController.selectedAsset = '';
+                        $('.map-asset').removeClass('selected');
+                        AssetController.userAssetSelected = false;
+                        AssetController.selectedUserAsset = '';
+                        $('.user-asset').removeClass('selected');
+                        AssetController.selectedAssetDiv = {};
+                        AssetController.selectedUserAssetDiv = {};
                     
                     }
                     
-                    else {
+                    else if (AssetController.assetSelected){
                         
                         var selectedElement = this;
                         
@@ -322,6 +333,28 @@ var MapController = {
                             
                         }
                         
+                        
+                    }
+                    
+                    else if (AssetController.userAssetSelected) {
+                     
+                        var selectedElement = this;
+                        
+                        if(!$(selectedElement).has('img').length) {
+                            
+                            var newAssetString = '<img style="width: 50px; height: 50px;" src="' + AssetController.selectedUserAsset + '"/>';
+                            
+                            $(this).append(newAssetString);
+                            AssetController.userAssetSelected = false;
+                            AssetController.selectedUserAsset = '';
+                            $('.user-asset').removeClass('selected');
+                            
+                            MapController.Util.saveMapDom();
+                            GameroomController.Map = Map;
+                            GameroomController.Util.updateServer();
+                
+                            
+                        }
                         
                     }
                     
@@ -346,12 +379,28 @@ var MapController = {
     "Util": {
         
         "getMapBackground": function() {
-            MapController.backgroundImg = 'url("' + Temp.returnMapBackground() + '")';  //TODO: replace shunt function
+            
+            MapController.mapBackground = $('#map-bg-img').attr("data-bg");
+        
+            
+            //TODO: replace shunt function
         },
         
         "setMapBackground": function() {
             
-            MapController.map.style.backgroundImage = MapController.backgroundImg;
+            if($('#map-bg-img').attr("data-bg") == '' || typeof($('#map-bg-img').attr("data-bg")) == 'undefined' || typeof($('#map-bg-img').attr("data-bg")) == null) {
+                console.info('Null bg attr found');
+                MapController.map.style.backgroundImage = 'url("' + MapController.mapBackground + '")';
+                $('#map-bg-img').attr("data-bg", MapController.map.style.backgroundImage);
+                Map.mapBackground = MapController.mapBackground;
+            }
+            else {
+                console.info('Non null bg attr found:');
+                console.info($('#map-bg-img').attr("data-bg"));
+                MapController.mapBackground = $('#map-bg-img').attr("data-bg");
+                Map.mapBackground = MapController.mapBackground;
+                MapController.map.style.backgroundImage = 'url("' + MapController.mapBackground + '")';
+            }
             
         },
         
@@ -360,6 +409,7 @@ var MapController = {
             
             var divStringStart = '<div id="cell-';
             var divStringEnd = '" class="map-cell"></div>';
+            var bgDivString = '<div id="map-bg-img" class="hidden" data-bg="' + Map.mapBackground + '"></div>';
             var divString;
             var counter;
             var cellCount = Map.mapCellWidth * Map.mapCellHeight;
@@ -372,8 +422,7 @@ var MapController = {
                 MapController.map.innerHTML += divString;
         
             }
-            
-            
+            MapController.map.innerHTML += bgDivString;
         
         },
         
@@ -406,25 +455,29 @@ var MapController = {
         },
         
         "setFileName": function() {
-            var mapId = location.href.split('?')[1];;
+            var mapId = location.href.split('?')[1];
             Map.fileName = '/' + mapId + '.json';
         },
         
         "saveMapDom": function() {
             Map.mapDom = MapController.map.innerHTML.toString();
+            Map.mapBackground = MapController.mapBackground;
         },
         
         "updateMapDom": function() {
             
             
-            if (MapController.SelectedTile.isEmtpy != false) {
+            if (MapController.SelectedTile.isEmtpy) {
                 if (Map.mapDom != '') {
                     MapController.Events.removeMapClickEvents();
+                    MapController.mapBackground = Map.mapBackground;
                     MapController.map.innerHTML = Map.mapDom;
+                    MapController.map.style.backgroundImage = 'url("' + MapController.mapBackground + '")';
                     MapController.Events.mapClickEvents();
                 }
                 else {
                     Map.mapDom = MapController.map.innerHTML;
+                    Map.mapBackground = MapController.mapBackground;
                     Gameroom.map = Map;
                     GameroomController.Util.updateServer();
                     MapController.Events.mapClickEvents();
@@ -433,16 +486,26 @@ var MapController = {
             }
              
             
-        }
+        },
         
+        "updateMapBg": function(imagePath) {
+            
+//          $('#map-bg-img').attr("data-bg", '/assets/images/maps/oceanMap.png');
+            $('#map-bg-img').attr("data-bg", imagePath);
+            MapController.mapBackground = $('#map-bg-img').attr("data-bg");
+            console.info($('#map-bg-img').attr("data-bg"));
+            Map.mapBackground = MapController.mapBackground;
+            Map.mapDom = MapController.map.innerHTML;
+            GameroomController.Util.updateServer();
+            
+        }
         
         
     },
     
     "Init": function() {
         
-        MapController.Util.getMapBackground();
-        MapController.Util.setMapBackground();
+        //MapController.Util.getMapBackground();
         
         if (!MapController.eventsAdded) {
             
@@ -453,11 +516,13 @@ var MapController = {
             
             //Debug code - used for testing map token functionality 
 //          $( "#cell-150" ).append( '<img style="width: 50px; height: 50px;" src="assets/images/test-img.png"/>' );
-            
+            MapController.Util.setMapBackground();
             MapController.Util.updateMapDom();
             MapController.Events.addAll();
             MapController.eventsAdded = true;
             Map.mapDom = MapController.map.innerHTML;
+            Map.mapBackground = MapController.mapBackground;
+            MapController.Util.updateServer();
             
         }
     }

@@ -77,4 +77,71 @@ else if ($intent == "getGameInfo") {
       echo $returnObj;
 }
 
+else if ($intent == 'getMapImages') {
+    
+
+    $sql = "SELECT imagePath FROM MapImages WHERE userName = '" . $usernameInput . "'";
+    $result = $conn->query($sql);
+    
+    
+    if ($result->num_rows > 0) {
+        
+        $rows = array();
+        
+//        while($r = mysqli_fetch_assoc($result)) {
+//            $rows[] = $r;
+//        }  
+        
+        while($r = mysqli_fetch_assoc($result)) {
+            array_push($rows, $r);
+        }
+    
+        echo json_encode($rows);
+        
+    }
+    else {
+        echo false;
+    }
+    
+    
+    $conn->close();
+    
+}
+
+else if ($intent == 'getUserImages') {
+    
+    $userIdSql = "SELECT userID FROM User WHERE userName = '" . $usernameInput . "'";
+    $resultId = $conn->query($userIdSql);
+    
+    $userIds = mysqli_fetch_array($resultId);
+    $userId = $userIds[0];
+
+    $sql = "SELECT imagePath FROM UserImages WHERE userID = '" . $userId . "'";
+    $result = $conn->query($sql);
+    
+    
+    if ($result->num_rows > 0) {
+        
+        $rows = array();
+        
+//        while($r = mysqli_fetch_assoc($result)) {
+//            $rows[] = $r;
+//        }  
+        
+        while($r = mysqli_fetch_assoc($result)) {
+            array_push($rows, $r);
+        }
+    
+        echo json_encode($rows);
+        
+    }
+    else {
+        echo false;
+    }
+    
+    
+    $conn->close();
+    
+}
+
 ?>

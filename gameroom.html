@@ -14,6 +14,7 @@
     <link href="js/vendor/lity/dist/lity.css" rel="stylesheet">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     
     
 </head>
@@ -254,10 +255,10 @@
             <div id="control-panel-tab-1" class="row full-width">
                 <h2>Characters</h2>
                 <div class="column small-12 medium-12 large-6">
-                    <a id='create-character-btn' class="btn" href="#character-edit-modal" data-lity>Create</a>
+                    <a id='create-character-btn' class="btn" href="#character-edit-modal" style="width: 90%; margin-left: 5%; margin-right: 5%;" data-lity>Create</a>
                 </div>
                 <div class="column small-12 medium-12 large-6">
-                    <a class="btn" href="#import-character-modal" data-lity>Import</a>
+                    <a class="btn" href="#import-character-modal" style="width: 90%; margin-left: 5%; margin-right: 5%;" data-lity>Import</a>
                 </div>
                 <div id="characters-panel-container">
                 </div>
@@ -270,11 +271,29 @@
                         <h2>Assets</h2>
                         <hr>
                     </div>
-                    <div class="column small-12 medium-12 large-12">
-                        <div id="character-asset-btn" class="btn" style="margin-top: 15px; float: none;">Character</div>
+                    <div class="column small-12 medium-12 large-6">
+                        <div id="character-asset-btn" class="btn" style="width: 90%; margin-left: 5%; margin-right: 5%; margin-top: 10px;">Character</div>
                     </div>
-                    <div class="column small-12 medium-12 large-12">
-                        <div id="misc-asset-btn" class="btn" style="margin-top: 15px; float: none;">miscellaneous</div>
+                    <div class="column small-12 medium-12 large-6">
+                        <div id="misc-asset-btn" class="btn" style="width: 90%; margin-left: 5%; margin-right: 5%; margin-top: 10px;">misc</div>
+                    </div>
+                    <div class="column small-12 medium-12 large-6">
+                        <div id='user-image-btn' class="btn" style="width: 90%; margin-left: 5%; margin-right: 5%; margin-top: 10px;">User</div>
+                    </div>
+                    <div class="column small-12 medium-12 large-6">
+                        <div id="upload-img-btn" class="btn" style="width: 90%; margin-left: 5%; margin-right: 5%; margin-top: 10px;">Upload</div>
+                    </div>
+                    <div id="user-assets" class="column small-12 medium-12 large-12" style="display: none;">
+                    </div>
+                    <div id="upload-assets" class="column small-12 medium-12 large-12" style="display: none;">
+                        <form action="/io/imageHandler.php" method="post" enctype="multipart/form-data" style="margin-top: 25px;">
+                            <input type='hidden' name='intent' value='addUserAsset'/> 
+                            <input id="userName-value" type='hidden' name='accUserName' value=''/>
+                            <input id="gameroom-value" type='hidden' name='roomCode' value=''/> 
+                            <input class="btn" type="file" id="picture-select" name="photo" style="float: none; background: #1a1a1b; font-size: 1rem;">
+                            <div id="upload-img-submit-btn" class="btn" style="width: 90%; margin-left: 5%; margin-right: 5%; margin-top: 10px; background: #1a1a1b; font-size: 1rem;">Submit</div>
+                            <input id="user-asset-submit" type="submit" style="display: none;">
+                        </form>
                     </div>
                     <div id="character-assets" class="column small-12 medium-12 large-12" style="display: none;">
                         <div class="row full-width game-panel map-asset" data-assetpath="assets/images/character/humanToken.png">
@@ -477,10 +496,20 @@
             <div id="control-panel-tab-3" class="row full-width hidden">
                 <h2>Settings</h2>
                 <div class="column small-12 medium-12 large-12">
-                    <a id="add-map-btn" class="btn" href="#add-map-modal" data-lity>Add Map Image</a>
+                    <div id="add-map-btn" class="btn" style="width: 70%; margin-left: 15%; margin-right: 15%;">Add Map Image</div>
+                    <div id="add-map-form" class="row" style="display: none;">
+                        <form action="/io/imageHandler.php" method="post" enctype="multipart/form-data">
+                            <input type='hidden' name='intent' value='addMapImage'/> 
+                            <input class="userName-value" type='hidden' name='accUserName' value=''/>
+                            <input id="gameroom-value" type='hidden' name='roomCode' value=''/> 
+                            <input class="btn" type="file" id="map-select" name="photo" style="float: none; background: #1a1a1b; font-size: 1rem; width: 100%; margin-top: 30px;">
+                            <div id="upload-map-submit-btn" class="btn" style="width: 100%; margin-top: 10px; background: #1a1a1b; font-size: 1rem;">Submit</div>
+                            <input id="user-map-submit-btn" type="submit" style="display: none;">
+                        </form>
+                    </div>
                 </div>
                 <div class="column small-12 medium-12 large-12">
-                    <a style="margin-top: 15px;" id="create-map-btn" class="btn" href="#create-map-modal" data-lity>Create New Map</a>
+                    <a style="margin-top: 15px; width: 70%; margin-left: 15%; margin-right: 15%;" id="create-map-btn" class="btn">Change Background</a>
                 </div>
                 
             </div>
@@ -491,42 +520,30 @@
         
 <!----------------MAP EDIT PANEL START------------------------------------------------------------------------->    
 
-        
-    <div id="add-map-modal" class="row full-width lity-hide">
-        <div class="column small-12 medium-12 large-12">
-            <div class="row">
-                <div class="column small-12 medium-12 large-12">
-                    <h3 id="add-map-image">Add Map Image</h3>
-                </div>
-            </div>
-            <div class="row">
-                <h3 id="change-profile-picture-btn">Update Profile Picture</h3>
-                <form action="/io/imageHandler.php" method="post" enctype="multipart/form-data">
-                    <input type='hidden' name='intent' value='addMapImage'/> 
-                    <input id="userName-value" type='hidden' name='accUserName' value=''/>
-                    <input id="gameroom-value" type='hidden' name='roomCode' value=''/> 
-                    <input type="file" id="picture-select" name="photo">
-                    <input id="image-submit" type="submit">
-                </form>
-                </div>
-            </div>
-        </div>
-        <div id="create-map-modal" class="row full-width lity-hide">
-            <div class="column small-12 medium-12 large-12">
-                <div class="row">
-                    <div class="column small-12 medium-12 large-12">
-                        <h3 id="add-map-image">Select Map Image</h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <h3 id="change-profile-picture-btn">Update Profile Picture</h3>
-                    <form action="/io/imageHandler.php" method="post" enctype="multipart/form-data" target="myIframe">
-                        <input type='hidden' name='intent' value='addMapImage'/> 
-                        <input id="userName-value" type='hidden' name='accUserName' value=''/>
-                        <input id="gameroom-value" type='hidden' name='roomCode' value=''/> 
-                        <input type="file" id="picture-select" name="photo">
-                        <input id="image-submit" type="submit">
-                    </form>
+        <div class="modal-container modal-hide"></div>
+        <div class="modal-wrap modal-hide">
+            <div id="create-map-modal" class="row full-width" style="max-width: 50%;">
+                <div class="column small-12 medium-12 large-12" style="margin-top: 33%;">
+                        <div class="row">
+                            <div class="column small-12 medium-12 large-12">
+                                <h3 style="color: #fff; text-align: center; font-family: mortis; margin-bottom: 30px; font-size: 2.5rem;">Select Map Image</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column small-1 medium-1 large-1" style="color: #fff; color: #fff; height: 50%; margin-top: 65px;">
+                                <i style="font-size:3em" class="prev fa fa-lg fa-arrow-circle-left"aria-hidden="true"></i>
+                            </div>
+                            <div class="column small-10 medium-10 large-10">
+                                <div class="your-class" style="color: #fff;">
+                                </div>
+                            </div>
+                            <div class="column small-1 medium-1 large-1" style="color: #fff; color: #fff; height: 50%; margin-top: 65px;">
+                                <i style="font-size:3em" class="next fa fa-lg fa-arrow-circle-right" aria-hidden="true"></i>
+                            </div>
+                            <div class="column small-12 medium-12 large-12">
+                                <h3 id="return-from-map-select" class="btn" style="font-family: mortis; font-size: 2.5rem; float: none;">Return</h3>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>
@@ -2131,6 +2148,8 @@
     
     <script src="js/temp.js"></script>
     <script src="js/vendor/jquery.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
     <script src="js/app.js"></script>
