@@ -20,6 +20,7 @@
     transform: scale(1.0);
     transform-origin: top left;
     background-repeat: no-repeat;
+    transition: all .6s ease-out;
 }
 
 #map-controls {
@@ -89,4 +90,5 @@
     margin: auto;
     z-index: 100;
     overflow: hidden;
+    transition: all .6s ease-out;
 }

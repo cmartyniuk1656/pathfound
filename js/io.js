@@ -310,6 +310,10 @@ var IO = {
                     if (response == true) {
                         IO.db.checkUserAvatarExists(userName, password);
                     }
+                    else {
+                        $('#error-msg-login').html('Invalid username or password.');
+                        $('valid-msg-login').html('');
+                    }
                 }  
             });
             
@@ -348,7 +352,7 @@ var IO = {
                         loginCallbackStorage.callback();
                     }
                     else {
-                        LoginController.Util.updateErrorMessage('Username already exists.')
+                        LoginController.Util.updateErrorMessage('Username already exists.');
                     }
                 }  
             });
@@ -367,8 +371,11 @@ var IO = {
                 type: 'POST',
                 success: function (response) {
                     if (response == true) {;
-                        console.info('record added.');
-                        $(location).attr('href', "index.html");
+                        
+                        $('[data-lity-close]').trigger('click');
+                        $('#valid-msg-login').html('Account created. Please log in.');
+                        $('#error-msg-login').html('');
+                                           
                     }
                     else {
                         console.info(response);
@@ -418,7 +425,7 @@ var IO = {
                 type: 'POST',
                 success: function (response) {
                     if (response == true) {;
-                        console.info('record added.');
+                        $(location).attr('href', "dashboard.html");
                     }
                     else {
                         sessionStorage.removeItem('GameData');

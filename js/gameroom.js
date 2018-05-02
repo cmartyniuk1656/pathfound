@@ -259,10 +259,12 @@ var GameroomController = {
             
             
             htmlString = '<div><img class="selectable-map" src="/assets/images/maps/img-map-placeholder.jpg"/></div>' +
-                         '<div><img class="selectable-map" src="/assets/images/maps/ocean-map.jpg"/></div>' +
-                         '<div><img class="selectable-map" src="/assets/images/maps/dungeon-1.jpg"/></div>' +
-                         '<div><img class="selectable-map" src="/assets/images/maps/dungeon-2.jpg"/></div>' +
-                         '<div><img class="selectable-map" src="/assets/images/maps/town-square.jpg"/></div>';
+                         '<div><img class="selectable-map" src="/assets/images/maps/ocean-map.jpg"/></div>'           +
+                         '<div><img class="selectable-map" src="/assets/images/maps/dungeon-1.jpg"/></div>'           +
+                         '<div><img class="selectable-map" src="/assets/images/maps/dungeon-2.jpg"/></div>'           +
+                         '<div><img class="selectable-map" src="/assets/images/maps/town-square.jpg"/></div>'         +
+                         '<div><img class="selectable-map" src="/assets/images/maps/dungeon-3.jpg"/></div>'           +
+                         '<div><img class="selectable-map" src="/assets/images/maps/castle.jpg"/></div>';
             
             $('.your-class').html(htmlString);
             
@@ -353,6 +355,8 @@ var GameroomController = {
             }
         }
         
+        
+        
     },
 
     "Init": function() {
@@ -382,5 +386,5 @@ $(document).ready(function() {
 // Update Loop
 var sleep = time => new Promise(resolve => setTimeout(resolve, time))
 var poll = (promiseFn, time) => promiseFn().then(sleep(time).then(() => poll(promiseFn, time)))
-poll(() => new Promise(() => GameroomController.Util.readFromServer()), 3500);
+poll(() => new Promise(() => GameroomController.Util.readFromServer()), 4500);
     

@@ -223,6 +223,18 @@ var MapController = {
                 
             })
             
+            $('#screen-button').click(function() {
+                $('#map-container').toggleClass('fullscreen');
+                $('#map-controls').toggleClass('fullscreen');
+                $('#chat-container').toggleClass('fullscreen');
+                $('#title-row').toggleClass('hidden');
+                $('#left-column').toggleClass('hidden');
+                $('#full-screen-wrap').toggleClass('hidden');
+                $('#right-column').toggleClass('fullscreen');
+                
+            })
+        
+            
             
             
 //            MapController.Events.mapClickEvents();
@@ -413,6 +425,7 @@ var MapController = {
             var divString;
             var counter;
             var cellCount = Map.mapCellWidth * Map.mapCellHeight;
+            MapController.map.innerHTML = '';
 
             for (i = 0; i < cellCount; i++) {
                 
@@ -473,6 +486,7 @@ var MapController = {
                     MapController.mapBackground = Map.mapBackground;
                     MapController.map.innerHTML = Map.mapDom;
                     MapController.map.style.backgroundImage = 'url("' + MapController.mapBackground + '")';
+                    MapController.Util.setMapSize();
                     MapController.Events.mapClickEvents();
                 }
                 else {
@@ -497,6 +511,30 @@ var MapController = {
             Map.mapBackground = MapController.mapBackground;
             Map.mapDom = MapController.map.innerHTML;
             GameroomController.Util.updateServer();
+            
+        },
+        
+        "resizeGrid": function() {
+            
+            var height = $('#map-height-adjust').val();
+            var width = $('#map-width-adjust').val();
+           
+            if ($.isNumeric(width) && $.isNumeric(height)) {
+               
+                if (width <= 30 & height <= 30) {
+                    
+                    Map.mapCellHeight = height;
+                    Map.mapCellWidth = width;
+                    MapController.Util.buildMapGrid();
+                    MapController.Util.setMapSize();
+                    MapController.Util.setMapBackground();
+                    Map.mapDom = MapController.map.innerHTML;
+                    Gameroom.map = Map;
+                    GameroomController.Util.updateServer();
+                    MapController.Events.mapClickEvents();
+                }
+                
+            }    
             
         }
         
@@ -524,7 +562,7 @@ var MapController = {
             Map.mapBackground = MapController.mapBackground;
             MapController.Util.updateServer();
             
-        }
+        } 
     }
 }
 

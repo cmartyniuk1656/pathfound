@@ -1,0 +1,321 @@
+[22-Apr-2018 10:27:31 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 176
+[22-Apr-2018 10:27:31 UTC] 3042
+[22-Apr-2018 10:27:31 UTC] Error: INSERT INTO UserImages (imagePath, userName) VALUES 
+                    ('/home/eqq4dr1yy627/public_html/assets/images/user/83b51ff7d382c530e94f.png', 'admin')<br>Unknown column 'userName' in 'field list'
+[22-Apr-2018 10:31:37 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type mysqli_result as array in /home/eqq4dr1yy627/public_html/io/imageHandler.php:180
+Stack trace:
+#0 {main}
+  thrown in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 180
+[22-Apr-2018 10:32:58 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 180
+[22-Apr-2018 10:32:58 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 183
+[22-Apr-2018 10:32:58 UTC] 3042
+[22-Apr-2018 10:36:54 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 180
+[22-Apr-2018 10:36:54 UTC] Array
+(
+    [0] => 1
+    [userID] => 1
+)
+
+[22-Apr-2018 10:36:54 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 185
+[22-Apr-2018 10:36:54 UTC] 3042
+[22-Apr-2018 10:40:43 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 180
+[22-Apr-2018 10:40:43 UTC] Array
+(
+    [0] => 1
+    [userID] => 1
+)
+
+[22-Apr-2018 10:40:43 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 185
+[22-Apr-2018 10:40:43 UTC] 4548
+[22-Apr-2018 10:48:46 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 12:19:51 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 12:25:23 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 12:26:26 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 12:27:42 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 12:30:08 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 12:30:17 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 180
+[22-Apr-2018 12:30:17 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 182
+[22-Apr-2018 12:30:17 UTC] 31336
+[22-Apr-2018 12:30:17 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 12:44:31 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 12:45:58 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 12:46:51 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 12:47:46 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 12:48:17 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 12:51:08 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 12:55:39 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 12:56:11 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 12:56:38 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 12:57:00 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 12:58:46 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 13:02:32 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 13:03:18 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 13:05:51 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 13:07:31 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 111
+[22-Apr-2018 13:07:31 UTC] 120899
+[22-Apr-2018 13:07:40 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 111
+[22-Apr-2018 13:07:40 UTC] 120899
+[22-Apr-2018 13:07:45 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 111
+[22-Apr-2018 13:07:45 UTC] 120899
+[22-Apr-2018 13:07:51 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 13:09:02 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 180
+[22-Apr-2018 13:09:02 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 182
+[22-Apr-2018 13:09:02 UTC] 131062
+[22-Apr-2018 13:09:02 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 13:12:28 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 13:12:40 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 111
+[22-Apr-2018 13:12:40 UTC] 120899
+[22-Apr-2018 13:12:52 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 111
+[22-Apr-2018 13:12:52 UTC] 120899
+[22-Apr-2018 13:18:36 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 13:18:43 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 111
+[22-Apr-2018 13:18:43 UTC] 120899
+[22-Apr-2018 13:19:02 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 13:19:05 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 111
+[22-Apr-2018 13:19:05 UTC] 120899
+[22-Apr-2018 13:19:17 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 13:19:47 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 180
+[22-Apr-2018 13:19:47 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 182
+[22-Apr-2018 13:19:47 UTC] 4548
+[22-Apr-2018 13:19:47 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 13:20:04 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 111
+[22-Apr-2018 13:20:04 UTC] 120899
+[22-Apr-2018 13:20:12 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 111
+[22-Apr-2018 13:20:12 UTC] 120899
+[22-Apr-2018 13:20:14 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 111
+[22-Apr-2018 13:20:14 UTC] 120899
+[22-Apr-2018 13:20:27 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 13:21:03 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 13:23:03 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 13:23:11 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 13:23:17 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 13:23:55 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 13:24:02 UTC] PHP Warning:  file_get_contents(/home/eqq4dr1yy627/public_html/io/dam/json/character/playerchris-ChrisTest.json): failed to open stream: No such file or directory in /home/eqq4dr1yy627/public_html/io/charList.php on line 53
+[22-Apr-2018 13:24:14 UTC] PHP Warning:  file_get_contents(/home/eqq4dr1yy627/public_html/io/dam/json/character/playerchris-ChrisTest.json): failed to open stream: No such file or directory in /home/eqq4dr1yy627/public_html/io/charList.php on line 53
+[22-Apr-2018 13:24:14 UTC] PHP Warning:  file_get_contents(/home/eqq4dr1yy627/public_html/io/dam/json/character/playerchris-a.json): failed to open stream: No such file or directory in /home/eqq4dr1yy627/public_html/io/charList.php on line 53
+[22-Apr-2018 13:26:43 UTC] PHP Warning:  file_get_contents(/home/eqq4dr1yy627/public_html/io/dam/json/character/playerchris-ChrisTest.json): failed to open stream: No such file or directory in /home/eqq4dr1yy627/public_html/io/charList.php on line 53
+[22-Apr-2018 13:26:43 UTC] PHP Warning:  file_get_contents(/home/eqq4dr1yy627/public_html/io/dam/json/character/playerchris-a.json): failed to open stream: No such file or directory in /home/eqq4dr1yy627/public_html/io/charList.php on line 53
+[22-Apr-2018 13:28:15 UTC] PHP Warning:  file_get_contents(/home/eqq4dr1yy627/public_html/io/dam/json/character/playerchris-ChrisTest.json): failed to open stream: No such file or directory in /home/eqq4dr1yy627/public_html/io/charList.php on line 53
+[22-Apr-2018 13:28:15 UTC] PHP Warning:  file_get_contents(/home/eqq4dr1yy627/public_html/io/dam/json/character/playerchris-a.json): failed to open stream: No such file or directory in /home/eqq4dr1yy627/public_html/io/charList.php on line 53
+[22-Apr-2018 13:28:15 UTC] PHP Warning:  file_get_contents(/home/eqq4dr1yy627/public_html/io/dam/json/character/playerchris-TitanusProtus.json): failed to open stream: No such file or directory in /home/eqq4dr1yy627/public_html/io/charList.php on line 53
+[22-Apr-2018 13:29:06 UTC] PHP Warning:  file_get_contents(/home/eqq4dr1yy627/public_html/io/dam/json/character/playerchris-ChrisTest.json): failed to open stream: No such file or directory in /home/eqq4dr1yy627/public_html/io/charList.php on line 53
+[22-Apr-2018 13:29:06 UTC] PHP Warning:  file_get_contents(/home/eqq4dr1yy627/public_html/io/dam/json/character/playerchris-a.json): failed to open stream: No such file or directory in /home/eqq4dr1yy627/public_html/io/charList.php on line 53
+[22-Apr-2018 13:29:06 UTC] PHP Warning:  file_get_contents(/home/eqq4dr1yy627/public_html/io/dam/json/character/playerchris-TitanusProtus.json): failed to open stream: No such file or directory in /home/eqq4dr1yy627/public_html/io/charList.php on line 53
+[22-Apr-2018 13:29:06 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 13:29:26 UTC] PHP Warning:  file_get_contents(/home/eqq4dr1yy627/public_html/io/dam/json/character/playerchris-ChrisTest.json): failed to open stream: No such file or directory in /home/eqq4dr1yy627/public_html/io/charList.php on line 53
+[22-Apr-2018 13:29:26 UTC] PHP Warning:  file_get_contents(/home/eqq4dr1yy627/public_html/io/dam/json/character/playerchris-a.json): failed to open stream: No such file or directory in /home/eqq4dr1yy627/public_html/io/charList.php on line 53
+[22-Apr-2018 13:29:26 UTC] PHP Warning:  file_get_contents(/home/eqq4dr1yy627/public_html/io/dam/json/character/playerchris-TitanusProtus.json): failed to open stream: No such file or directory in /home/eqq4dr1yy627/public_html/io/charList.php on line 53
+[22-Apr-2018 13:29:27 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 13:30:59 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 13:31:43 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 14:05:18 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 14:05:47 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 14:06:21 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 14:10:12 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 14:19:51 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 14:21:28 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 181
+[22-Apr-2018 14:21:28 UTC] PHP Warning:  error_log() expects parameter 1 to be string, array given in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 183
+[22-Apr-2018 14:21:28 UTC] 
+[22-Apr-2018 14:21:28 UTC] mirror
+[22-Apr-2018 14:21:28 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 187
+[22-Apr-2018 14:21:28 UTC] 3042
+[22-Apr-2018 14:21:28 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 14:23:26 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 14:23:37 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 181
+[22-Apr-2018 14:23:37 UTC] Array
+(
+    [0] => 32
+    [userID] => 32
+)
+
+[22-Apr-2018 14:23:37 UTC] 
+[22-Apr-2018 14:23:37 UTC] mirror
+[22-Apr-2018 14:23:37 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 187
+[22-Apr-2018 14:23:37 UTC] 3042
+[22-Apr-2018 14:23:37 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 14:56:44 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 14:56:59 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 181
+[22-Apr-2018 14:56:59 UTC] Array
+(
+    [0] => 32
+    [userID] => 32
+)
+
+[22-Apr-2018 14:56:59 UTC] 
+[22-Apr-2018 14:56:59 UTC] mirror
+[22-Apr-2018 14:56:59 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 187
+[22-Apr-2018 14:56:59 UTC] 4548
+[22-Apr-2018 14:56:59 UTC] 
+[22-Apr-2018 14:56:59 UTC] INSERT INTO UserImages (imagePath, userID) VALUES 
+                    ('/home/eqq4dr1yy627/public_html/assets/images/user/d895d829e38f0cfab9fb.png', '')
+[22-Apr-2018 14:57:00 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 14:58:25 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 14:58:34 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 178
+[22-Apr-2018 14:58:34 UTC] 3042
+[22-Apr-2018 14:58:34 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 208
+[22-Apr-2018 14:58:34 UTC] Array
+(
+    [0] => 32
+    [userID] => 32
+)
+
+[22-Apr-2018 14:58:34 UTC] 
+[22-Apr-2018 14:58:34 UTC] mirror
+[22-Apr-2018 14:58:34 UTC] 
+[22-Apr-2018 14:58:34 UTC] INSERT INTO UserImages (imagePath, userID) VALUES 
+                    ('/home/eqq4dr1yy627/public_html/assets/images/user/59261090bf3739044a2b.png', '')
+[22-Apr-2018 14:58:34 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 15:00:24 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 15:00:32 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 178
+[22-Apr-2018 15:00:32 UTC] 3042
+[22-Apr-2018 15:00:32 UTC] Array
+(
+    [0] => 32
+    [userID] => 32
+)
+
+[22-Apr-2018 15:00:32 UTC] 32
+[22-Apr-2018 15:00:32 UTC] mirror
+[22-Apr-2018 15:00:32 UTC] 32
+[22-Apr-2018 15:00:32 UTC] INSERT INTO UserImages (imagePath, userID) VALUES 
+                    ('/home/eqq4dr1yy627/public_html/assets/images/user/1f38a4c232039fb89fc7.png', '32')
+[22-Apr-2018 15:00:33 UTC] PHP Notice:  Undefined variable: resultIds in /home/eqq4dr1yy627/public_html/io/playerGames.php on line 117
+[22-Apr-2018 15:04:40 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 112
+[22-Apr-2018 15:04:40 UTC] 690758
+[22-Apr-2018 15:05:41 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 112
+[22-Apr-2018 15:05:41 UTC] 6046
+[22-Apr-2018 17:35:35 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 112
+[22-Apr-2018 17:35:35 UTC] 75017
+[22-Apr-2018 17:35:36 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 112
+[22-Apr-2018 17:35:36 UTC] 75017
+[22-Apr-2018 17:35:38 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 112
+[22-Apr-2018 17:35:38 UTC] 75017
+[22-Apr-2018 17:35:40 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 112
+[22-Apr-2018 17:35:40 UTC] 75017
+[22-Apr-2018 17:35:42 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 112
+[22-Apr-2018 17:35:42 UTC] 75017
+[22-Apr-2018 17:35:43 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 112
+[22-Apr-2018 17:35:43 UTC] 75017
+[22-Apr-2018 17:35:44 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 112
+[22-Apr-2018 17:35:44 UTC] 75017
+[22-Apr-2018 17:35:47 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 112
+[22-Apr-2018 17:35:47 UTC] 75017
+[22-Apr-2018 17:35:50 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 112
+[22-Apr-2018 17:35:50 UTC] 75017
+[22-Apr-2018 17:35:51 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 112
+[22-Apr-2018 17:35:51 UTC] 75017
+[22-Apr-2018 17:35:51 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 112
+[22-Apr-2018 17:35:51 UTC] 75017
+[22-Apr-2018 17:35:53 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 112
+[22-Apr-2018 17:35:53 UTC] 75017
+[22-Apr-2018 17:35:59 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 112
+[22-Apr-2018 17:35:59 UTC] 120899
+[22-Apr-2018 17:38:54 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 178
+[22-Apr-2018 17:38:54 UTC] 5925
+[22-Apr-2018 17:38:54 UTC] Array
+(
+    [0] => 24
+    [userID] => 24
+)
+
+[22-Apr-2018 17:38:54 UTC] 24
+[22-Apr-2018 17:38:54 UTC] sulim
+[22-Apr-2018 17:38:54 UTC] 24
+[22-Apr-2018 17:38:54 UTC] INSERT INTO UserImages (imagePath, userID) VALUES 
+                    ('/home/eqq4dr1yy627/public_html/assets/images/user/eecb5c512480562c5783.png', '24')
+[22-Apr-2018 17:39:54 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 178
+[22-Apr-2018 17:39:54 UTC] 4097
+[22-Apr-2018 17:39:54 UTC] Array
+(
+    [0] => 24
+    [userID] => 24
+)
+
+[22-Apr-2018 17:39:54 UTC] 24
+[22-Apr-2018 17:39:54 UTC] sulim
+[22-Apr-2018 17:39:54 UTC] 24
+[22-Apr-2018 17:39:54 UTC] INSERT INTO UserImages (imagePath, userID) VALUES 
+                    ('/home/eqq4dr1yy627/public_html/assets/images/user/ca0780079b13a57fa80d.png', '24')
+[22-Apr-2018 17:52:22 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 112
+[22-Apr-2018 17:52:22 UTC] 0
+[22-Apr-2018 17:52:59 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 112
+[22-Apr-2018 17:52:59 UTC] 0
+[22-Apr-2018 17:53:05 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 112
+[22-Apr-2018 17:53:05 UTC] Ooops!  Your upload triggered the following error:  4
+[22-Apr-2018 17:53:06 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 112
+[22-Apr-2018 17:53:06 UTC] 0
+[22-Apr-2018 17:53:06 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 112
+[22-Apr-2018 17:53:06 UTC] Ooops!  Your upload triggered the following error:  4
+[22-Apr-2018 17:53:37 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 112
+[22-Apr-2018 17:53:37 UTC] 161268
+[22-Apr-2018 17:53:57 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 112
+[22-Apr-2018 17:53:57 UTC] 161268
+[22-Apr-2018 17:55:28 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 178
+[22-Apr-2018 17:55:28 UTC] 186893
+[22-Apr-2018 17:55:28 UTC] Array
+(
+    [0] => 22
+    [userID] => 22
+)
+
+[22-Apr-2018 17:55:28 UTC] 22
+[22-Apr-2018 17:55:28 UTC] electroswagnetism
+[22-Apr-2018 17:55:28 UTC] 22
+[22-Apr-2018 17:55:28 UTC] INSERT INTO UserImages (imagePath, userID) VALUES 
+                    ('/home/eqq4dr1yy627/public_html/assets/images/user/59b4a842fcf4c1ca94da.png', '22')
+[22-Apr-2018 17:55:52 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 178
+[22-Apr-2018 17:55:52 UTC] 186893
+[22-Apr-2018 17:55:52 UTC] Array
+(
+    [0] => 22
+    [userID] => 22
+)
+
+[22-Apr-2018 17:55:52 UTC] 22
+[22-Apr-2018 17:55:52 UTC] electroswagnetism
+[22-Apr-2018 17:55:52 UTC] 22
+[22-Apr-2018 17:55:52 UTC] INSERT INTO UserImages (imagePath, userID) VALUES 
+                    ('/home/eqq4dr1yy627/public_html/assets/images/user/e899dd52e6229aa7ffe4.png', '22')
+[22-Apr-2018 21:09:10 UTC] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home/eqq4dr1yy627/public_html/io/db.php on line 178
+[22-Apr-2018 21:09:14 UTC] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home/eqq4dr1yy627/public_html/io/db.php on line 178
+[22-Apr-2018 21:09:21 UTC] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home/eqq4dr1yy627/public_html/io/db.php on line 178
+[22-Apr-2018 21:23:01 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 178
+[22-Apr-2018 21:23:01 UTC] 3882
+[22-Apr-2018 21:23:01 UTC] Array
+(
+    [0] => 1
+    [userID] => 1
+)
+
+[22-Apr-2018 21:23:01 UTC] 1
+[22-Apr-2018 21:23:01 UTC] admin
+[22-Apr-2018 21:23:01 UTC] 1
+[22-Apr-2018 21:23:01 UTC] INSERT INTO UserImages (imagePath, userID) VALUES 
+                    ('/home/eqq4dr1yy627/public_html/assets/images/user/7149f7a1695a2cf83241.png', '1')
+[22-Apr-2018 21:23:41 UTC] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home/eqq4dr1yy627/public_html/io/db.php on line 178
+[22-Apr-2018 21:24:01 UTC] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home/eqq4dr1yy627/public_html/io/db.php on line 178
+[22-Apr-2018 21:25:02 UTC] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home/eqq4dr1yy627/public_html/io/db.php on line 178
+[22-Apr-2018 21:43:53 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 112
+[22-Apr-2018 21:43:53 UTC] 31336
+[22-Apr-2018 21:45:06 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 112
+[22-Apr-2018 21:45:06 UTC] 34176
+[24-Apr-2018 19:40:55 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 112
+[24-Apr-2018 19:40:55 UTC] 6162
+[24-Apr-2018 19:40:56 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 112
+[24-Apr-2018 19:40:56 UTC] 6162
+[26-Apr-2018 21:33:04 UTC] PHP Deprecated:  Function mcrypt_create_iv() is deprecated in /home/eqq4dr1yy627/public_html/io/imageHandler.php on line 178
+[26-Apr-2018 21:33:04 UTC] 4548
+[26-Apr-2018 21:33:04 UTC] Array
+(
+    [0] => 1
+    [userID] => 1
+)
+
+[26-Apr-2018 21:33:04 UTC] 1
+[26-Apr-2018 21:33:04 UTC] admin
+[26-Apr-2018 21:33:04 UTC] 1
+[26-Apr-2018 21:33:04 UTC] INSERT INTO UserImages (imagePath, userID) VALUES 
+                    ('/home/eqq4dr1yy627/public_html/assets/images/user/44a64cab6a5b5fa81a45.png', '1')
+[27-Apr-2018 00:15:16 UTC] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home/eqq4dr1yy627/public_html/io/db.php on line 178
+[27-Apr-2018 14:28:53 UTC] PHP Notice:  Undefined index: myType in /home/eqq4dr1yy627/public_html/io/io.php on line 5
+[27-Apr-2018 14:29:06 UTC] PHP Notice:  Undefined index: myType in /home/eqq4dr1yy627/public_html/io/io.php on line 5

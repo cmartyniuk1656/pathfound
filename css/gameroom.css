@@ -37,7 +37,7 @@
 
 .game-panel {
     background: rgba(0, 0, 0, 0.6);
-    padding: 16px;
+    padding: 0 16px 16px 16px;
 }
 
 .game-title {
@@ -87,10 +87,66 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', end
     cursor: pointer;
 }
 
+#create-map-modal {
+    max-width: 50%;
+}
+
 #create-map-modal img {
     max-width: 200px;
     max-height: 200px;
     cursor: pointer;
+}
+
+#full-screen-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 75vw;
+    min-height: 80vh;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 8999;
+}
+
+#map-container.fullscreen {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9000;
+    max-width: 75%;
+    min-height: 80vh;
+    transition: all .6s ease-out;
+}
+
+#chat-container.fullscreen {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 9001;
+    max-width: 75%;
+    transition: all .6s ease-out;
+}
+
+#map-controls.fullscreen {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9001;
+    width: 470px;
+    transition: all .6s ease-out;
+}
+
+#right-column.fullscreen {
+    position: fixed;
+    right: 0px;
+    top: 0;
+    z-index: 9001;
+    width: 25%;
+    transition: all .6s ease-out;
+}
+
+.fullscreen #chat-log {
+    height: 85%;
+    transition: all .6s ease-out;
 }
 /*GAMEROOM STRUCTURE CSS END  -----------------------------------------*/
 
@@ -480,6 +536,10 @@ width: 100%;
     margin-top: 25px;
 }
 
+.map-select-modal-content {
+    margin-top: 33%;
+}
+
 /*CONTROL PANEL CSS END ------------------------------------------------------*/
 
 /*DICE CSS START -------------------------------------------------------------*/
@@ -565,3 +625,32 @@ width: 100%;
 }
 
 /*IMPORT CHARACTER MODAL END -------------------------------------------------*/
+
+@media screen and (max-width: 39.9375em) {
+    #game-room {
+        max-height: 100% !important;
+        height: 100% !important;
+    }
+    
+    #center-column {
+        max-height: 100% !important;
+    }
+    
+    #right-column {
+        height: 100% !important;
+        margin-top: 25px !important;
+    }
+    
+    .map-select-modal-content {
+        margin-top: 0 !important;
+    }
+    
+    #create-map-modal {
+        max-width: 100% !important;
+    }
+    
+    .modal-wrap {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+}

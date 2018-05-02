@@ -71,6 +71,11 @@ var LoginController = {
                 valid = false;
             }
             
+            else if (password.length < 6) {
+                errorMsg = 'Password must be at least 6 characters long.';
+                valid = false;
+            }
+            
             if (!valid) {
                 errorDiv.innerHTML = errorMsg;
             }

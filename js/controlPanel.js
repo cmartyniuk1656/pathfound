@@ -35,6 +35,10 @@ var ControlPanel = {
                 $('#control-panel-tab-1').addClass('hidden');
                 $('#control-panel-tab-2').addClass('hidden');
             })
+            
+            $('#resize-map-btn').click(function() {
+                MapController.Util.resizeGrid();
+            })
         }
     },
     

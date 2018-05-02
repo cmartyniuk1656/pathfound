@@ -27,7 +27,27 @@ else if ($reqType == 'get') {
     
     if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/io/dam/json/' . $objType . $fileName)) {
         
-        $returnData = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/io/dam/json/' . $objType . $fileName);
+//        TEST CODE START ---------------------------------------
+        
+        $fullPath = $_SERVER['DOCUMENT_ROOT'] . '/io/dam/json/' . $objType . $fileName;
+        
+        $handle = fopen($fullPath, "r+");
+        
+        //Lock File, error if unable to lock
+        if(flock($handle, LOCK_EX)) {
+            
+            $returnData = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/io/dam/json/' . $objType . $fileName);
+            flock($handle, LOCK_UN);    //Unlock File
+            
+        } 
+        else {
+            echo "Could not Lock File!";
+        }
+        
+//        TEST CODE END------------------------------------------
+        
+        
+//      $returnData = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/io/dam/json/' . $objType . $fileName);
         echo $returnData;
         
     } 
@@ -42,8 +62,40 @@ else if ($reqType == 'get') {
 
 else if ($reqType == 'read') {
     
-    $returnData = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/io/dam/json/' . $objType . $fileName);
-    echo $returnData;
+//    $returnData = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/io/dam/json/' . $objType . $fileName);
+//    echo $returnData;
+    
+    if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/io/dam/json/' . $objType . $fileName)) {
+        
+//        TEST CODE START ---------------------------------------
+        
+        $fullPath = $_SERVER['DOCUMENT_ROOT'] . '/io/dam/json/' . $objType . $fileName;
+        
+        $handle = fopen($fullPath, "r+");
+        
+        //Lock File, error if unable to lock
+        if(flock($handle, LOCK_EX)) {
+            
+            $returnData = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/io/dam/json/' . $objType . $fileName);
+            flock($handle, LOCK_UN);    //Unlock File
+            
+        } 
+        else {
+            echo "Could not Lock File!";
+        }
+        
+//        TEST CODE END------------------------------------------
+        
+        
+//      $returnData = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/io/dam/json/' . $objType . $fileName);
+        echo $returnData;
+        
+    } 
+    
+    else {
+        
+        echo null;
+    }
     
 }
 
