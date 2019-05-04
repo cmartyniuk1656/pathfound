@@ -15,4 +15,4 @@
 
 Coded in HTML, CSS, javaScript, and PHP with a mySQL database.
 
-See the live app at https://pathfound.ca
+See the live app at http://pathfound.ca
